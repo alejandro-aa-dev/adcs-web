@@ -4,89 +4,21 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Quiénes somos — ADCS Sevilla</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/styles.css"/>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --naranja:#FFAB60;
-  --naranja-dark:#e8903a;
-  --naranja-light:#fff4ea;
-  --oboe:#4a9e6b;
-  --oboe-light:#e8f5ee;
-  --fagot:#3bbfcc;
-  --fagot-light:#e6f8fa;
-  --texto:#1a1a1a;
-  --gris:#666;
-  --borde:#e8e8e8;
-}
-body{font-family:'Inter',sans-serif;color:var(--texto);background:#fff;display:flex;flex-direction:column;min-height:100vh}
-a{text-decoration:none;color:inherit}
+/* ---- PAGE HEADER: burbuja inferior en verde (variante quiénes somos) ---- */
+.page-header::after{background:var(--oboe-light)}
 
-/* COLORES OBOE / FAGOT EN TEXTO */
-.txt-oboe{color:var(--oboe);font-weight:600}
-.txt-fagot{color:var(--fagot);font-weight:600}
-
-.logo-svg{display:block}
-.nav-logo-link{display:flex;align-items:center;gap:0.6rem;flex-shrink:0}
-
-/* NAV */
-nav.topnav{background:#fff;padding:0.85rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;border-bottom:1.5px solid var(--borde);flex-wrap:wrap;gap:1rem}
-.nav-links{display:flex;gap:1.4rem;flex-wrap:wrap;align-items:center}
-.nav-links a{color:var(--gris);font-size:0.72rem;font-weight:600;letter-spacing:0.4px;transition:color .2s;text-transform:uppercase;white-space:nowrap}
-.nav-links a:hover,.nav-links a.active{color:var(--naranja)}
-.nav-links a.active{position:relative}
-.nav-links a.active::after{content:'';position:absolute;bottom:-6px;left:0;right:0;height:2px;background:var(--naranja);border-radius:2px}
-.menu-toggle{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--texto)}
-
-/* BREADCRUMB */
-.breadcrumb-bar{background:#fafafa;border-bottom:1px solid var(--borde);padding:0.75rem 2rem}
-.breadcrumb{max-width:1100px;margin:0 auto;font-size:0.78rem;color:var(--gris);display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap}
-.breadcrumb a{color:var(--gris);transition:color .2s}
-.breadcrumb a:hover{color:var(--naranja)}
-.breadcrumb .sep{color:#bbb}
-.breadcrumb .current{color:var(--texto);font-weight:600}
-
-/* PAGE HEADER */
-.page-header{background:#fff;padding:4rem 2rem 3rem;text-align:center;position:relative;overflow:hidden}
-.page-header::before{content:'';position:absolute;top:-60px;right:-60px;width:280px;height:280px;border-radius:50%;background:var(--naranja-light);z-index:0}
-.page-header::after{content:'';position:absolute;bottom:-40px;left:-40px;width:200px;height:200px;border-radius:50%;background:var(--oboe-light);z-index:0}
-.page-header-inner{position:relative;z-index:1;max-width:700px;margin:0 auto}
-.section-tag{display:inline-block;font-size:0.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:0.3rem 1rem;border-radius:999px;margin-bottom:1rem}
-.tag-naranja{background:var(--naranja-light);color:var(--naranja-dark)}
-.tag-oboe{background:var(--oboe-light);color:#2d6b47}
-.tag-fagot{background:var(--fagot-light);color:#1a8a95}
-.page-title{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.5rem);color:var(--texto);line-height:1.1;margin-bottom:1rem}
-.page-title .accent{color:var(--naranja)}
-.page-sub{color:var(--gris);font-size:1.05rem;line-height:1.75;max-width:580px;margin:0 auto}
-
-/* MAIN */
-main{flex:1}
-section{padding:4rem 2rem}
-.container{max-width:1100px;margin:0 auto}
-.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.4rem);color:var(--texto);line-height:1.2;margin-bottom:1rem}
-.section-title .accent{color:var(--naranja)}
-.section-desc{color:var(--gris);font-size:1rem;line-height:1.75;max-width:700px}
-
-/* IMG PLACEHOLDERS */
-.img-placeholder{
-  background:linear-gradient(135deg,var(--naranja-light),var(--fagot-light));
-  border:2px dashed rgba(0,0,0,0.12);
-  border-radius:1.5rem;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  color:var(--naranja-dark);text-align:center;padding:2rem;
-  position:relative;overflow:hidden;
-}
-.img-placeholder .ph-icon{font-size:3rem;margin-bottom:0.75rem;opacity:0.6}
-.img-placeholder .ph-label{font-size:0.9rem;font-weight:600;color:var(--naranja-dark)}
-.img-placeholder .ph-hint{font-size:0.72rem;color:var(--gris);margin-top:0.4rem;opacity:0.7}
+/* ---- IMG PLACEHOLDER VARIANTE ---- */
 .ph-historia{min-height:420px}
 
-/* HISTORIA */
+/* ---- HISTORIA ---- */
 .historia{background:#fff}
 .historia-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-top:2rem}
 .historia-text p{color:var(--gris);line-height:1.85;margin-bottom:1.2rem;font-size:0.98rem}
 
-/* MISIÓN */
+/* ---- MISIÓN ---- */
 .mision{background:#fafafa;border-top:1px solid var(--borde);border-bottom:1px solid var(--borde)}
 .mision-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-top:3rem}
 .mision-card{background:#fff;border-radius:1.2rem;padding:0;border:1.5px solid var(--borde);transition:transform .2s,border-color .2s;overflow:hidden}
@@ -95,35 +27,23 @@ section{padding:4rem 2rem}
 .mision-photo .ph-icon{font-size:2.4rem;margin-bottom:0.4rem;opacity:0.6}
 .mision-photo .ph-label{font-size:0.78rem;font-weight:600;color:var(--naranja-dark)}
 .mision-card-body{padding:1.75rem}
-.mision-icon{width:48px;height:48px;border-radius:0.75rem;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;font-size:1.4rem}
-.mision-icon-naranja{background:var(--naranja-light)}
-.mision-icon-oboe{background:var(--oboe-light)}
-.mision-icon-fagot{background:var(--fagot-light)}
 .mision-card h3{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--texto);margin-bottom:0.6rem;line-height:1.3}
 .mision-card p{color:var(--gris);font-size:0.9rem;line-height:1.7}
 
-/* DATOS LEGALES */
+/* ---- DATOS LEGALES ---- */
 .legal-section{background:#fff}
 .legal-card{background:var(--texto);color:#fff;border-radius:1.5rem;padding:2.5rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin-top:2rem}
-.legal-item{padding:0 0.5rem;border-left:2px solid var(--naranja);padding-left:1rem}
+.legal-item{padding-left:1rem;border-left:2px solid var(--naranja)}
 .legal-item .label{font-size:0.7rem;text-transform:uppercase;letter-spacing:1px;color:var(--naranja);margin-bottom:0.3rem;font-weight:600}
 .legal-item .value{font-size:0.95rem;font-weight:500;line-height:1.4}
 
-/* JUNTA */
+/* ---- JUNTA DIRECTIVA ---- */
 .junta{background:#fafafa;border-top:1px solid var(--borde)}
 .junta-presidencia{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;margin:2.5rem 0 1.5rem}
 .junta-vocales{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1rem;margin-top:1rem}
 .junta-card{background:#fff;border:1.5px solid var(--borde);border-radius:1.2rem;padding:1.75rem 1.25rem;text-align:center;transition:border-color .2s,transform .2s}
 .junta-card:hover{border-color:var(--naranja);transform:translateY(-2px)}
-.junta-photo{
-  width:120px;height:120px;border-radius:50%;
-  margin:0 auto 1rem;
-  display:flex;align-items:center;justify-content:center;
-  font-size:2rem;
-  position:relative;overflow:hidden;
-  background:linear-gradient(135deg,var(--naranja-light),var(--fagot-light));
-  border:3px solid var(--naranja);
-}
+.junta-photo{width:120px;height:120px;border-radius:50%;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;font-size:2rem;position:relative;overflow:hidden;background:linear-gradient(135deg,var(--naranja-light),var(--fagot-light));border:3px solid var(--naranja)}
 .junta-card.vocal .junta-photo{width:90px;height:90px;font-size:1.5rem}
 .junta-photo .ph-camera{opacity:0.5;filter:grayscale(0.4)}
 .junta-photo .ph-tag{position:absolute;bottom:-2px;right:-2px;background:var(--naranja);color:#fff;font-size:0.55rem;font-weight:700;padding:0.15rem 0.45rem;border-radius:999px;letter-spacing:0.4px;text-transform:uppercase}
@@ -134,39 +54,15 @@ section{padding:4rem 2rem}
 .junta-card.vocal .name{font-size:0.88rem}
 .subseccion-titulo{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--texto);margin-top:2.5rem;margin-bottom:0.5rem}
 
-/* CTA */
+/* ---- CTA ---- */
 .cta-section{background:#fff;text-align:center;padding:3rem 2rem 5rem}
 .cta-card{max-width:700px;margin:0 auto;background:linear-gradient(135deg,var(--naranja),var(--naranja-dark));border-radius:1.5rem;padding:3rem 2rem;color:#fff}
 .cta-card h3{font-family:'Playfair Display',serif;font-size:1.6rem;margin-bottom:0.6rem}
 .cta-card p{opacity:0.9;font-size:0.95rem;margin-bottom:1.5rem;line-height:1.6}
-.btn-cta-white{background:#fff;color:var(--naranja-dark);font-weight:700;font-size:0.95rem;padding:0.9rem 2.2rem;border-radius:999px;display:inline-block;transition:transform .2s}
-.btn-cta-white:hover{transform:translateY(-2px)}
 
-/* FOOTER */
-footer{background:#1a1a1a;color:#fff;padding:3rem 2rem 1.5rem;margin-top:auto}
-.footer-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,0.1)}
-.footer-brand .footer-logo-mark{margin-bottom:1rem}
-.footer-brand p{color:rgba(255,255,255,0.55);font-size:0.85rem;line-height:1.7;max-width:340px}
-.footer-col h5{font-size:0.78rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--naranja);margin-bottom:1rem;font-weight:600}
-.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:0.6rem}
-.footer-col a{color:rgba(255,255,255,0.6);font-size:0.85rem;transition:color .2s}
-.footer-col a:hover{color:var(--naranja)}
-.footer-social{display:flex;gap:0.7rem;margin-top:1rem}
-.footer-social a{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;font-size:1rem;transition:all .2s;color:#fff}
-.footer-social a:hover{background:var(--naranja);transform:translateY(-2px)}
-.footer-bottom{max-width:1100px;margin:1.5rem auto 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;font-size:0.78rem;color:rgba(255,255,255,0.4)}
-.footer-bottom .legal{display:flex;gap:1.2rem;flex-wrap:wrap}
-.footer-bottom .legal a{color:rgba(255,255,255,0.5);transition:color .2s}
-.footer-bottom .legal a:hover{color:var(--naranja)}
-.footer-bottom .credits span{color:var(--naranja);font-weight:600}
-
+/* ---- RESPONSIVE ---- */
 @media(max-width:768px){
-  .nav-links{display:none;width:100%;flex-direction:column;align-items:flex-start;gap:0.8rem;padding:1rem 0 0}
-  .nav-links.open{display:flex}
-  .menu-toggle{display:block}
   .historia-grid{grid-template-columns:1fr;gap:2.5rem}
-  .footer-grid{grid-template-columns:1fr;gap:2rem}
-  .footer-bottom{flex-direction:column;text-align:center}
 }
 </style>
 </head>
@@ -174,7 +70,8 @@ footer{background:#1a1a1a;color:#fff;padding:3rem 2rem 1.5rem;margin-top:auto}
 
 <!-- NAV -->
 <nav class="topnav">
-  <a href="#" class="nav-logo-link" aria-label="Inicio ADCS">
+  <a href="index.html" class="nav-logo-link" aria-label="Inicio ADCS">
+    <!-- LOGO ADCS - VERSIÓN FONDO CLARO. Reemplaza por <img src="assets/img/logo-claro.png" alt="ADCS"> en producción -->
     <svg class="logo-svg" width="170" height="55" viewBox="0 0 240 80" xmlns="http://www.w3.org/2000/svg">
       <path d="M 8 40 Q 8 8, 75 8 Q 130 8, 130 40 Q 130 72, 75 72 Q 8 72, 8 40 Z" fill="#FFAB60"/>
       <text x="68" y="22" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" font-weight="600" fill="#fff" letter-spacing="1.2">ASOCIACIÓN</text>
@@ -191,9 +88,9 @@ footer{background:#1a1a1a;color:#fff;padding:3rem 2rem 1.5rem;margin-top:auto}
   </a>
   <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
   <div class="nav-links">
-    <a href="#">Inicio</a>
-    <a href="#" class="active">Quiénes somos</a>
-    <a href="#">Hazte socio/a</a>
+    <a href="index.html">Inicio</a>
+    <a href="quienes-somos.html" class="active">Quiénes somos</a>
+    <a href="hazte-socio.html">Hazte socio/a</a>
     <a href="#">V Concurso 2026</a>
     <a href="#">VII Encuentro</a>
     <a href="#">Vídeos</a>
@@ -205,7 +102,7 @@ footer{background:#1a1a1a;color:#fff;padding:3rem 2rem 1.5rem;margin-top:auto}
 <!-- BREADCRUMB -->
 <div class="breadcrumb-bar">
   <div class="breadcrumb">
-    <a href="#">Inicio</a>
+    <a href="index.html">Inicio</a>
     <span class="sep">›</span>
     <span class="current">Quiénes somos</span>
   </div>
@@ -232,7 +129,7 @@ footer{background:#1a1a1a;color:#fff;padding:3rem 2rem 1.5rem;margin-top:auto}
           <p>La <strong>Asociación de Doble Caña de Sevilla (ADCS)</strong> nace con el propósito de estrechar la colaboración entre profesores y alumnos de <span class="txt-oboe">oboe</span> y <span class="txt-fagot">fagot</span> de la provincia y de las zonas cercanas, fomentar la difusión de la cultura musical con especial atención a los instrumentos de doble caña, y contribuir al desarrollo artístico y profesional de sus miembros.</p>
           <p>Desde su primer día, la ADCS sigue creciendo, siendo una asociación que <strong>facilita el contacto entre estudiantes</strong> de los distintos conservatorios de la capital, así como las relaciones entre los conservatorios y las bandas y orquestas de la ciudad.</p>
         </div>
-        <!-- IMAGEN: foto del grupo, un concierto, una actuación, etc. Reemplazar por <img src="URL.jpg" alt="..."> -->
+        <!-- IMAGEN: foto del grupo, un concierto, una actuación, etc. Reemplazar por <img src="assets/img/eventos/...jpg" alt="..."> -->
         <div class="img-placeholder ph-historia">
           <div class="ph-icon">📸</div>
           <div class="ph-label">Espacio para foto</div>
@@ -320,11 +217,11 @@ footer{background:#1a1a1a;color:#fff;padding:3rem 2rem 1.5rem;margin-top:auto}
       <div class="section-tag tag-fagot">Junta directiva</div>
       <h2 class="section-title">Las personas detrás<br/>de la <span class="accent">ADCS</span></h2>
       <p class="section-desc">Profesionales apasionados que dedican su tiempo y energía a hacer crecer nuestra comunidad musical.</p>
-      
+
       <h3 class="subseccion-titulo">Presidencia y dirección</h3>
       <div class="junta-presidencia">
         <div class="junta-card presidencia">
-          <!-- Reemplaza por: <img src="foto-johanna.jpg" alt="Johanna Suárez González" class="junta-photo"/> -->
+          <!-- Reemplaza por: <img src="assets/img/junta/johanna.jpg" alt="Johanna Suárez González" class="junta-photo"/> -->
           <div class="junta-photo">
             <span class="ph-camera">📷</span>
             <span class="ph-tag">Foto</span>
@@ -382,7 +279,7 @@ footer{background:#1a1a1a;color:#fff;padding:3rem 2rem 1.5rem;margin-top:auto}
     <div class="cta-card">
       <h3>¿Quieres formar parte de esta familia?</h3>
       <p>Tanto si eres profesional como estudiante de oboe o fagot, te esperamos con los brazos abiertos.</p>
-      <a href="#" class="btn-cta-white">Hazte socio/a 2025/26 →</a>
+      <a href="hazte-socio.html" class="btn-cta-white">Hazte socio/a 2025/26 →</a>
     </div>
   </section>
 
@@ -392,6 +289,7 @@ footer{background:#1a1a1a;color:#fff;padding:3rem 2rem 1.5rem;margin-top:auto}
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
+      <!-- LOGO ADCS - VERSIÓN FONDO OSCURO. Reemplaza por <img src="assets/img/logo-oscuro.png" alt="ADCS"> en producción -->
       <div class="footer-logo-mark">
         <svg width="170" height="55" viewBox="0 0 240 80" xmlns="http://www.w3.org/2000/svg">
           <path d="M 8 40 Q 8 8, 75 8 Q 130 8, 130 40 Q 130 72, 75 72 Q 8 72, 8 40 Z" fill="#FFAB60"/>
@@ -418,9 +316,9 @@ footer{background:#1a1a1a;color:#fff;padding:3rem 2rem 1.5rem;margin-top:auto}
     <div class="footer-col">
       <h5>Navegación</h5>
       <ul>
-        <li><a href="#">Inicio</a></li>
-        <li><a href="#">Quiénes somos</a></li>
-        <li><a href="#">Hazte socio/a</a></li>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="quienes-somos.html">Quiénes somos</a></li>
+        <li><a href="hazte-socio.html">Hazte socio/a</a></li>
         <li><a href="#">V Concurso 2026</a></li>
         <li><a href="#">VII Encuentro 15º</a></li>
       </ul>

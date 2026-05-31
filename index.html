@@ -4,44 +4,14 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>ADCS Sevilla — Asociación de Doble Caña</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/styles.css"/>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --naranja:#FFAB60;
-  --naranja-dark:#e8903a;
-  --naranja-light:#fff4ea;
-  --oboe:#4a9e6b;          /* VERDE del logo - color del OBOE */
-  --oboe-light:#e8f5ee;
-  --fagot:#3bbfcc;         /* AZUL del logo - color del FAGOT */
-  --fagot-light:#e6f8fa;
-  --texto:#1a1a1a;
-  --gris:#666;
-  --borde:#e8e8e8;
-}
-body{font-family:'Inter',sans-serif;color:var(--texto);background:#fff;display:flex;flex-direction:column;min-height:100vh}
-a{text-decoration:none;color:inherit}
-
-/* LOGO SVG */
-.logo-svg{display:block}
-.nav-logo-link{display:flex;align-items:center;gap:0.6rem;flex-shrink:0}
-
-/* NAV */
-nav.topnav{background:#fff;padding:0.85rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;border-bottom:1.5px solid var(--borde);flex-wrap:wrap;gap:1rem}
-.nav-links{display:flex;gap:1.4rem;flex-wrap:wrap;align-items:center}
-.nav-links a{color:var(--gris);font-size:0.72rem;font-weight:600;letter-spacing:0.4px;transition:color .2s;text-transform:uppercase;white-space:nowrap}
-.nav-links a:hover,.nav-links a.active{color:var(--naranja)}
-.nav-links a.active{position:relative}
-.nav-links a.active::after{content:'';position:absolute;bottom:-6px;left:0;right:0;height:2px;background:var(--naranja);border-radius:2px}
-.menu-toggle{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--texto)}
-
-/* HERO */
+/* ---- HERO (específico de index) ---- */
 .hero{background:#fff;flex:1;display:flex;align-items:center;justify-content:center;text-align:center;padding:4rem 2rem;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:-80px;right:-80px;width:420px;height:420px;border-radius:50%;background:var(--naranja-light);z-index:0}
 .hero::after{content:'';position:absolute;bottom:-60px;left:-60px;width:300px;height:300px;border-radius:50%;background:var(--fagot-light);z-index:0}
 .hero-inner{position:relative;z-index:1;max-width:900px}
-.hero-logo-mark{margin-bottom:2rem;display:inline-block}
-.hero-badge{display:inline-flex;align-items:center;gap:0.5rem;background:var(--naranja-light);border:1.5px solid var(--naranja);color:var(--naranja-dark);font-size:0.75rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:0.4rem 1.2rem;border-radius:999px;margin-bottom:1.5rem}
 .hero h1{font-family:'Playfair Display',serif;color:var(--texto);font-size:clamp(2.6rem,6vw,5.2rem);line-height:1.05;margin-bottom:0.5rem}
 .hero h1 .naranja{color:var(--naranja)}
 .hero h1 .fagot{color:var(--fagot)}
@@ -49,10 +19,6 @@ nav.topnav{background:#fff;padding:0.85rem 2rem;display:flex;align-items:center;
 .hero-sub .oboe{color:var(--oboe);font-weight:600}
 .hero-sub .fagot{color:var(--fagot);font-weight:600}
 .hero-ctas{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
-.btn-primary{background:var(--naranja);color:#fff;font-weight:600;font-size:0.9rem;padding:0.85rem 2rem;border-radius:999px;border:none;cursor:pointer;transition:transform .2s,background .2s;display:inline-block}
-.btn-primary:hover{background:var(--naranja-dark);transform:translateY(-2px)}
-.btn-outline{background:transparent;color:var(--texto);font-weight:500;font-size:0.9rem;padding:0.85rem 2rem;border-radius:999px;border:1.5px solid var(--borde);cursor:pointer;transition:all .2s;display:inline-block}
-.btn-outline:hover{border-color:var(--naranja);color:var(--naranja)}
 .hero-stats{display:flex;gap:2rem;justify-content:center;margin-top:4rem;flex-wrap:wrap}
 .stat{text-align:center;flex:1 1 150px;max-width:200px}
 .stat-num{font-family:'Playfair Display',serif;font-size:2.6rem;color:var(--naranja);font-weight:700;display:block;line-height:1}
@@ -60,64 +26,33 @@ nav.topnav{background:#fff;padding:0.85rem 2rem;display:flex;align-items:center;
 .aniv-banner{margin-top:3rem;display:inline-flex;align-items:center;gap:0.75rem;background:linear-gradient(90deg,var(--naranja-light),var(--fagot-light));border:1.5px solid var(--borde);border-radius:999px;padding:0.6rem 1.5rem}
 .aniv-banner span{font-size:0.85rem;font-weight:600;color:var(--naranja-dark)}
 .aniv-banner .pill{background:var(--naranja);color:#fff;font-size:0.72rem;font-weight:700;padding:0.2rem 0.7rem;border-radius:999px}
-
-/* FOOTER */
-footer{background:#1a1a1a;color:#fff;padding:3rem 2rem 1.5rem;margin-top:auto}
-.footer-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,0.1)}
-.footer-brand .footer-logo-mark{margin-bottom:1rem}
-.footer-brand p{color:rgba(255,255,255,0.55);font-size:0.85rem;line-height:1.7;max-width:340px}
-.footer-col h5{font-size:0.78rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--naranja);margin-bottom:1rem;font-weight:600}
-.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:0.6rem}
-.footer-col a{color:rgba(255,255,255,0.6);font-size:0.85rem;transition:color .2s}
-.footer-col a:hover{color:var(--naranja)}
-.footer-social{display:flex;gap:0.7rem;margin-top:1rem}
-.footer-social a{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;font-size:1rem;transition:all .2s;color:#fff}
-.footer-social a:hover{background:var(--naranja);transform:translateY(-2px)}
-.footer-bottom{max-width:1100px;margin:1.5rem auto 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;font-size:0.78rem;color:rgba(255,255,255,0.4)}
-.footer-bottom .legal{display:flex;gap:1.2rem;flex-wrap:wrap}
-.footer-bottom .legal a{color:rgba(255,255,255,0.5);transition:color .2s}
-.footer-bottom .legal a:hover{color:var(--naranja)}
-.footer-bottom .credits span{color:var(--naranja);font-weight:600}
-
-@media(max-width:768px){
-  .nav-links{display:none;width:100%;flex-direction:column;align-items:flex-start;gap:0.8rem;padding:1rem 0 0}
-  .nav-links.open{display:flex}
-  .menu-toggle{display:block}
-  .footer-grid{grid-template-columns:1fr;gap:2rem}
-  .footer-bottom{flex-direction:column;text-align:center}
-}
 </style>
 </head>
 <body>
 
 <nav class="topnav">
-  <a href="#" class="nav-logo-link" aria-label="Inicio ADCS">
-    <!-- LOGO ADCS - VERSIÓN FONDO CLARO. Reemplaza este SVG por <img src="URL-LOGO-BLANCO" alt="ADCS"> en producción -->
+  <a href="index.html" class="nav-logo-link" aria-label="Inicio ADCS">
+    <!-- LOGO ADCS - VERSIÓN FONDO CLARO. Reemplaza por <img src="assets/img/logo-claro.png" alt="ADCS"> en producción -->
     <svg class="logo-svg" width="170" height="55" viewBox="0 0 240 80" xmlns="http://www.w3.org/2000/svg">
-      <!-- Blob naranja -->
       <path d="M 8 40 Q 8 8, 75 8 Q 130 8, 130 40 Q 130 72, 75 72 Q 8 72, 8 40 Z" fill="#FFAB60"/>
-      <!-- Texto en blob -->
       <text x="68" y="22" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" font-weight="600" fill="#fff" letter-spacing="1.2">ASOCIACIÓN</text>
       <text x="68" y="42" text-anchor="middle" font-family="Playfair Display, serif" font-size="14" font-weight="900" fill="#fff">DOBLE</text>
       <text x="68" y="56" text-anchor="middle" font-family="Playfair Display, serif" font-size="14" font-weight="900" fill="#fff">CAÑA</text>
       <text x="68" y="66" text-anchor="middle" font-family="Inter, sans-serif" font-size="5" font-weight="600" fill="#fff" letter-spacing="2">SEVILLA</text>
-      <!-- Silueta de mujer -->
       <ellipse cx="170" cy="22" rx="6" ry="7" fill="#FFAB60"/>
       <path d="M 168 14 Q 165 10, 168 8 Q 175 8, 175 12" fill="#FFAB60"/>
       <path d="M 158 30 Q 158 28, 162 28 L 178 28 Q 182 28, 182 32 L 184 75 L 156 75 Z" fill="#FFAB60"/>
-      <!-- Oboe (verde, arriba izquierda) -->
       <line x1="138" y1="2" x2="162" y2="28" stroke="#4a9e6b" stroke-width="4" stroke-linecap="round"/>
       <circle cx="138" cy="2" r="1.5" fill="#4a9e6b"/>
-      <!-- Fagot (azul, abajo derecha) -->
       <line x1="180" y1="40" x2="220" y2="78" stroke="#3bbfcc" stroke-width="5" stroke-linecap="round"/>
       <circle cx="220" cy="78" r="2" fill="#3bbfcc"/>
     </svg>
   </a>
   <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
   <div class="nav-links">
-    <a href="#" class="active">Inicio</a>
-    <a href="#">Quiénes somos</a>
-    <a href="#">Hazte socio/a</a>
+    <a href="index.html" class="active">Inicio</a>
+    <a href="quienes-somos.html">Quiénes somos</a>
+    <a href="hazte-socio.html">Hazte socio/a</a>
     <a href="#">V Concurso 2026</a>
     <a href="#">VII Encuentro</a>
     <a href="#">Vídeos</a>
@@ -132,8 +67,8 @@ footer{background:#1a1a1a;color:#fff;padding:3rem 2rem 1.5rem;margin-top:auto}
     <h1>Asociación de<br/><span class="naranja">Doble Caña</span><br/>de <span class="fagot">Sevilla</span></h1>
     <p class="hero-sub">Uniendo a profesores y alumnos de <span class="oboe">oboe</span> y <span class="fagot">fagot</span> de Sevilla y su provincia para crecer juntos como músicos y personas desde 2010.</p>
     <div class="hero-ctas">
-      <a class="btn-primary" href="#">Hazte socio/a 2025/26</a>
-      <a class="btn-outline" href="#">Conoce a la ADCS</a>
+      <a class="btn-primary" href="hazte-socio.html">Hazte socio/a 2025/26</a>
+      <a class="btn-outline" href="quienes-somos.html">Conoce a la ADCS</a>
     </div>
     <div class="hero-stats">
       <div class="stat"><span class="stat-num">15</span><div class="stat-label">años de historia</div></div>
@@ -152,7 +87,7 @@ footer{background:#1a1a1a;color:#fff;padding:3rem 2rem 1.5rem;margin-top:auto}
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <!-- LOGO ADCS - VERSIÓN FONDO OSCURO. Reemplaza este SVG por <img src="URL-LOGO-NEGRO" alt="ADCS"> en producción -->
+      <!-- LOGO ADCS - VERSIÓN FONDO OSCURO. Reemplaza por <img src="assets/img/logo-oscuro.png" alt="ADCS"> en producción -->
       <div class="footer-logo-mark">
         <svg width="170" height="55" viewBox="0 0 240 80" xmlns="http://www.w3.org/2000/svg">
           <path d="M 8 40 Q 8 8, 75 8 Q 130 8, 130 40 Q 130 72, 75 72 Q 8 72, 8 40 Z" fill="#FFAB60"/>
@@ -179,9 +114,9 @@ footer{background:#1a1a1a;color:#fff;padding:3rem 2rem 1.5rem;margin-top:auto}
     <div class="footer-col">
       <h5>Navegación</h5>
       <ul>
-        <li><a href="#">Inicio</a></li>
-        <li><a href="#">Quiénes somos</a></li>
-        <li><a href="#">Hazte socio/a</a></li>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="quienes-somos.html">Quiénes somos</a></li>
+        <li><a href="hazte-socio.html">Hazte socio/a</a></li>
         <li><a href="#">V Concurso 2026</a></li>
         <li><a href="#">VII Encuentro 15º</a></li>
       </ul>
