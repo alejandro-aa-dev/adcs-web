@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Quiénes somos — ADCS Sevilla</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --naranja:#FFAB60;
+  --naranja-dark:#e8903a;
+  --naranja-light:#fff4ea;
+  --oboe:#4a9e6b;
+  --oboe-light:#e8f5ee;
+  --fagot:#3bbfcc;
+  --fagot-light:#e6f8fa;
+  --texto:#1a1a1a;
+  --gris:#666;
+  --borde:#e8e8e8;
+}
+body{font-family:'Inter',sans-serif;color:var(--texto);background:#fff;display:flex;flex-direction:column;min-height:100vh}
+a{text-decoration:none;color:inherit}
+
+/* COLORES OBOE / FAGOT EN TEXTO */
+.txt-oboe{color:var(--oboe);font-weight:600}
+.txt-fagot{color:var(--fagot);font-weight:600}
+
+.logo-svg{display:block}
+.nav-logo-link{display:flex;align-items:center;gap:0.6rem;flex-shrink:0}
+
+/* NAV */
+nav.topnav{background:#fff;padding:0.85rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;border-bottom:1.5px solid var(--borde);flex-wrap:wrap;gap:1rem}
+.nav-links{display:flex;gap:1.4rem;flex-wrap:wrap;align-items:center}
+.nav-links a{color:var(--gris);font-size:0.72rem;font-weight:600;letter-spacing:0.4px;transition:color .2s;text-transform:uppercase;white-space:nowrap}
+.nav-links a:hover,.nav-links a.active{color:var(--naranja)}
+.nav-links a.active{position:relative}
+.nav-links a.active::after{content:'';position:absolute;bottom:-6px;left:0;right:0;height:2px;background:var(--naranja);border-radius:2px}
+.menu-toggle{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--texto)}
+
+/* BREADCRUMB */
+.breadcrumb-bar{background:#fafafa;border-bottom:1px solid var(--borde);padding:0.75rem 2rem}
+.breadcrumb{max-width:1100px;margin:0 auto;font-size:0.78rem;color:var(--gris);display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap}
+.breadcrumb a{color:var(--gris);transition:color .2s}
+.breadcrumb a:hover{color:var(--naranja)}
+.breadcrumb .sep{color:#bbb}
+.breadcrumb .current{color:var(--texto);font-weight:600}
+
+/* PAGE HEADER */
+.page-header{background:#fff;padding:4rem 2rem 3rem;text-align:center;position:relative;overflow:hidden}
+.page-header::before{content:'';position:absolute;top:-60px;right:-60px;width:280px;height:280px;border-radius:50%;background:var(--naranja-light);z-index:0}
+.page-header::after{content:'';position:absolute;bottom:-40px;left:-40px;width:200px;height:200px;border-radius:50%;background:var(--oboe-light);z-index:0}
+.page-header-inner{position:relative;z-index:1;max-width:700px;margin:0 auto}
+.section-tag{display:inline-block;font-size:0.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:0.3rem 1rem;border-radius:999px;margin-bottom:1rem}
+.tag-naranja{background:var(--naranja-light);color:var(--naranja-dark)}
+.tag-oboe{background:var(--oboe-light);color:#2d6b47}
+.tag-fagot{background:var(--fagot-light);color:#1a8a95}
+.page-title{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.5rem);color:var(--texto);line-height:1.1;margin-bottom:1rem}
+.page-title .accent{color:var(--naranja)}
+.page-sub{color:var(--gris);font-size:1.05rem;line-height:1.75;max-width:580px;margin:0 auto}
+
+/* MAIN */
+main{flex:1}
+section{padding:4rem 2rem}
+.container{max-width:1100px;margin:0 auto}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.4rem);color:var(--texto);line-height:1.2;margin-bottom:1rem}
+.section-title .accent{color:var(--naranja)}
+.section-desc{color:var(--gris);font-size:1rem;line-height:1.75;max-width:700px}
+
+/* IMG PLACEHOLDERS */
+.img-placeholder{
+  background:linear-gradient(135deg,var(--naranja-light),var(--fagot-light));
+  border:2px dashed rgba(0,0,0,0.12);
+  border-radius:1.5rem;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  color:var(--naranja-dark);text-align:center;padding:2rem;
+  position:relative;overflow:hidden;
+}
+.img-placeholder .ph-icon{font-size:3rem;margin-bottom:0.75rem;opacity:0.6}
+.img-placeholder .ph-label{font-size:0.9rem;font-weight:600;color:var(--naranja-dark)}
+.img-placeholder .ph-hint{font-size:0.72rem;color:var(--gris);margin-top:0.4rem;opacity:0.7}
+.ph-historia{min-height:420px}
+
+/* HISTORIA */
+.historia{background:#fff}
+.historia-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-top:2rem}
+.historia-text p{color:var(--gris);line-height:1.85;margin-bottom:1.2rem;font-size:0.98rem}
+
+/* MISIÓN */
+.mision{background:#fafafa;border-top:1px solid var(--borde);border-bottom:1px solid var(--borde)}
+.mision-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-top:3rem}
+.mision-card{background:#fff;border-radius:1.2rem;padding:0;border:1.5px solid var(--borde);transition:transform .2s,border-color .2s;overflow:hidden}
+.mision-card:hover{transform:translateY(-4px);border-color:var(--naranja)}
+.mision-photo{height:180px;background:linear-gradient(135deg,var(--naranja-light),var(--fagot-light));display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--naranja-dark);text-align:center;padding:1rem;border-bottom:2px dashed rgba(0,0,0,0.1)}
+.mision-photo .ph-icon{font-size:2.4rem;margin-bottom:0.4rem;opacity:0.6}
+.mision-photo .ph-label{font-size:0.78rem;font-weight:600;color:var(--naranja-dark)}
+.mision-card-body{padding:1.75rem}
+.mision-icon{width:48px;height:48px;border-radius:0.75rem;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;font-size:1.4rem}
+.mision-icon-naranja{background:var(--naranja-light)}
+.mision-icon-oboe{background:var(--oboe-light)}
+.mision-icon-fagot{background:var(--fagot-light)}
+.mision-card h3{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--texto);margin-bottom:0.6rem;line-height:1.3}
+.mision-card p{color:var(--gris);font-size:0.9rem;line-height:1.7}
+
+/* DATOS LEGALES */
+.legal-section{background:#fff}
+.legal-card{background:var(--texto);color:#fff;border-radius:1.5rem;padding:2.5rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin-top:2rem}
+.legal-item{padding:0 0.5rem;border-left:2px solid var(--naranja);padding-left:1rem}
+.legal-item .label{font-size:0.7rem;text-transform:uppercase;letter-spacing:1px;color:var(--naranja);margin-bottom:0.3rem;font-weight:600}
+.legal-item .value{font-size:0.95rem;font-weight:500;line-height:1.4}
+
+/* JUNTA */
+.junta{background:#fafafa;border-top:1px solid var(--borde)}
+.junta-presidencia{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;margin:2.5rem 0 1.5rem}
+.junta-vocales{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1rem;margin-top:1rem}
+.junta-card{background:#fff;border:1.5px solid var(--borde);border-radius:1.2rem;padding:1.75rem 1.25rem;text-align:center;transition:border-color .2s,transform .2s}
+.junta-card:hover{border-color:var(--naranja);transform:translateY(-2px)}
+.junta-photo{
+  width:120px;height:120px;border-radius:50%;
+  margin:0 auto 1rem;
+  display:flex;align-items:center;justify-content:center;
+  font-size:2rem;
+  position:relative;overflow:hidden;
+  background:linear-gradient(135deg,var(--naranja-light),var(--fagot-light));
+  border:3px solid var(--naranja);
+}
+.junta-card.vocal .junta-photo{width:90px;height:90px;font-size:1.5rem}
+.junta-photo .ph-camera{opacity:0.5;filter:grayscale(0.4)}
+.junta-photo .ph-tag{position:absolute;bottom:-2px;right:-2px;background:var(--naranja);color:#fff;font-size:0.55rem;font-weight:700;padding:0.15rem 0.45rem;border-radius:999px;letter-spacing:0.4px;text-transform:uppercase}
+.junta-card .role{font-size:0.7rem;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:0.4rem}
+.junta-card.presidencia .role{color:var(--naranja-dark)}
+.junta-card.vocal .role{color:var(--gris)}
+.junta-card .name{color:var(--texto);font-weight:500;font-size:0.95rem;line-height:1.3}
+.junta-card.vocal .name{font-size:0.88rem}
+.subseccion-titulo{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--texto);margin-top:2.5rem;margin-bottom:0.5rem}
+
+/* CTA */
+.cta-section{background:#fff;text-align:center;padding:3rem 2rem 5rem}
+.cta-card{max-width:700px;margin:0 auto;background:linear-gradient(135deg,var(--naranja),var(--naranja-dark));border-radius:1.5rem;padding:3rem 2rem;color:#fff}
+.cta-card h3{font-family:'Playfair Display',serif;font-size:1.6rem;margin-bottom:0.6rem}
+.cta-card p{opacity:0.9;font-size:0.95rem;margin-bottom:1.5rem;line-height:1.6}
+.btn-cta-white{background:#fff;color:var(--naranja-dark);font-weight:700;font-size:0.95rem;padding:0.9rem 2.2rem;border-radius:999px;display:inline-block;transition:transform .2s}
+.btn-cta-white:hover{transform:translateY(-2px)}
+
+/* FOOTER */
+footer{background:#1a1a1a;color:#fff;padding:3rem 2rem 1.5rem;margin-top:auto}
+.footer-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,0.1)}
+.footer-brand .footer-logo-mark{margin-bottom:1rem}
+.footer-brand p{color:rgba(255,255,255,0.55);font-size:0.85rem;line-height:1.7;max-width:340px}
+.footer-col h5{font-size:0.78rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--naranja);margin-bottom:1rem;font-weight:600}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:0.6rem}
+.footer-col a{color:rgba(255,255,255,0.6);font-size:0.85rem;transition:color .2s}
+.footer-col a:hover{color:var(--naranja)}
+.footer-social{display:flex;gap:0.7rem;margin-top:1rem}
+.footer-social a{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;font-size:1rem;transition:all .2s;color:#fff}
+.footer-social a:hover{background:var(--naranja);transform:translateY(-2px)}
+.footer-bottom{max-width:1100px;margin:1.5rem auto 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;font-size:0.78rem;color:rgba(255,255,255,0.4)}
+.footer-bottom .legal{display:flex;gap:1.2rem;flex-wrap:wrap}
+.footer-bottom .legal a{color:rgba(255,255,255,0.5);transition:color .2s}
+.footer-bottom .legal a:hover{color:var(--naranja)}
+.footer-bottom .credits span{color:var(--naranja);font-weight:600}
+
+@media(max-width:768px){
+  .nav-links{display:none;width:100%;flex-direction:column;align-items:flex-start;gap:0.8rem;padding:1rem 0 0}
+  .nav-links.open{display:flex}
+  .menu-toggle{display:block}
+  .historia-grid{grid-template-columns:1fr;gap:2.5rem}
+  .footer-grid{grid-template-columns:1fr;gap:2rem}
+  .footer-bottom{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="topnav">
+  <a href="#" class="nav-logo-link" aria-label="Inicio ADCS">
+    <svg class="logo-svg" width="170" height="55" viewBox="0 0 240 80" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 8 40 Q 8 8, 75 8 Q 130 8, 130 40 Q 130 72, 75 72 Q 8 72, 8 40 Z" fill="#FFAB60"/>
+      <text x="68" y="22" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" font-weight="600" fill="#fff" letter-spacing="1.2">ASOCIACIÓN</text>
+      <text x="68" y="42" text-anchor="middle" font-family="Playfair Display, serif" font-size="14" font-weight="900" fill="#fff">DOBLE</text>
+      <text x="68" y="56" text-anchor="middle" font-family="Playfair Display, serif" font-size="14" font-weight="900" fill="#fff">CAÑA</text>
+      <text x="68" y="66" text-anchor="middle" font-family="Inter, sans-serif" font-size="5" font-weight="600" fill="#fff" letter-spacing="2">SEVILLA</text>
+      <ellipse cx="170" cy="22" rx="6" ry="7" fill="#FFAB60"/>
+      <path d="M 158 30 Q 158 28, 162 28 L 178 28 Q 182 28, 182 32 L 184 75 L 156 75 Z" fill="#FFAB60"/>
+      <line x1="138" y1="2" x2="162" y2="28" stroke="#4a9e6b" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="138" cy="2" r="1.5" fill="#4a9e6b"/>
+      <line x1="180" y1="40" x2="220" y2="78" stroke="#3bbfcc" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="220" cy="78" r="2" fill="#3bbfcc"/>
+    </svg>
+  </a>
+  <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+  <div class="nav-links">
+    <a href="#">Inicio</a>
+    <a href="#" class="active">Quiénes somos</a>
+    <a href="#">Hazte socio/a</a>
+    <a href="#">V Concurso 2026</a>
+    <a href="#">VII Encuentro</a>
+    <a href="#">Vídeos</a>
+    <a href="#">Webs amigas</a>
+    <a href="#">Patrocinadores</a>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb-bar">
+  <div class="breadcrumb">
+    <a href="#">Inicio</a>
+    <span class="sep">›</span>
+    <span class="current">Quiénes somos</span>
+  </div>
+</div>
+
+<main>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="section-tag tag-naranja">Quiénes somos</div>
+      <h1 class="page-title">Una <span class="accent">familia musical</span> con propósito</h1>
+      <p class="page-sub">Más de una década uniendo a profesores, alumnos y profesionales del <span class="txt-oboe">oboe</span> y el <span class="txt-fagot">fagot</span> en Sevilla y su provincia.</p>
+    </div>
+  </div>
+
+  <!-- HISTORIA -->
+  <section class="historia">
+    <div class="container">
+      <div class="historia-grid">
+        <div class="historia-text">
+          <div class="section-tag tag-fagot">Nuestra historia</div>
+          <h2 class="section-title">15 años haciendo<br/>comunidad</h2>
+          <p>La <strong>Asociación de Doble Caña de Sevilla (ADCS)</strong> nace con el propósito de estrechar la colaboración entre profesores y alumnos de <span class="txt-oboe">oboe</span> y <span class="txt-fagot">fagot</span> de la provincia y de las zonas cercanas, fomentar la difusión de la cultura musical con especial atención a los instrumentos de doble caña, y contribuir al desarrollo artístico y profesional de sus miembros.</p>
+          <p>Desde su primer día, la ADCS sigue creciendo, siendo una asociación que <strong>facilita el contacto entre estudiantes</strong> de los distintos conservatorios de la capital, así como las relaciones entre los conservatorios y las bandas y orquestas de la ciudad.</p>
+        </div>
+        <!-- IMAGEN: foto del grupo, un concierto, una actuación, etc. Reemplazar por <img src="URL.jpg" alt="..."> -->
+        <div class="img-placeholder ph-historia">
+          <div class="ph-icon">📸</div>
+          <div class="ph-label">Espacio para foto</div>
+          <div class="ph-hint">Sugerencia: una foto del grupo o un concierto reciente</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISIÓN -->
+  <section class="mision">
+    <div class="container">
+      <div class="section-tag tag-oboe">Nuestro propósito</div>
+      <h2 class="section-title">Tres pilares que <span class="accent">nos definen</span></h2>
+      <p class="section-desc">Trabajamos cada día por estos objetivos que dieron origen a la asociación y que siguen guiándonos.</p>
+      <div class="mision-grid">
+        <div class="mision-card">
+          <div class="mision-photo">
+            <div class="ph-icon">📸</div>
+            <div class="ph-label">Foto: alumnos y profesores juntos</div>
+          </div>
+          <div class="mision-card-body">
+            <h3>Estrechar la colaboración</h3>
+            <p>Entre profesores y alumnos de <span class="txt-oboe">oboe</span> y <span class="txt-fagot">fagot</span> de la provincia y zonas cercanas, creando puentes entre conservatorios, bandas y orquestas.</p>
+          </div>
+        </div>
+        <div class="mision-card">
+          <div class="mision-photo">
+            <div class="ph-icon">📸</div>
+            <div class="ph-label">Foto: un concierto o ensayo</div>
+          </div>
+          <div class="mision-card-body">
+            <h3>Difundir la cultura musical</h3>
+            <p>Con especial atención a los instrumentos de doble caña, acercando su repertorio y belleza al público sevillano.</p>
+          </div>
+        </div>
+        <div class="mision-card">
+          <div class="mision-photo">
+            <div class="ph-icon">📸</div>
+            <div class="ph-label">Foto: una clase magistral o taller</div>
+          </div>
+          <div class="mision-card-body">
+            <h3>Desarrollar a las personas</h3>
+            <p>Contribuir al desarrollo artístico y profesional de nuestros miembros mediante actividades, formación y oportunidades.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DATOS LEGALES -->
+  <section class="legal-section">
+    <div class="container">
+      <div class="section-tag tag-naranja">Datos oficiales</div>
+      <h2 class="section-title">Información <span class="accent">legal</span></h2>
+      <p class="section-desc">Somos una entidad legalmente constituida e inscrita en el Registro Nacional de Asociaciones.</p>
+      <div class="legal-card">
+        <div class="legal-item">
+          <div class="label">Naturaleza</div>
+          <div class="value">Entidad sin ánimo de lucro</div>
+        </div>
+        <div class="legal-item">
+          <div class="label">Constitución</div>
+          <div class="value">10 de diciembre de 2010</div>
+        </div>
+        <div class="legal-item">
+          <div class="label">Inscripción</div>
+          <div class="value">6 de junio de 2011</div>
+        </div>
+        <div class="legal-item">
+          <div class="label">Nº Registro</div>
+          <div class="value">598607</div>
+        </div>
+        <div class="legal-item">
+          <div class="label">Ámbito</div>
+          <div class="value">Sevilla y provincia</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JUNTA DIRECTIVA -->
+  <section class="junta">
+    <div class="container">
+      <div class="section-tag tag-fagot">Junta directiva</div>
+      <h2 class="section-title">Las personas detrás<br/>de la <span class="accent">ADCS</span></h2>
+      <p class="section-desc">Profesionales apasionados que dedican su tiempo y energía a hacer crecer nuestra comunidad musical.</p>
+      
+      <h3 class="subseccion-titulo">Presidencia y dirección</h3>
+      <div class="junta-presidencia">
+        <div class="junta-card presidencia">
+          <!-- Reemplaza por: <img src="foto-johanna.jpg" alt="Johanna Suárez González" class="junta-photo"/> -->
+          <div class="junta-photo">
+            <span class="ph-camera">📷</span>
+            <span class="ph-tag">Foto</span>
+          </div>
+          <div class="role">Presidenta</div>
+          <div class="name">Johanna Suárez González</div>
+        </div>
+        <div class="junta-card presidencia">
+          <div class="junta-photo">
+            <span class="ph-camera">📷</span>
+            <span class="ph-tag">Foto</span>
+          </div>
+          <div class="role">Secretaria</div>
+          <div class="name">Irene Pérez Cantillón</div>
+        </div>
+        <div class="junta-card presidencia">
+          <div class="junta-photo">
+            <span class="ph-camera">📷</span>
+            <span class="ph-tag">Foto</span>
+          </div>
+          <div class="role">Tesorero</div>
+          <div class="name">Jesús Manuel Moreno González</div>
+        </div>
+      </div>
+
+      <h3 class="subseccion-titulo">Vocales</h3>
+      <div class="junta-vocales">
+        <div class="junta-card vocal">
+          <div class="junta-photo">
+            <span class="ph-camera">📷</span>
+          </div>
+          <div class="role">Vocal</div>
+          <div class="name">Jacobo Díaz Giráldez</div>
+        </div>
+        <div class="junta-card vocal">
+          <div class="junta-photo">
+            <span class="ph-camera">📷</span>
+          </div>
+          <div class="role">Vocal</div>
+          <div class="name">Alejandro Álvarez Asencio</div>
+        </div>
+        <div class="junta-card vocal">
+          <div class="junta-photo">
+            <span class="ph-camera">📷</span>
+          </div>
+          <div class="role">Vocal</div>
+          <div class="name">Nuria Ferrero López</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-card">
+      <h3>¿Quieres formar parte de esta familia?</h3>
+      <p>Tanto si eres profesional como estudiante de oboe o fagot, te esperamos con los brazos abiertos.</p>
+      <a href="#" class="btn-cta-white">Hazte socio/a 2025/26 →</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo-mark">
+        <svg width="170" height="55" viewBox="0 0 240 80" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 8 40 Q 8 8, 75 8 Q 130 8, 130 40 Q 130 72, 75 72 Q 8 72, 8 40 Z" fill="#FFAB60"/>
+          <text x="68" y="22" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" font-weight="600" fill="#1a1a1a" letter-spacing="1.2">ASOCIACIÓN</text>
+          <text x="68" y="42" text-anchor="middle" font-family="Playfair Display, serif" font-size="14" font-weight="900" fill="#1a1a1a">DOBLE</text>
+          <text x="68" y="56" text-anchor="middle" font-family="Playfair Display, serif" font-size="14" font-weight="900" fill="#1a1a1a">CAÑA</text>
+          <text x="68" y="66" text-anchor="middle" font-family="Inter, sans-serif" font-size="5" font-weight="600" fill="#1a1a1a" letter-spacing="2">SEVILLA</text>
+          <ellipse cx="170" cy="22" rx="6" ry="7" fill="#FFAB60"/>
+          <path d="M 158 30 Q 158 28, 162 28 L 178 28 Q 182 28, 182 32 L 184 75 L 156 75 Z" fill="#FFAB60"/>
+          <line x1="138" y1="2" x2="162" y2="28" stroke="#3bbfcc" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="138" cy="2" r="1.5" fill="#3bbfcc"/>
+          <line x1="180" y1="40" x2="220" y2="78" stroke="#4a9e6b" stroke-width="5" stroke-linecap="round"/>
+          <circle cx="220" cy="78" r="2" fill="#4a9e6b"/>
+        </svg>
+      </div>
+      <p>Asociación sin ánimo de lucro fundada en 2010 que une a profesores y alumnos de oboe y fagot de Sevilla y su provincia.</p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/adcsevilla/" target="_blank" aria-label="Facebook">📘</a>
+        <a href="https://www.instagram.com/adcsevilla/" target="_blank" aria-label="Instagram">📸</a>
+        <a href="https://www.whatsapp.com/channel/0029Va8ocKGGJP8EXYqmqn34" target="_blank" aria-label="WhatsApp">💬</a>
+        <a href="mailto:oboeyfagotsevilla@gmail.com" aria-label="Email">✉️</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Navegación</h5>
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Quiénes somos</a></li>
+        <li><a href="#">Hazte socio/a</a></li>
+        <li><a href="#">V Concurso 2026</a></li>
+        <li><a href="#">VII Encuentro 15º</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Más</h5>
+      <ul>
+        <li><a href="#">Vídeos rep. orquestal</a></li>
+        <li><a href="#">Webs amigas</a></li>
+        <li><a href="#">Patrocinadores</a></li>
+        <li><a href="mailto:oboeyfagotsevilla@gmail.com">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 Asociación de Doble Caña de Sevilla · Nº Reg. 598607</div>
+    <div class="legal">
+      <a href="#">Aviso legal</a>
+      <a href="#">Política de privacidad</a>
+      <a href="#">Cookies</a>
+    </div>
+    <div class="credits">Diseño y desarrollo: <span>A. Álvarez</span></div>
+  </div>
+</footer>
+
+</body>
+</html>

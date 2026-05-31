@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Hazte socio/a — ADCS Sevilla</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --naranja:#FFAB60;
+  --naranja-dark:#e8903a;
+  --naranja-light:#fff4ea;
+  --oboe:#4a9e6b;
+  --oboe-light:#e8f5ee;
+  --fagot:#3bbfcc;
+  --fagot-light:#e6f8fa;
+  --texto:#1a1a1a;
+  --gris:#666;
+  --borde:#e8e8e8;
+}
+body{font-family:'Inter',sans-serif;color:var(--texto);background:#fff;display:flex;flex-direction:column;min-height:100vh}
+a{text-decoration:none;color:inherit}
+
+.txt-oboe{color:var(--oboe);font-weight:600}
+.txt-fagot{color:var(--fagot);font-weight:600}
+
+.logo-svg{display:block}
+.nav-logo-link{display:flex;align-items:center;gap:0.6rem;flex-shrink:0}
+
+/* NAV */
+nav.topnav{background:#fff;padding:0.85rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;border-bottom:1.5px solid var(--borde);flex-wrap:wrap;gap:1rem}
+.nav-links{display:flex;gap:1.4rem;flex-wrap:wrap;align-items:center}
+.nav-links a{color:var(--gris);font-size:0.72rem;font-weight:600;letter-spacing:0.4px;transition:color .2s;text-transform:uppercase;white-space:nowrap}
+.nav-links a:hover,.nav-links a.active{color:var(--naranja)}
+.nav-links a.active{position:relative}
+.nav-links a.active::after{content:'';position:absolute;bottom:-6px;left:0;right:0;height:2px;background:var(--naranja);border-radius:2px}
+.menu-toggle{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--texto)}
+
+/* BREADCRUMB */
+.breadcrumb-bar{background:#fafafa;border-bottom:1px solid var(--borde);padding:0.75rem 2rem}
+.breadcrumb{max-width:1100px;margin:0 auto;font-size:0.78rem;color:var(--gris);display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap}
+.breadcrumb a{color:var(--gris);transition:color .2s}
+.breadcrumb a:hover{color:var(--naranja)}
+.breadcrumb .sep{color:#bbb}
+.breadcrumb .current{color:var(--texto);font-weight:600}
+
+/* PAGE HEADER */
+.page-header{background:#fff;padding:4rem 2rem 3rem;text-align:center;position:relative;overflow:hidden}
+.page-header::before{content:'';position:absolute;top:-60px;right:-60px;width:280px;height:280px;border-radius:50%;background:var(--naranja-light);z-index:0}
+.page-header::after{content:'';position:absolute;bottom:-40px;left:-40px;width:200px;height:200px;border-radius:50%;background:var(--fagot-light);z-index:0}
+.page-header-inner{position:relative;z-index:1;max-width:700px;margin:0 auto}
+.section-tag{display:inline-block;font-size:0.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:0.3rem 1rem;border-radius:999px;margin-bottom:1rem}
+.tag-naranja{background:var(--naranja-light);color:var(--naranja-dark)}
+.tag-oboe{background:var(--oboe-light);color:#2d6b47}
+.tag-fagot{background:var(--fagot-light);color:#1a8a95}
+.page-title{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.5rem);color:var(--texto);line-height:1.1;margin-bottom:1rem}
+.page-title .accent{color:var(--naranja)}
+.page-sub{color:var(--gris);font-size:1.05rem;line-height:1.75;max-width:580px;margin:0 auto}
+
+main{flex:1}
+.container{max-width:1000px;margin:0 auto}
+section{padding:3rem 2rem}
+
+/* IMG PLACEHOLDER */
+.img-placeholder{background:linear-gradient(135deg,var(--naranja-light),var(--fagot-light));border:2px dashed rgba(0,0,0,0.12);border-radius:1.5rem;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--naranja-dark);text-align:center;padding:2rem;position:relative;overflow:hidden}
+.img-placeholder .ph-icon{font-size:2.6rem;margin-bottom:0.5rem;opacity:0.6}
+.img-placeholder .ph-label{font-size:0.85rem;font-weight:600;color:var(--naranja-dark)}
+.img-placeholder .ph-hint{font-size:0.72rem;color:var(--gris);margin-top:0.3rem;opacity:0.7}
+.banner-photo{min-height:280px;margin-top:0}
+
+/* CUOTA */
+.cuota-section{padding-top:2rem}
+.cuota-card{background:#1a1a1a;border-radius:1.5rem;padding:2.5rem 2rem;text-align:center;color:#fff;position:relative;overflow:hidden}
+.cuota-card::before{content:'';position:absolute;top:-50px;right:-50px;width:200px;height:200px;border-radius:50%;background:rgba(255,171,96,0.15)}
+.cuota-card::after{content:'';position:absolute;bottom:-40px;left:-40px;width:160px;height:160px;border-radius:50%;background:rgba(59,191,204,0.1)}
+.cuota-card > *{position:relative;z-index:1}
+.cuota-card h3{font-family:'Playfair Display',serif;font-size:1.4rem;margin-bottom:0.4rem}
+.cuota-card .periodo{color:rgba(255,255,255,0.55);font-size:0.85rem;margin-bottom:2rem}
+.cuota-options{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap}
+.cuota-opt{background:rgba(255,255,255,0.06);border:1.5px solid rgba(255,255,255,0.15);border-radius:1.2rem;padding:1.5rem 2.5rem;min-width:200px}
+.cuota-price{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:700;color:var(--naranja);display:block;line-height:1}
+.cuota-desc{font-size:0.82rem;color:rgba(255,255,255,0.7);margin-top:0.5rem;letter-spacing:0.3px}
+
+/* PASOS */
+.pasos-section{background:#fff}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3.5vw,2.2rem);color:var(--texto);line-height:1.2;margin-bottom:0.5rem}
+.section-title .accent{color:var(--naranja)}
+.section-desc{color:var(--gris);font-size:0.95rem;line-height:1.7;max-width:700px;margin-bottom:2.5rem}
+.pasos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
+.paso-card{background:#fff;border-radius:1.2rem;padding:2rem 1.75rem;border:1.5px solid var(--borde);transition:transform .2s,border-color .2s;position:relative}
+.paso-card:hover{transform:translateY(-4px);border-color:var(--naranja)}
+.paso-num{font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;color:var(--naranja);line-height:1;margin-bottom:0.75rem;display:block}
+.paso-card h3{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--texto);margin-bottom:0.6rem;line-height:1.3}
+.paso-card p{color:var(--gris);font-size:0.9rem;line-height:1.7}
+.paso-card a{color:var(--naranja-dark);font-weight:600;text-decoration:underline}
+
+/* HIGHLIGHTS */
+.highlights{background:#fafafa;border-top:1px solid var(--borde);border-bottom:1px solid var(--borde)}
+.highlight-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1rem}
+.highlight-box{background:#fff;border:1.5px solid var(--borde);border-radius:1.2rem;padding:1.75rem;border-left:4px solid var(--naranja)}
+.highlight-box.fagot{border-left-color:var(--fagot)}
+.highlight-box .h-tag{font-size:0.7rem;text-transform:uppercase;letter-spacing:1.2px;font-weight:700;color:var(--naranja-dark);margin-bottom:0.6rem}
+.highlight-box.fagot .h-tag{color:#1a8a95}
+.highlight-box h4{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--texto);margin-bottom:0.6rem;line-height:1.3}
+.highlight-box p{color:var(--gris);font-size:0.9rem;line-height:1.7}
+.highlight-box a{color:var(--naranja-dark);font-weight:600;text-decoration:underline}
+
+/* DATOS BANCARIOS */
+.bank-section{background:#fff}
+.bank-card{background:linear-gradient(135deg,var(--naranja-light),var(--fagot-light));border:1.5px solid var(--borde);border-radius:1.5rem;padding:2.5rem;margin-top:1rem}
+.bank-intro{color:var(--texto);font-size:0.95rem;line-height:1.7;margin-bottom:1.5rem}
+.bank-intro strong{color:var(--naranja-dark)}
+.bank-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1rem}
+.bank-item{background:#fff;border-radius:0.85rem;padding:1rem 1.2rem;border:1px solid rgba(0,0,0,0.05)}
+.bank-label{font-size:0.68rem;color:var(--gris);text-transform:uppercase;letter-spacing:1px;margin-bottom:0.4rem;font-weight:600}
+.bank-value{font-size:0.92rem;color:var(--texto);font-weight:600;line-height:1.4;overflow-wrap:break-word}
+.bank-value.iban{font-family:monospace;font-size:0.88rem;letter-spacing:0.5px;word-break:break-all}
+
+/* VALIDEZ */
+.validez{text-align:center;padding:2rem;color:var(--gris);font-size:0.88rem;line-height:1.7}
+.validez strong{color:var(--texto)}
+
+/* CTA FINAL */
+.cta-section{background:#fafafa;text-align:center;padding:4rem 2rem 5rem;border-top:1px solid var(--borde)}
+.cta-card{max-width:650px;margin:0 auto}
+.cta-card h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.4rem);color:var(--texto);line-height:1.2;margin-bottom:0.75rem}
+.cta-card h2 .accent{color:var(--naranja)}
+.cta-card p{color:var(--gris);font-size:0.95rem;line-height:1.7;margin-bottom:2rem}
+.btn-cta{display:inline-block;background:var(--naranja);color:#fff;font-weight:700;font-size:1rem;padding:1rem 2.5rem;border-radius:999px;transition:transform .2s,background .2s;letter-spacing:0.3px}
+.btn-cta:hover{background:var(--naranja-dark);transform:translateY(-2px)}
+.cta-note{margin-top:1.5rem;font-size:0.82rem;color:var(--gris)}
+.cta-note a{color:var(--naranja-dark);font-weight:600}
+
+/* FOOTER */
+footer{background:#1a1a1a;color:#fff;padding:3rem 2rem 1.5rem;margin-top:auto}
+.footer-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,0.1)}
+.footer-brand .footer-logo-mark{margin-bottom:1rem}
+.footer-brand p{color:rgba(255,255,255,0.55);font-size:0.85rem;line-height:1.7;max-width:340px}
+.footer-col h5{font-size:0.78rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--naranja);margin-bottom:1rem;font-weight:600}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:0.6rem}
+.footer-col a{color:rgba(255,255,255,0.6);font-size:0.85rem;transition:color .2s}
+.footer-col a:hover{color:var(--naranja)}
+.footer-social{display:flex;gap:0.7rem;margin-top:1rem}
+.footer-social a{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;font-size:1rem;transition:all .2s;color:#fff}
+.footer-social a:hover{background:var(--naranja);transform:translateY(-2px)}
+.footer-bottom{max-width:1100px;margin:1.5rem auto 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;font-size:0.78rem;color:rgba(255,255,255,0.4)}
+.footer-bottom .legal{display:flex;gap:1.2rem;flex-wrap:wrap}
+.footer-bottom .legal a{color:rgba(255,255,255,0.5);transition:color .2s}
+.footer-bottom .legal a:hover{color:var(--naranja)}
+.footer-bottom .credits span{color:var(--naranja);font-weight:600}
+
+@media(max-width:768px){
+  .nav-links{display:none;width:100%;flex-direction:column;align-items:flex-start;gap:0.8rem;padding:1rem 0 0}
+  .nav-links.open{display:flex}
+  .menu-toggle{display:block}
+  .highlight-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr;gap:2rem}
+  .footer-bottom{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="topnav">
+  <a href="#" class="nav-logo-link" aria-label="Inicio ADCS">
+    <svg class="logo-svg" width="170" height="55" viewBox="0 0 240 80" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 8 40 Q 8 8, 75 8 Q 130 8, 130 40 Q 130 72, 75 72 Q 8 72, 8 40 Z" fill="#FFAB60"/>
+      <text x="68" y="22" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" font-weight="600" fill="#fff" letter-spacing="1.2">ASOCIACIÓN</text>
+      <text x="68" y="42" text-anchor="middle" font-family="Playfair Display, serif" font-size="14" font-weight="900" fill="#fff">DOBLE</text>
+      <text x="68" y="56" text-anchor="middle" font-family="Playfair Display, serif" font-size="14" font-weight="900" fill="#fff">CAÑA</text>
+      <text x="68" y="66" text-anchor="middle" font-family="Inter, sans-serif" font-size="5" font-weight="600" fill="#fff" letter-spacing="2">SEVILLA</text>
+      <ellipse cx="170" cy="22" rx="6" ry="7" fill="#FFAB60"/>
+      <path d="M 158 30 Q 158 28, 162 28 L 178 28 Q 182 28, 182 32 L 184 75 L 156 75 Z" fill="#FFAB60"/>
+      <line x1="138" y1="2" x2="162" y2="28" stroke="#4a9e6b" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="138" cy="2" r="1.5" fill="#4a9e6b"/>
+      <line x1="180" y1="40" x2="220" y2="78" stroke="#3bbfcc" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="220" cy="78" r="2" fill="#3bbfcc"/>
+    </svg>
+  </a>
+  <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+  <div class="nav-links">
+    <a href="#">Inicio</a>
+    <a href="#">Quiénes somos</a>
+    <a href="#" class="active">Hazte socio/a</a>
+    <a href="#">V Concurso 2026</a>
+    <a href="#">VII Encuentro</a>
+    <a href="#">Vídeos</a>
+    <a href="#">Webs amigas</a>
+    <a href="#">Patrocinadores</a>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb-bar">
+  <div class="breadcrumb">
+    <a href="#">Inicio</a>
+    <span class="sep">›</span>
+    <span class="current">Hazte socio/a 2025/26</span>
+  </div>
+</div>
+
+<main>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="section-tag tag-naranja">Curso 2025/26</div>
+      <h1 class="page-title">Únete a la <span class="accent">gran familia</span> de la ADCS</h1>
+      <p class="page-sub">Tanto si eres profesional como estudiante de <span class="txt-oboe">oboe</span> o <span class="txt-fagot">fagot</span>, este es tu lugar. Descuentos, actividades y comunidad te esperan.</p>
+    </div>
+  </div>
+
+  <!-- BANNER FOTO -->
+  <section class="container">
+    <!-- IMAGEN: foto de socios en un evento, encuentro, concierto. Reemplazar por <img src="URL.jpg" alt="..."> -->
+    <div class="img-placeholder banner-photo">
+      <div class="ph-icon">📸</div>
+      <div class="ph-label">Espacio para foto</div>
+      <div class="ph-hint">Sugerencia: una foto de socios en un encuentro o evento</div>
+    </div>
+  </section>
+
+  <!-- CUOTA -->
+  <section class="cuota-section">
+    <div class="container">
+      <div class="cuota-card">
+        <h3>Cuota anual</h3>
+        <div class="periodo">Válida del 11 de septiembre de 2025 al 10 de septiembre de 2026</div>
+        <div class="cuota-options">
+          <div class="cuota-opt">
+            <span class="cuota-price">20€</span>
+            <div class="cuota-desc">Socio/a individual</div>
+          </div>
+          <div class="cuota-opt">
+            <span class="cuota-price">30€</span>
+            <div class="cuota-desc">Dos hermanos/as</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PASOS -->
+  <section class="pasos-section">
+    <div class="container">
+      <div class="section-tag tag-fagot">Cómo apuntarse</div>
+      <h2 class="section-title">Tres pasos y <span class="accent">listo</span></h2>
+      <p class="section-desc">El proceso es muy sencillo. Sigue estos pasos y formarás parte de la asociación en cuestión de minutos.</p>
+      <div class="pasos-grid">
+        <div class="paso-card">
+          <span class="paso-num">01</span>
+          <h3>Rellena el formulario</h3>
+          <p>Completa el <a href="https://docs.google.com/forms/d/e/1FAIpQLSfpWCU81MLHCoMFYFMkvD-0xaCaBvAaudAu87r45o8hEFq3Rw/viewform" target="_blank">formulario de inscripción</a> con tus datos. Solo tienes que hacerlo la primera vez (a no ser que cambies tus datos personales y quieras actualizarlos).</p>
+        </div>
+        <div class="paso-card">
+          <span class="paso-num">02</span>
+          <h3>Realiza el pago</h3>
+          <p>Haz un ingreso o transferencia de <strong>20€</strong> (o 30€ si sois dos hermanos/as) a nuestra cuenta bancaria. Datos más abajo.</p>
+        </div>
+        <div class="paso-card">
+          <span class="paso-num">03</span>
+          <h3>Recibe la confirmación</h3>
+          <p>Lo antes posible te enviaremos un email de bienvenida confirmando el pago y diciéndote cuál es tu <strong>número de socio o socia</strong>. ¡Ya formas parte de la ADCS!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HIGHLIGHTS -->
+  <section class="highlights">
+    <div class="container">
+      <div class="section-tag tag-oboe">Casos especiales</div>
+      <h2 class="section-title">¿Y si <span class="accent">ya fui socio/a</span>?</h2>
+      <p class="section-desc">Si renuevas o no estás seguro/a de tu situación, aquí tienes la información que necesitas.</p>
+      <div class="highlight-grid">
+        <div class="highlight-box">
+          <div class="h-tag">Renovación</div>
+          <h4>Fui socio/a en el curso 2024/25</h4>
+          <p>No hace falta rellenar el formulario de nuevo. Solo tienes que hacer el ingreso o transferencia (20€) a nuestra cuenta y mandar el justificante a <a href="mailto:oboeyfagotsevilla@gmail.com">oboeyfagotsevilla@gmail.com</a>. A la mayor brevedad te confirmaremos el pago.</p>
+        </div>
+        <div class="highlight-box fagot">
+          <div class="h-tag">Duda</div>
+          <h4>No recuerdo si fui socio/a</h4>
+          <p>Sin problema. Pregúntanos a <a href="mailto:oboeyfagotsevilla@gmail.com">oboeyfagotsevilla@gmail.com</a> y lo comprobaremos por ti. Como otra opción, también puedes rellenar el formulario de inscripción de nuevo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DATOS BANCARIOS -->
+  <section class="bank-section">
+    <div class="container">
+      <div class="section-tag tag-naranja">Datos bancarios</div>
+      <h2 class="section-title">Información para el <span class="accent">pago</span></h2>
+      <div class="bank-card">
+        <p class="bank-intro">Realiza la transferencia con el siguiente concepto: <strong>CUOTA ADCS 2025-26 — [DNI DEL SOCIO/A]</strong></p>
+        <div class="bank-grid">
+          <div class="bank-item">
+            <div class="bank-label">Titular</div>
+            <div class="bank-value">Asociación de Doble Caña de Sevilla</div>
+          </div>
+          <div class="bank-item">
+            <div class="bank-label">Caja</div>
+            <div class="bank-value">Caja Rural</div>
+          </div>
+          <div class="bank-item">
+            <div class="bank-label">IBAN</div>
+            <div class="bank-value iban">ES09 3187 0101 0851 5831 1919</div>
+          </div>
+          <div class="bank-item">
+            <div class="bank-label">Código BIC</div>
+            <div class="bank-value">BCOEESMM187</div>
+          </div>
+          <div class="bank-item">
+            <div class="bank-label">Concepto</div>
+            <div class="bank-value">CUOTA ADCS 2025-26 — [DNI DEL SOCIO/A]</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-section">
+    <div class="cta-card">
+      <div class="section-tag tag-naranja">¿Listo/a?</div>
+      <h2>Te esperamos en la <span class="accent">ADCS</span></h2>
+      <p>Da el primer paso y empieza tu inscripción ahora mismo.</p>
+      <a class="btn-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSfpWCU81MLHCoMFYFMkvD-0xaCaBvAaudAu87r45o8hEFq3Rw/viewform" target="_blank">Empezar ahora →</a>
+      <p class="cta-note">¿Tienes alguna duda? Escríbenos a <a href="mailto:oboeyfagotsevilla@gmail.com">oboeyfagotsevilla@gmail.com</a></p>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo-mark">
+        <svg width="170" height="55" viewBox="0 0 240 80" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 8 40 Q 8 8, 75 8 Q 130 8, 130 40 Q 130 72, 75 72 Q 8 72, 8 40 Z" fill="#FFAB60"/>
+          <text x="68" y="22" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" font-weight="600" fill="#1a1a1a" letter-spacing="1.2">ASOCIACIÓN</text>
+          <text x="68" y="42" text-anchor="middle" font-family="Playfair Display, serif" font-size="14" font-weight="900" fill="#1a1a1a">DOBLE</text>
+          <text x="68" y="56" text-anchor="middle" font-family="Playfair Display, serif" font-size="14" font-weight="900" fill="#1a1a1a">CAÑA</text>
+          <text x="68" y="66" text-anchor="middle" font-family="Inter, sans-serif" font-size="5" font-weight="600" fill="#1a1a1a" letter-spacing="2">SEVILLA</text>
+          <ellipse cx="170" cy="22" rx="6" ry="7" fill="#FFAB60"/>
+          <path d="M 158 30 Q 158 28, 162 28 L 178 28 Q 182 28, 182 32 L 184 75 L 156 75 Z" fill="#FFAB60"/>
+          <line x1="138" y1="2" x2="162" y2="28" stroke="#3bbfcc" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="138" cy="2" r="1.5" fill="#3bbfcc"/>
+          <line x1="180" y1="40" x2="220" y2="78" stroke="#4a9e6b" stroke-width="5" stroke-linecap="round"/>
+          <circle cx="220" cy="78" r="2" fill="#4a9e6b"/>
+        </svg>
+      </div>
+      <p>Asociación sin ánimo de lucro fundada en 2010 que une a profesores y alumnos de oboe y fagot de Sevilla y su provincia.</p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/adcsevilla/" target="_blank" aria-label="Facebook">📘</a>
+        <a href="https://www.instagram.com/adcsevilla/" target="_blank" aria-label="Instagram">📸</a>
+        <a href="https://www.whatsapp.com/channel/0029Va8ocKGGJP8EXYqmqn34" target="_blank" aria-label="WhatsApp">💬</a>
+        <a href="mailto:oboeyfagotsevilla@gmail.com" aria-label="Email">✉️</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Navegación</h5>
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Quiénes somos</a></li>
+        <li><a href="#">Hazte socio/a</a></li>
+        <li><a href="#">V Concurso 2026</a></li>
+        <li><a href="#">VII Encuentro 15º</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Más</h5>
+      <ul>
+        <li><a href="#">Vídeos rep. orquestal</a></li>
+        <li><a href="#">Webs amigas</a></li>
+        <li><a href="#">Patrocinadores</a></li>
+        <li><a href="mailto:oboeyfagotsevilla@gmail.com">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 Asociación de Doble Caña de Sevilla · Nº Reg. 598607</div>
+    <div class="legal">
+      <a href="#">Aviso legal</a>
+      <a href="#">Política de privacidad</a>
+      <a href="#">Cookies</a>
+    </div>
+    <div class="credits">Diseño y desarrollo: <span>A. Álvarez</span></div>
+  </div>
+</footer>
+
+</body>
+</html>
