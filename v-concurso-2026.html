@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>V Concurso ADCS 2026 — Aplazado</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/styles.css"/>
+<style>
+/* ---- AVISO DE APLAZAMIENTO ---- */
+.aviso-section{background:#fff;padding:3rem 2rem 2rem}
+.aviso-card{
+  max-width:780px;margin:0 auto;
+  background:linear-gradient(135deg,#fff8f0,#fff4ea);
+  border:2px solid var(--naranja);
+  border-radius:1.5rem;padding:2.5rem 2rem;
+  text-align:center;
+  position:relative;overflow:hidden;
+}
+.aviso-card::before{content:'';position:absolute;top:-50px;right:-50px;width:180px;height:180px;border-radius:50%;background:rgba(255,171,96,0.12)}
+.aviso-card::after{content:'';position:absolute;bottom:-40px;left:-40px;width:140px;height:140px;border-radius:50%;background:rgba(255,171,96,0.08)}
+.aviso-card > *{position:relative;z-index:1}
+.aviso-badge{display:inline-flex;align-items:center;gap:0.5rem;background:var(--naranja);color:#fff;font-size:0.8rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:0.45rem 1.3rem;border-radius:999px;margin-bottom:1.5rem}
+.aviso-card h2{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3.5vw,2.2rem);color:var(--texto);line-height:1.2;margin-bottom:1rem}
+.aviso-card h2 .accent{color:var(--naranja)}
+.aviso-card p{color:var(--gris);font-size:1rem;line-height:1.8;max-width:580px;margin:0 auto}
+
+/* ---- CÓMO ESTARÁS AL DÍA ---- */
+.notif-section{background:#fafafa;border-top:1px solid var(--borde);border-bottom:1px solid var(--borde)}
+.notif-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-top:2.5rem}
+.notif-card{background:#fff;border:1.5px solid var(--borde);border-radius:1.2rem;padding:2rem 1.75rem;position:relative;transition:border-color .2s,transform .2s}
+.notif-card:hover{border-color:var(--naranja);transform:translateY(-3px)}
+.notif-step{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:900;line-height:1;margin-bottom:0.75rem;display:block}
+.notif-step.s1{color:var(--naranja)}
+.notif-step.s2{color:var(--fagot)}
+.notif-step.s3{color:var(--oboe)}
+.notif-card h3{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--texto);margin-bottom:0.6rem;line-height:1.3}
+.notif-card p{color:var(--gris);font-size:0.9rem;line-height:1.7}
+.notif-card .highlight{color:var(--naranja-dark);font-weight:600}
+
+/* ---- QUÉ ES EL CONCURSO ---- */
+.info-section{background:#fff}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-top:2rem}
+.info-text p{color:var(--gris);line-height:1.85;margin-bottom:1.2rem;font-size:0.98rem}
+.ediciones-strip{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.5rem}
+.edicion-chip{background:var(--fagot-light);color:#1a8a95;font-size:0.75rem;font-weight:600;padding:0.3rem 0.9rem;border-radius:999px;letter-spacing:0.3px}
+.edicion-chip.actual{background:var(--naranja);color:#fff}
+
+/* ---- REDES SOCIALES ---- */
+.redes-section{background:#fafafa;border-top:1px solid var(--borde);text-align:center;padding:3rem 2rem}
+.redes-inner{max-width:600px;margin:0 auto}
+.redes-inner p{color:var(--gris);font-size:0.95rem;line-height:1.7;margin-bottom:2rem}
+.redes-links{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.red-btn{display:inline-flex;align-items:center;gap:0.6rem;background:#fff;border:1.5px solid var(--borde);border-radius:999px;padding:0.65rem 1.4rem;font-size:0.88rem;font-weight:600;color:var(--texto);transition:all .2s}
+.red-btn:hover{border-color:var(--naranja);color:var(--naranja);transform:translateY(-2px)}
+
+/* ---- CTA SOCIO ---- */
+.cta-section{background:#fff;text-align:center;padding:3rem 2rem 5rem}
+.cta-card{max-width:700px;margin:0 auto;background:linear-gradient(135deg,var(--naranja),var(--naranja-dark));border-radius:1.5rem;padding:3rem 2rem;color:#fff}
+.cta-card h3{font-family:'Playfair Display',serif;font-size:1.6rem;margin-bottom:0.6rem}
+.cta-card p{opacity:0.9;font-size:0.95rem;margin-bottom:1.5rem;line-height:1.6}
+
+/* ---- RESPONSIVE ---- */
+@media(max-width:768px){
+  .info-grid{grid-template-columns:1fr;gap:2.5rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="topnav">
+  <a href="index.html" class="nav-logo-link" aria-label="Inicio ADCS">
+    <!-- LOGO ADCS - VERSIÓN FONDO CLARO. Reemplaza por <img src="assets/img/logo-claro.png" alt="ADCS"> en producción -->
+    <svg class="logo-svg" width="170" height="55" viewBox="0 0 240 80" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 8 40 Q 8 8, 75 8 Q 130 8, 130 40 Q 130 72, 75 72 Q 8 72, 8 40 Z" fill="#FFAB60"/>
+      <text x="68" y="22" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" font-weight="600" fill="#fff" letter-spacing="1.2">ASOCIACIÓN</text>
+      <text x="68" y="42" text-anchor="middle" font-family="Playfair Display, serif" font-size="14" font-weight="900" fill="#fff">DOBLE</text>
+      <text x="68" y="56" text-anchor="middle" font-family="Playfair Display, serif" font-size="14" font-weight="900" fill="#fff">CAÑA</text>
+      <text x="68" y="66" text-anchor="middle" font-family="Inter, sans-serif" font-size="5" font-weight="600" fill="#fff" letter-spacing="2">SEVILLA</text>
+      <ellipse cx="170" cy="22" rx="6" ry="7" fill="#FFAB60"/>
+      <path d="M 158 30 Q 158 28, 162 28 L 178 28 Q 182 28, 182 32 L 184 75 L 156 75 Z" fill="#FFAB60"/>
+      <line x1="138" y1="2" x2="162" y2="28" stroke="#4a9e6b" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="138" cy="2" r="1.5" fill="#4a9e6b"/>
+      <line x1="180" y1="40" x2="220" y2="78" stroke="#3bbfcc" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="220" cy="78" r="2" fill="#3bbfcc"/>
+    </svg>
+  </a>
+  <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+  <div class="nav-links">
+    <a href="index.html">Inicio</a>
+    <a href="quienes-somos.html">Quiénes somos</a>
+    <a href="hazte-socio.html">Hazte socio/a</a>
+    <a href="v-concurso-2026.html" class="active">V Concurso 2026</a>
+    <a href="#">VII Encuentro</a>
+    <a href="#">Vídeos</a>
+    <a href="#">Webs amigas</a>
+    <a href="#">Patrocinadores</a>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb-bar">
+  <div class="breadcrumb">
+    <a href="index.html">Inicio</a>
+    <span class="sep">›</span>
+    <span class="current">V Concurso ADCS 2026</span>
+  </div>
+</div>
+
+<main>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="section-tag tag-fagot">V Concurso ADCS</div>
+      <h1 class="page-title">Concurso de <span class="accent">Oboe y Fagot</span> de Sevilla</h1>
+      <p class="page-sub">La quinta edición del concurso de la <span class="txt-fagot">Asociación de Doble Caña de Sevilla</span>, dedicado a jóvenes intérpretes de <span class="txt-oboe">oboe</span> y <span class="txt-fagot">fagot</span>.</p>
+    </div>
+  </div>
+
+  <!-- AVISO DE APLAZAMIENTO -->
+  <section class="aviso-section">
+    <div class="aviso-card">
+      <div class="aviso-badge">Aplazado</div>
+      <h2>El V Concurso ha sido <span class="accent">aplazado</span></h2>
+      <p>La quinta edición del Concurso de Oboe y Fagot de la ADCS no se celebrará en la fecha prevista. En cuanto tengamos una nueva fecha confirmada, lo comunicaremos de inmediato. Abajo te explicamos cómo y cuándo te enterarás.</p>
+    </div>
+  </section>
+
+  <!-- CÓMO ESTARÁS AL DÍA -->
+  <section class="notif-section">
+    <div class="container">
+      <div class="section-tag tag-naranja">¿Cuándo sabremos más?</div>
+      <h2 class="section-title">Así te <span class="accent">informaremos</span></h2>
+      <p class="section-desc">Cuando tengamos la nueva fecha, seguiremos este orden de comunicación.</p>
+      <div class="notif-grid">
+        <div class="notif-card">
+          <span class="notif-step s1">01</span>
+          <h3>Primero, los socios y socias</h3>
+          <p>Los miembros de la ADCS recibirán un <span class="highlight">email directo</span> con todos los detalles: nueva fecha, bases y plazos de inscripción. Siempre antes que nadie.</p>
+        </div>
+        <div class="notif-card">
+          <span class="notif-step s2">02</span>
+          <h3>Luego, esta página</h3>
+          <p>Actualizaremos esta misma página con las bases completas, categorías, premios y formulario de inscripción. <span class="highlight">Toda la información oficial, aquí.</span></p>
+        </div>
+        <div class="notif-card">
+          <span class="notif-step s3">03</span>
+          <h3>Y en redes sociales</h3>
+          <p>Lo anunciaremos también en nuestras redes sociales para que llegue al mayor número de personas posible. <span class="highlight">Síguenos para no perdértelo.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUÉ ES EL CONCURSO -->
+  <section class="info-section">
+    <div class="container">
+      <div class="info-grid">
+        <!-- IMAGEN: foto de una edición anterior del concurso. Reemplazar por <img src="assets/img/eventos/concurso.jpg" alt="Edición anterior del concurso"> -->
+        <div class="img-placeholder" style="min-height:360px">
+          <div class="ph-icon">📸</div>
+          <div class="ph-label">Espacio para foto</div>
+          <div class="ph-hint">Sugerencia: foto de una edición anterior del concurso</div>
+        </div>
+        <div class="info-text">
+          <div class="section-tag tag-oboe">El concurso</div>
+          <h2 class="section-title">Una cita para el <span class="accent">talento joven</span></h2>
+          <p>El Concurso de Oboe y Fagot de la ADCS es una de las actividades más señaladas del calendario de la asociación. Su objetivo es reconocer y dar visibilidad al talento de los jóvenes intérpretes de <span class="txt-oboe">oboe</span> y <span class="txt-fagot">fagot</span> de Sevilla y su provincia.</p>
+          <p>Desde su primera edición, el concurso ha crecido en participación y proyección, convirtiéndose en un escaparate para estudiantes de conservatorio y un punto de encuentro para la comunidad de doble caña.</p>
+          <div class="ediciones-strip">
+            <span class="edicion-chip">I Edición</span>
+            <span class="edicion-chip">II Edición</span>
+            <span class="edicion-chip">III Edición</span>
+            <span class="edicion-chip">IV Edición</span>
+            <span class="edicion-chip actual">V Edición — próximamente</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REDES SOCIALES -->
+  <section class="redes-section">
+    <div class="redes-inner">
+      <div class="section-tag tag-fagot">Mantente al tanto</div>
+      <h2 class="section-title">Síguenos en <span class="accent">redes</span></h2>
+      <p>Para no perderte el anuncio de la nueva fecha, síguenos en nuestras redes sociales o únete al grupo de difusión de WhatsApp.</p>
+      <div class="redes-links">
+        <a class="red-btn" href="https://www.instagram.com/adcsevilla/" target="_blank">Instagram</a>
+        <a class="red-btn" href="https://www.facebook.com/adcsevilla/" target="_blank">Facebook</a>
+        <a class="red-btn" href="https://www.whatsapp.com/channel/0029Va8ocKGGJP8EXYqmqn34" target="_blank">WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA HAZTE SOCIO -->
+  <section class="cta-section">
+    <div class="cta-card">
+      <h3>¿Quieres ser el primero en saber la nueva fecha?</h3>
+      <p>Los socios y socias reciben la información por email antes de que se publique en ningún otro sitio. Hazte socio/a de la ADCS y no te pierdas nada.</p>
+      <a href="hazte-socio.html" class="btn-cta-white">Hazte socio/a 2025/26 →</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <!-- LOGO ADCS - VERSIÓN FONDO OSCURO. Reemplaza por <img src="assets/img/logo-oscuro.png" alt="ADCS"> en producción -->
+      <div class="footer-logo-mark">
+        <svg width="170" height="55" viewBox="0 0 240 80" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 8 40 Q 8 8, 75 8 Q 130 8, 130 40 Q 130 72, 75 72 Q 8 72, 8 40 Z" fill="#FFAB60"/>
+          <text x="68" y="22" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" font-weight="600" fill="#1a1a1a" letter-spacing="1.2">ASOCIACIÓN</text>
+          <text x="68" y="42" text-anchor="middle" font-family="Playfair Display, serif" font-size="14" font-weight="900" fill="#1a1a1a">DOBLE</text>
+          <text x="68" y="56" text-anchor="middle" font-family="Playfair Display, serif" font-size="14" font-weight="900" fill="#1a1a1a">CAÑA</text>
+          <text x="68" y="66" text-anchor="middle" font-family="Inter, sans-serif" font-size="5" font-weight="600" fill="#1a1a1a" letter-spacing="2">SEVILLA</text>
+          <ellipse cx="170" cy="22" rx="6" ry="7" fill="#FFAB60"/>
+          <path d="M 158 30 Q 158 28, 162 28 L 178 28 Q 182 28, 182 32 L 184 75 L 156 75 Z" fill="#FFAB60"/>
+          <line x1="138" y1="2" x2="162" y2="28" stroke="#3bbfcc" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="138" cy="2" r="1.5" fill="#3bbfcc"/>
+          <line x1="180" y1="40" x2="220" y2="78" stroke="#4a9e6b" stroke-width="5" stroke-linecap="round"/>
+          <circle cx="220" cy="78" r="2" fill="#4a9e6b"/>
+        </svg>
+      </div>
+      <p>Asociación sin ánimo de lucro fundada en 2010 que une a profesores y alumnos de oboe y fagot de Sevilla y su provincia.</p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/adcsevilla/" target="_blank" aria-label="Facebook">📘</a>
+        <a href="https://www.instagram.com/adcsevilla/" target="_blank" aria-label="Instagram">📸</a>
+        <a href="https://www.whatsapp.com/channel/0029Va8ocKGGJP8EXYqmqn34" target="_blank" aria-label="WhatsApp">💬</a>
+        <a href="mailto:oboeyfagotsevilla@gmail.com" aria-label="Email">✉️</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Navegación</h5>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="quienes-somos.html">Quiénes somos</a></li>
+        <li><a href="hazte-socio.html">Hazte socio/a</a></li>
+        <li><a href="v-concurso-2026.html">V Concurso 2026</a></li>
+        <li><a href="#">VII Encuentro 15º</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Más</h5>
+      <ul>
+        <li><a href="#">Vídeos rep. orquestal</a></li>
+        <li><a href="#">Webs amigas</a></li>
+        <li><a href="#">Patrocinadores</a></li>
+        <li><a href="mailto:oboeyfagotsevilla@gmail.com">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 Asociación de Doble Caña de Sevilla · Nº Reg. 598607</div>
+    <div class="legal">
+      <a href="#">Aviso legal</a>
+      <a href="#">Política de privacidad</a>
+      <a href="#">Cookies</a>
+    </div>
+    <div class="credits">Diseño y desarrollo: <span>A. Álvarez</span></div>
+  </div>
+</footer>
+
+</body>
+</html>
