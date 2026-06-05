@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Webs amigas — ADCS Sevilla</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/styles.css"/>
+<style>
+/* ---- GRID DE WEBS ---- */
+.webs-section{background:#fff}
+.webs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:2.5rem}
+.web-card{background:#fff;border:1.5px solid var(--borde);border-radius:1.2rem;padding:2rem 1.75rem;display:flex;flex-direction:column;gap:1rem;transition:border-color .2s,transform .2s}
+.web-card:hover{border-color:var(--naranja);transform:translateY(-3px)}
+.web-card-header{display:flex;align-items:center;gap:0.75rem}
+.web-initial{width:48px;height:48px;border-radius:0.75rem;background:var(--naranja-light);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:900;color:var(--naranja-dark);flex-shrink:0}
+.web-initial.fagot{background:var(--fagot-light);color:#1a8a95}
+.web-initial.oboe{background:var(--oboe-light);color:#2d6b47}
+.web-card h3{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--texto);line-height:1.2}
+.web-card p{color:var(--gris);font-size:0.9rem;line-height:1.7;flex:1}
+.web-url{font-size:0.78rem;color:var(--gris);opacity:0.7;margin-top:-0.5rem;font-family:monospace;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.btn-visit{display:inline-flex;align-items:center;gap:0.4rem;background:var(--naranja-light);color:var(--naranja-dark);font-weight:600;font-size:0.85rem;padding:0.55rem 1.2rem;border-radius:999px;border:1.5px solid var(--naranja);transition:all .2s;align-self:flex-start}
+.btn-visit:hover{background:var(--naranja);color:#fff}
+
+/* ---- SECCIÓN "¿TU WEB NO ESTÁ AQUÍ?" ---- */
+.solicitud-section{background:#fafafa;border-top:1px solid var(--borde);text-align:center;padding:3rem 2rem 4rem}
+.solicitud-inner{max-width:600px;margin:0 auto}
+.solicitud-inner p{color:var(--gris);font-size:0.95rem;line-height:1.75;margin-bottom:1.5rem}
+.btn-email{display:inline-flex;align-items:center;gap:0.5rem;background:#fff;border:1.5px solid var(--borde);border-radius:999px;padding:0.7rem 1.6rem;font-size:0.9rem;font-weight:600;color:var(--texto);transition:all .2s}
+.btn-email:hover{border-color:var(--naranja);color:var(--naranja)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="topnav">
+  <a href="index.html" class="nav-logo-link" aria-label="Inicio ADCS">
+    <img src="assets/img/logo-claro.png" class="logo-img" alt="Asociación de Doble Caña de Sevilla"/>
+  </a>
+  <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+  <div class="nav-links">
+    <a href="index.html">Inicio</a>
+    <a href="quienes-somos.html">Quiénes somos</a>
+    <a href="hazte-socio.html">Hazte socio/a</a>
+    <a href="v-concurso-2026.html">V Concurso 2026</a>
+    <a href="vii-encuentro-15.html">VII Encuentro</a>
+    <a href="#">Vídeos</a>
+    <a href="webs-amigas.html" class="active">Webs amigas</a>
+    <a href="patrocinadores.html">Patrocinadores</a>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb-bar">
+  <div class="breadcrumb">
+    <a href="index.html">Inicio</a>
+    <span class="sep">›</span>
+    <span class="current">Webs amigas</span>
+  </div>
+</div>
+
+<main>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="section-tag tag-oboe">Directorio</div>
+      <h1 class="page-title">Webs <span class="accent">amigas</span></h1>
+      <p class="page-sub">Webs relacionadas con el <span class="txt-oboe">oboe</span> y el <span class="txt-fagot">fagot</span>: asociaciones hermanas, oboístas y fagotistas que comparten nuestra pasión por la doble caña.</p>
+    </div>
+  </div>
+
+  <!-- WEBS AMIGAS -->
+  <section class="webs-section">
+    <div class="container">
+      <div class="section-tag tag-fagot">Asociaciones</div>
+      <h2 class="section-title">Nuestras <span class="accent">asociaciones hermanas</span></h2>
+      <p class="section-desc">Otras asociaciones dedicadas a los instrumentos de doble caña en España con las que compartimos espíritu y objetivos.</p>
+      <div class="webs-grid">
+
+        <div class="web-card">
+          <div class="web-card-header">
+            <div class="web-initial">A</div>
+            <h3>AFOES</h3>
+          </div>
+          <p>Asociación de doble caña con presencia en España. Una de nuestras asociaciones hermanas en la difusión y el fomento del oboe y el fagot.</p>
+          <div class="web-url">afoes.es</div>
+          <a class="btn-visit" href="http://www.afoes.es/" target="_blank" rel="noopener noreferrer">Visitar web →</a>
+        </div>
+
+        <div class="web-card">
+          <div class="web-card-header">
+            <div class="web-initial fagot">A</div>
+            <h3>AFOGAL</h3>
+          </div>
+          <p>Asociación de doble caña de Galicia. Comparten nuestro objetivo de unir a la comunidad de <span class="txt-oboe">oboe</span> y <span class="txt-fagot">fagot</span> en su territorio.</p>
+          <div class="web-url">afogal.org</div>
+          <a class="btn-visit" href="http://afogal.org/" target="_blank" rel="noopener noreferrer">Visitar web →</a>
+        </div>
+
+        <div class="web-card">
+          <div class="web-card-header">
+            <div class="web-initial oboe">O</div>
+            <h3>Oboe Fagote Euskadi</h3>
+          </div>
+          <p>Asociación del País Vasco dedicada a los instrumentos de doble caña. Parte de la red de asociaciones que trabajan por la comunidad oboística y fagotística en España.</p>
+          <div class="web-url">oboefagoteuskadi.wordpress.com</div>
+          <a class="btn-visit" href="https://oboefagoteuskadi.wordpress.com/" target="_blank" rel="noopener noreferrer">Visitar web →</a>
+        </div>
+
+      </div>
+
+      <!-- SEGUNDA SUBSECCIÓN: WEBS PERSONALES / EDUCATIVAS -->
+      <div class="section-tag tag-oboe" style="margin-top:3.5rem">Recursos y webs personales</div>
+      <h2 class="section-title">Para <span class="accent">aprender y disfrutar</span></h2>
+      <p class="section-desc">Webs de oboístas y fagotistas, o dedicadas a estos instrumentos, que pueden resultarte de interés.</p>
+      <div class="webs-grid">
+
+        <div class="web-card">
+          <div class="web-card-header">
+            <div class="web-initial">M</div>
+            <h3>Mi Oboe Es Tuyo</h3>
+          </div>
+          <p>Web dedicada al oboe con recursos, consejos y contenido para oboístas de todos los niveles. Una referencia para la comunidad hispanohablante del oboe.</p>
+          <div class="web-url">mioboeestuyo.com</div>
+          <a class="btn-visit" href="http://www.mioboeestuyo.com/" target="_blank" rel="noopener noreferrer">Visitar web →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLICITUD DE INCLUSIÓN -->
+  <section class="solicitud-section">
+    <div class="solicitud-inner">
+      <div class="section-tag tag-naranja">¿Tu web no está aquí?</div>
+      <h2 class="section-title">¿Quieres <span class="accent">aparecer</span> en esta lista?</h2>
+      <p>Si tienes una web relacionada con el oboe o el fagot y quieres que la incluyamos en este directorio, escríbenos. Revisamos todas las solicitudes y las añadimos si encajan con la temática de la página.</p>
+      <a class="btn-email" href="mailto:oboeyfagotsevilla@gmail.com?subject=Solicitud%20de%20inclusión%20en%20Webs%20Amigas">Enviar solicitud por email →</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo-mark">
+        <img src="assets/img/logo-oscuro.png" class="logo-img-footer" alt="Asociación de Doble Caña de Sevilla"/>
+      </div>
+      <p>Asociación sin ánimo de lucro fundada en 2010 que une al profesorado y al alumnado de oboe y fagot de Sevilla y su provincia.</p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/adcsevilla/" target="_blank" aria-label="Facebook">📘</a>
+        <a href="https://www.instagram.com/adcsevilla/" target="_blank" aria-label="Instagram">📸</a>
+        <a href="https://www.whatsapp.com/channel/0029Va8ocKGGJP8EXYqmqn34" target="_blank" aria-label="WhatsApp">💬</a>
+        <a href="mailto:oboeyfagotsevilla@gmail.com" aria-label="Email">✉️</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Navegación</h5>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="quienes-somos.html">Quiénes somos</a></li>
+        <li><a href="hazte-socio.html">Hazte socio/a</a></li>
+        <li><a href="v-concurso-2026.html">V Concurso 2026</a></li>
+        <li><a href="vii-encuentro-15.html">VII Encuentro 15º</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Más</h5>
+      <ul>
+        <li><a href="#">Vídeos rep. orquestal</a></li>
+        <li><a href="webs-amigas.html">Webs amigas</a></li>
+        <li><a href="patrocinadores.html">Patrocinadores</a></li>
+        <li><a href="mailto:oboeyfagotsevilla@gmail.com">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 Asociación de Doble Caña de Sevilla · Nº Reg. 598607</div>
+    <div class="legal">
+      <a href="#">Aviso legal</a>
+      <a href="#">Política de privacidad</a>
+      <a href="#">Cookies</a>
+    </div>
+    <div class="credits">Diseño y desarrollo: <span>A. Álvarez</span></div>
+  </div>
+</footer>
+
+</body>
+</html>

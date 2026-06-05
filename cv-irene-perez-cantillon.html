@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Irene Pérez Cantillón — Secretaria · ADCS Sevilla</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/styles.css"/>
+<style>
+/* ---- CV ---- */
+.cv-hero{background:#fff;text-align:center;padding:3.5rem 2rem 2rem;position:relative;overflow:hidden}
+.cv-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:260px;height:260px;border-radius:50%;background:var(--naranja-light);z-index:0}
+.cv-hero::after{content:'';position:absolute;bottom:-40px;left:-40px;width:180px;height:180px;border-radius:50%;background:var(--fagot-light);z-index:0}
+.cv-hero-inner{position:relative;z-index:1;max-width:720px;margin:0 auto}
+.cv-photo{width:200px;height:200px;border-radius:50%;margin:0 auto 1.5rem;overflow:hidden;border:4px solid var(--naranja);box-shadow:0 10px 30px rgba(0,0,0,0.12);background:linear-gradient(135deg,var(--naranja-light),var(--fagot-light))}
+.cv-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.cv-name{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4vw,2.6rem);color:var(--texto);line-height:1.1;margin-bottom:0.6rem}
+.cv-role{display:inline-block;font-size:0.75rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:0.35rem 1.1rem;border-radius:999px;background:var(--fagot-light);color:#1a8a95}
+.cv-instrument{color:var(--gris);font-size:1rem;margin-top:0.9rem}
+
+.cv-body{max-width:720px;margin:0 auto;padding:1rem 2rem 4rem}
+.cv-body .section-tag{margin-bottom:1rem}
+.cv-bio p{color:var(--texto);font-size:1.02rem;line-height:1.9;margin-bottom:1.1rem}
+.cv-back{display:inline-flex;align-items:center;gap:0.4rem;margin-top:1.5rem;font-size:0.9rem;font-weight:600;color:var(--naranja-dark)}
+.cv-back:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="topnav">
+  <a href="index.html" class="nav-logo-link" aria-label="Inicio ADCS">
+    <img src="assets/img/logo-claro.png" class="logo-img" alt="Asociación de Doble Caña de Sevilla"/>
+  </a>
+  <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+  <div class="nav-links">
+    <a href="index.html">Inicio</a>
+    <a href="quienes-somos.html" class="active">Quiénes somos</a>
+    <a href="hazte-socio.html">Hazte socio/a</a>
+    <a href="v-concurso-2026.html">V Concurso 2026</a>
+    <a href="vii-encuentro-15.html">VII Encuentro</a>
+    <a href="#">Vídeos</a>
+    <a href="webs-amigas.html">Webs amigas</a>
+    <a href="patrocinadores.html">Patrocinadores</a>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb-bar">
+  <div class="breadcrumb">
+    <a href="index.html">Inicio</a>
+    <span class="sep">›</span>
+    <a href="quienes-somos.html">Quiénes somos</a>
+    <span class="sep">›</span>
+    <span class="current">Irene Pérez Cantillón</span>
+  </div>
+</div>
+
+<main>
+
+  <!-- CABECERA CON FOTO -->
+  <section class="cv-hero">
+    <div class="cv-hero-inner">
+      <!-- Foto de Irene: guarda la imagen en assets/img/junta/irene.jpg -->
+      <div class="cv-photo">
+        <img src="assets/img/junta/irene.jpg" alt="Irene Pérez Cantillón"/>
+      </div>
+      <h1 class="cv-name">Irene Pérez Cantillón</h1>
+      <span class="cv-role">Secretaria de la ADCS</span>
+      <p class="cv-instrument"><span class="txt-fagot">Fagot</span></p>
+    </div>
+  </section>
+
+  <!-- CV -->
+  <section class="cv-body">
+    <div class="section-tag tag-fagot">Trayectoria</div>
+    <div class="cv-bio">
+      <p>Nacida en Sevilla en 2001, comienza sus estudios musicales con José Arsenio Rueda, terminando el Grado Profesional con Premio Honorífico. Continúa los estudios superiores en la cátedra de Luis Castillo y Miguel García, en el C.S.M. «Manuel Castillo». Amplía su formación en Alemania, en la Hochschule für Musik Freiburg, junto al maestro Diego Chenna y también con Angela Bergmann, contrafagot.</p>
+      <p>Además, ha sido alumna de la Academia de Estudios Orquestales de la Fundación Barenboim-Said, y ha recibido asiduamente clases de Ramiro García. Ha sido miembro de la Orquesta Joven de Andalucía y de la Neue Philharmonie München (Alemania).</p>
+      <p>A nivel profesional, ha trabajado con la Real Orquesta Sinfónica de Sevilla, la Orquesta Ciudad de Granada, la Orquesta de Extremadura y la Orquesta ADDA Sinfónica de Alicante. En el ámbito de la música de cámara, posee diversos premios, habiendo tenido además la oportunidad de formar parte de proyectos como el del ciclo de música contemporánea en la Gare du Nord de Basilea, Suiza, o Anam Camerata.</p>
+      <p>Actualmente es profesora de fagot en el Conservatorio Profesional de Música «Tomás Bote Lavado» de Almendralejo.</p>
+    </div>
+    <a class="cv-back" href="quienes-somos.html">← Volver a Quiénes somos</a>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo-mark">
+        <img src="assets/img/logo-oscuro.png" class="logo-img-footer" alt="Asociación de Doble Caña de Sevilla"/>
+      </div>
+      <p>Asociación sin ánimo de lucro fundada en 2010 que une al profesorado y al alumnado de oboe y fagot de Sevilla y su provincia.</p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/adcsevilla/" target="_blank" aria-label="Facebook">📘</a>
+        <a href="https://www.instagram.com/adcsevilla/" target="_blank" aria-label="Instagram">📸</a>
+        <a href="https://www.whatsapp.com/channel/0029Va8ocKGGJP8EXYqmqn34" target="_blank" aria-label="WhatsApp">💬</a>
+        <a href="mailto:oboeyfagotsevilla@gmail.com" aria-label="Email">✉️</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Navegación</h5>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="quienes-somos.html">Quiénes somos</a></li>
+        <li><a href="hazte-socio.html">Hazte socio/a</a></li>
+        <li><a href="v-concurso-2026.html">V Concurso 2026</a></li>
+        <li><a href="vii-encuentro-15.html">VII Encuentro 15º</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Más</h5>
+      <ul>
+        <li><a href="#">Vídeos rep. orquestal</a></li>
+        <li><a href="webs-amigas.html">Webs amigas</a></li>
+        <li><a href="patrocinadores.html">Patrocinadores</a></li>
+        <li><a href="mailto:oboeyfagotsevilla@gmail.com">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 Asociación de Doble Caña de Sevilla · Nº Reg. 598607</div>
+    <div class="legal">
+      <a href="#">Aviso legal</a>
+      <a href="#">Política de privacidad</a>
+      <a href="#">Cookies</a>
+    </div>
+    <div class="credits">Diseño y desarrollo: <span>A. Álvarez</span></div>
+  </div>
+</footer>
+
+</body>
+</html>

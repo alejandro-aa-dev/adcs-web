@@ -53,6 +53,11 @@
 .junta-card .name{color:var(--texto);font-weight:500;font-size:0.95rem;line-height:1.3}
 .junta-card.vocal .name{font-size:0.88rem}
 .subseccion-titulo{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--texto);margin-top:2.5rem;margin-bottom:0.5rem}
+.junta-img{width:100%;height:100%;object-fit:cover}
+.junta-card-link{display:block;color:inherit;cursor:pointer}
+.junta-card-link:hover .junta-photo{border-color:var(--naranja-dark)}
+.junta-card .cv-link{margin-top:0.6rem;font-size:0.72rem;font-weight:600;color:var(--naranja-dark);letter-spacing:0.4px}
+.junta-card-link:hover .cv-link{text-decoration:underline}
 
 /* ---- CTA ---- */
 .cta-section{background:#fff;text-align:center;padding:3rem 2rem 5rem}
@@ -71,20 +76,7 @@
 <!-- NAV -->
 <nav class="topnav">
   <a href="index.html" class="nav-logo-link" aria-label="Inicio ADCS">
-    <!-- LOGO ADCS - VERSIÓN FONDO CLARO. Reemplaza por <img src="assets/img/logo-claro.png" alt="ADCS"> en producción -->
-    <svg class="logo-svg" width="170" height="55" viewBox="0 0 240 80" xmlns="http://www.w3.org/2000/svg">
-      <path d="M 8 40 Q 8 8, 75 8 Q 130 8, 130 40 Q 130 72, 75 72 Q 8 72, 8 40 Z" fill="#FFAB60"/>
-      <text x="68" y="22" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" font-weight="600" fill="#fff" letter-spacing="1.2">ASOCIACIÓN</text>
-      <text x="68" y="42" text-anchor="middle" font-family="Playfair Display, serif" font-size="14" font-weight="900" fill="#fff">DOBLE</text>
-      <text x="68" y="56" text-anchor="middle" font-family="Playfair Display, serif" font-size="14" font-weight="900" fill="#fff">CAÑA</text>
-      <text x="68" y="66" text-anchor="middle" font-family="Inter, sans-serif" font-size="5" font-weight="600" fill="#fff" letter-spacing="2">SEVILLA</text>
-      <ellipse cx="170" cy="22" rx="6" ry="7" fill="#FFAB60"/>
-      <path d="M 158 30 Q 158 28, 162 28 L 178 28 Q 182 28, 182 32 L 184 75 L 156 75 Z" fill="#FFAB60"/>
-      <line x1="138" y1="2" x2="162" y2="28" stroke="#4a9e6b" stroke-width="4" stroke-linecap="round"/>
-      <circle cx="138" cy="2" r="1.5" fill="#4a9e6b"/>
-      <line x1="180" y1="40" x2="220" y2="78" stroke="#3bbfcc" stroke-width="5" stroke-linecap="round"/>
-      <circle cx="220" cy="78" r="2" fill="#3bbfcc"/>
-    </svg>
+    <img src="assets/img/logo-claro.png" class="logo-img" alt="Asociación de Doble Caña de Sevilla"/>
   </a>
   <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
   <div class="nav-links">
@@ -92,10 +84,10 @@
     <a href="quienes-somos.html" class="active">Quiénes somos</a>
     <a href="hazte-socio.html">Hazte socio/a</a>
     <a href="v-concurso-2026.html">V Concurso 2026</a>
-    <a href="#">VII Encuentro</a>
+    <a href="vii-encuentro-15.html">VII Encuentro</a>
     <a href="#">Vídeos</a>
-    <a href="#">Webs amigas</a>
-    <a href="#">Patrocinadores</a>
+    <a href="webs-amigas.html">Webs amigas</a>
+    <a href="patrocinadores.html">Patrocinadores</a>
   </div>
 </nav>
 
@@ -115,7 +107,7 @@
     <div class="page-header-inner">
       <div class="section-tag tag-naranja">Quiénes somos</div>
       <h1 class="page-title">Una <span class="accent">familia musical</span> con propósito</h1>
-      <p class="page-sub">Más de una década uniendo a profesores, alumnos y profesionales del <span class="txt-oboe">oboe</span> y el <span class="txt-fagot">fagot</span> en Sevilla y su provincia.</p>
+      <p class="page-sub">Más de una década uniendo al profesorado, al alumnado y a profesionales del <span class="txt-oboe">oboe</span> y el <span class="txt-fagot">fagot</span> en Sevilla y su provincia.</p>
     </div>
   </div>
 
@@ -126,7 +118,7 @@
         <div class="historia-text">
           <div class="section-tag tag-fagot">Nuestra historia</div>
           <h2 class="section-title">15 años haciendo<br/>comunidad</h2>
-          <p>La <strong>Asociación de Doble Caña de Sevilla (ADCS)</strong> nace con el propósito de estrechar la colaboración entre profesores y alumnos de <span class="txt-oboe">oboe</span> y <span class="txt-fagot">fagot</span> de la provincia y de las zonas cercanas, fomentar la difusión de la cultura musical con especial atención a los instrumentos de doble caña, y contribuir al desarrollo artístico y profesional de sus miembros.</p>
+          <p>La <strong>Asociación de Doble Caña de Sevilla (ADCS)</strong> nace con el propósito de estrechar la colaboración entre el profesorado y el alumnado de <span class="txt-oboe">oboe</span> y <span class="txt-fagot">fagot</span> de la provincia y de las zonas cercanas, fomentar la difusión de la cultura musical con especial atención a los instrumentos de doble caña, y contribuir al desarrollo artístico y profesional de las personas que la integran.</p>
           <p>Desde su primer día, la ADCS sigue creciendo, siendo una asociación que <strong>facilita el contacto entre estudiantes</strong> de los distintos conservatorios de la capital, así como las relaciones entre los conservatorios y las bandas y orquestas de la ciudad.</p>
         </div>
         <!-- IMAGEN: foto del grupo, un concierto, una actuación, etc. Reemplazar por <img src="assets/img/eventos/...jpg" alt="..."> -->
@@ -149,11 +141,11 @@
         <div class="mision-card">
           <div class="mision-photo">
             <div class="ph-icon">📸</div>
-            <div class="ph-label">Foto: alumnos y profesores juntos</div>
+            <div class="ph-label">Foto: alumnado y profesorado</div>
           </div>
           <div class="mision-card-body">
             <h3>Estrechar la colaboración</h3>
-            <p>Entre profesores y alumnos de <span class="txt-oboe">oboe</span> y <span class="txt-fagot">fagot</span> de la provincia y zonas cercanas, creando puentes entre conservatorios, bandas y orquestas.</p>
+            <p>Entre el profesorado y el alumnado de <span class="txt-oboe">oboe</span> y <span class="txt-fagot">fagot</span> de la provincia y zonas cercanas, creando puentes entre conservatorios, bandas y orquestas.</p>
           </div>
         </div>
         <div class="mision-card">
@@ -216,7 +208,7 @@
     <div class="container">
       <div class="section-tag tag-fagot">Junta directiva</div>
       <h2 class="section-title">Las personas detrás<br/>de la <span class="accent">ADCS</span></h2>
-      <p class="section-desc">Profesionales apasionados que dedican su tiempo y energía a hacer crecer nuestra comunidad musical.</p>
+      <p class="section-desc">Un equipo apasionado que dedica su tiempo y energía a hacer crecer nuestra comunidad musical.</p>
 
       <h3 class="subseccion-titulo">Presidencia y dirección</h3>
       <div class="junta-presidencia">
@@ -229,14 +221,15 @@
           <div class="role">Presidenta</div>
           <div class="name">Johanna Suárez González</div>
         </div>
-        <div class="junta-card presidencia">
+        <a class="junta-card presidencia junta-card-link" href="cv-irene-perez-cantillon.html" target="_blank" rel="noopener noreferrer">
+          <!-- Foto de Irene: guarda la imagen en assets/img/junta/irene.jpg -->
           <div class="junta-photo">
-            <span class="ph-camera">📷</span>
-            <span class="ph-tag">Foto</span>
+            <img src="assets/img/junta/irene.jpg" alt="Irene Pérez Cantillón" class="junta-img"/>
           </div>
           <div class="role">Secretaria</div>
           <div class="name">Irene Pérez Cantillón</div>
-        </div>
+          <div class="cv-link">Ver CV →</div>
+        </a>
         <div class="junta-card presidencia">
           <div class="junta-photo">
             <span class="ph-camera">📷</span>
@@ -289,23 +282,10 @@
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <!-- LOGO ADCS - VERSIÓN FONDO OSCURO. Reemplaza por <img src="assets/img/logo-oscuro.png" alt="ADCS"> en producción -->
       <div class="footer-logo-mark">
-        <svg width="170" height="55" viewBox="0 0 240 80" xmlns="http://www.w3.org/2000/svg">
-          <path d="M 8 40 Q 8 8, 75 8 Q 130 8, 130 40 Q 130 72, 75 72 Q 8 72, 8 40 Z" fill="#FFAB60"/>
-          <text x="68" y="22" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" font-weight="600" fill="#1a1a1a" letter-spacing="1.2">ASOCIACIÓN</text>
-          <text x="68" y="42" text-anchor="middle" font-family="Playfair Display, serif" font-size="14" font-weight="900" fill="#1a1a1a">DOBLE</text>
-          <text x="68" y="56" text-anchor="middle" font-family="Playfair Display, serif" font-size="14" font-weight="900" fill="#1a1a1a">CAÑA</text>
-          <text x="68" y="66" text-anchor="middle" font-family="Inter, sans-serif" font-size="5" font-weight="600" fill="#1a1a1a" letter-spacing="2">SEVILLA</text>
-          <ellipse cx="170" cy="22" rx="6" ry="7" fill="#FFAB60"/>
-          <path d="M 158 30 Q 158 28, 162 28 L 178 28 Q 182 28, 182 32 L 184 75 L 156 75 Z" fill="#FFAB60"/>
-          <line x1="138" y1="2" x2="162" y2="28" stroke="#3bbfcc" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="138" cy="2" r="1.5" fill="#3bbfcc"/>
-          <line x1="180" y1="40" x2="220" y2="78" stroke="#4a9e6b" stroke-width="5" stroke-linecap="round"/>
-          <circle cx="220" cy="78" r="2" fill="#4a9e6b"/>
-        </svg>
+        <img src="assets/img/logo-oscuro.png" class="logo-img-footer" alt="Asociación de Doble Caña de Sevilla"/>
       </div>
-      <p>Asociación sin ánimo de lucro fundada en 2010 que une a profesores y alumnos de oboe y fagot de Sevilla y su provincia.</p>
+      <p>Asociación sin ánimo de lucro fundada en 2010 que une al profesorado y al alumnado de oboe y fagot de Sevilla y su provincia.</p>
       <div class="footer-social">
         <a href="https://www.facebook.com/adcsevilla/" target="_blank" aria-label="Facebook">📘</a>
         <a href="https://www.instagram.com/adcsevilla/" target="_blank" aria-label="Instagram">📸</a>
@@ -320,15 +300,15 @@
         <li><a href="quienes-somos.html">Quiénes somos</a></li>
         <li><a href="hazte-socio.html">Hazte socio/a</a></li>
         <li><a href="v-concurso-2026.html">V Concurso 2026</a></li>
-        <li><a href="#">VII Encuentro 15º</a></li>
+        <li><a href="vii-encuentro-15.html">VII Encuentro 15º</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h5>Más</h5>
       <ul>
         <li><a href="#">Vídeos rep. orquestal</a></li>
-        <li><a href="#">Webs amigas</a></li>
-        <li><a href="#">Patrocinadores</a></li>
+        <li><a href="webs-amigas.html">Webs amigas</a></li>
+        <li><a href="patrocinadores.html">Patrocinadores</a></li>
         <li><a href="mailto:oboeyfagotsevilla@gmail.com">Contacto</a></li>
       </ul>
     </div>

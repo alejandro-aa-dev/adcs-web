@@ -53,7 +53,8 @@
 .bank-item{background:#fff;border-radius:0.85rem;padding:1rem 1.2rem;border:1px solid rgba(0,0,0,0.05)}
 .bank-label{font-size:0.68rem;color:var(--gris);text-transform:uppercase;letter-spacing:1px;margin-bottom:0.4rem;font-weight:600}
 .bank-value{font-size:0.92rem;color:var(--texto);font-weight:600;line-height:1.4;overflow-wrap:break-word}
-.bank-value.iban{font-family:monospace;font-size:0.88rem;letter-spacing:0.5px;word-break:break-all}
+.bank-value.iban{font-family:monospace;font-size:0.98rem;letter-spacing:1.5px;white-space:nowrap;overflow-wrap:normal}
+.bank-item.iban-item{grid-column:1/-1}
 
 /* ---- CTA FINAL ---- */
 .cta-section{background:#fafafa;text-align:center;padding:4rem 2rem 5rem;border-top:1px solid var(--borde)}
@@ -75,20 +76,7 @@
 <!-- NAV -->
 <nav class="topnav">
   <a href="index.html" class="nav-logo-link" aria-label="Inicio ADCS">
-    <!-- LOGO ADCS - VERSIÓN FONDO CLARO. Reemplaza por <img src="assets/img/logo-claro.png" alt="ADCS"> en producción -->
-    <svg class="logo-svg" width="170" height="55" viewBox="0 0 240 80" xmlns="http://www.w3.org/2000/svg">
-      <path d="M 8 40 Q 8 8, 75 8 Q 130 8, 130 40 Q 130 72, 75 72 Q 8 72, 8 40 Z" fill="#FFAB60"/>
-      <text x="68" y="22" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" font-weight="600" fill="#fff" letter-spacing="1.2">ASOCIACIÓN</text>
-      <text x="68" y="42" text-anchor="middle" font-family="Playfair Display, serif" font-size="14" font-weight="900" fill="#fff">DOBLE</text>
-      <text x="68" y="56" text-anchor="middle" font-family="Playfair Display, serif" font-size="14" font-weight="900" fill="#fff">CAÑA</text>
-      <text x="68" y="66" text-anchor="middle" font-family="Inter, sans-serif" font-size="5" font-weight="600" fill="#fff" letter-spacing="2">SEVILLA</text>
-      <ellipse cx="170" cy="22" rx="6" ry="7" fill="#FFAB60"/>
-      <path d="M 158 30 Q 158 28, 162 28 L 178 28 Q 182 28, 182 32 L 184 75 L 156 75 Z" fill="#FFAB60"/>
-      <line x1="138" y1="2" x2="162" y2="28" stroke="#4a9e6b" stroke-width="4" stroke-linecap="round"/>
-      <circle cx="138" cy="2" r="1.5" fill="#4a9e6b"/>
-      <line x1="180" y1="40" x2="220" y2="78" stroke="#3bbfcc" stroke-width="5" stroke-linecap="round"/>
-      <circle cx="220" cy="78" r="2" fill="#3bbfcc"/>
-    </svg>
+    <img src="assets/img/logo-claro.png" class="logo-img" alt="Asociación de Doble Caña de Sevilla"/>
   </a>
   <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
   <div class="nav-links">
@@ -96,10 +84,10 @@
     <a href="quienes-somos.html">Quiénes somos</a>
     <a href="hazte-socio.html" class="active">Hazte socio/a</a>
     <a href="v-concurso-2026.html">V Concurso 2026</a>
-    <a href="#">VII Encuentro</a>
+    <a href="vii-encuentro-15.html">VII Encuentro</a>
     <a href="#">Vídeos</a>
-    <a href="#">Webs amigas</a>
-    <a href="#">Patrocinadores</a>
+    <a href="webs-amigas.html">Webs amigas</a>
+    <a href="patrocinadores.html">Patrocinadores</a>
   </div>
 </nav>
 
@@ -125,11 +113,11 @@
 
   <!-- BANNER FOTO -->
   <section class="container">
-    <!-- IMAGEN: foto de socios en un evento, encuentro, concierto. Reemplazar por <img src="assets/img/eventos/...jpg" alt="..."> -->
+    <!-- IMAGEN: foto de socios y socias en un evento, encuentro, concierto. Reemplazar por <img src="assets/img/eventos/...jpg" alt="..."> -->
     <div class="img-placeholder banner-photo">
       <div class="ph-icon">📸</div>
       <div class="ph-label">Espacio para foto</div>
-      <div class="ph-hint">Sugerencia: una foto de socios en un encuentro o evento</div>
+      <div class="ph-hint">Sugerencia: una foto de socios y socias en un encuentro o evento</div>
     </div>
   </section>
 
@@ -213,10 +201,10 @@
             <div class="bank-value">Asociación de Doble Caña de Sevilla</div>
           </div>
           <div class="bank-item">
-            <div class="bank-label">Caja</div>
+            <div class="bank-label">Banco</div>
             <div class="bank-value">Caja Rural</div>
           </div>
-          <div class="bank-item">
+          <div class="bank-item iban-item">
             <div class="bank-label">IBAN</div>
             <div class="bank-value iban">ES09 3187 0101 0851 5831 1919</div>
           </div>
@@ -250,23 +238,10 @@
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <!-- LOGO ADCS - VERSIÓN FONDO OSCURO. Reemplaza por <img src="assets/img/logo-oscuro.png" alt="ADCS"> en producción -->
       <div class="footer-logo-mark">
-        <svg width="170" height="55" viewBox="0 0 240 80" xmlns="http://www.w3.org/2000/svg">
-          <path d="M 8 40 Q 8 8, 75 8 Q 130 8, 130 40 Q 130 72, 75 72 Q 8 72, 8 40 Z" fill="#FFAB60"/>
-          <text x="68" y="22" text-anchor="middle" font-family="Inter, sans-serif" font-size="6" font-weight="600" fill="#1a1a1a" letter-spacing="1.2">ASOCIACIÓN</text>
-          <text x="68" y="42" text-anchor="middle" font-family="Playfair Display, serif" font-size="14" font-weight="900" fill="#1a1a1a">DOBLE</text>
-          <text x="68" y="56" text-anchor="middle" font-family="Playfair Display, serif" font-size="14" font-weight="900" fill="#1a1a1a">CAÑA</text>
-          <text x="68" y="66" text-anchor="middle" font-family="Inter, sans-serif" font-size="5" font-weight="600" fill="#1a1a1a" letter-spacing="2">SEVILLA</text>
-          <ellipse cx="170" cy="22" rx="6" ry="7" fill="#FFAB60"/>
-          <path d="M 158 30 Q 158 28, 162 28 L 178 28 Q 182 28, 182 32 L 184 75 L 156 75 Z" fill="#FFAB60"/>
-          <line x1="138" y1="2" x2="162" y2="28" stroke="#3bbfcc" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="138" cy="2" r="1.5" fill="#3bbfcc"/>
-          <line x1="180" y1="40" x2="220" y2="78" stroke="#4a9e6b" stroke-width="5" stroke-linecap="round"/>
-          <circle cx="220" cy="78" r="2" fill="#4a9e6b"/>
-        </svg>
+        <img src="assets/img/logo-oscuro.png" class="logo-img-footer" alt="Asociación de Doble Caña de Sevilla"/>
       </div>
-      <p>Asociación sin ánimo de lucro fundada en 2010 que une a profesores y alumnos de oboe y fagot de Sevilla y su provincia.</p>
+      <p>Asociación sin ánimo de lucro fundada en 2010 que une al profesorado y al alumnado de oboe y fagot de Sevilla y su provincia.</p>
       <div class="footer-social">
         <a href="https://www.facebook.com/adcsevilla/" target="_blank" aria-label="Facebook">📘</a>
         <a href="https://www.instagram.com/adcsevilla/" target="_blank" aria-label="Instagram">📸</a>
@@ -281,15 +256,15 @@
         <li><a href="quienes-somos.html">Quiénes somos</a></li>
         <li><a href="hazte-socio.html">Hazte socio/a</a></li>
         <li><a href="v-concurso-2026.html">V Concurso 2026</a></li>
-        <li><a href="#">VII Encuentro 15º</a></li>
+        <li><a href="vii-encuentro-15.html">VII Encuentro 15º</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h5>Más</h5>
       <ul>
         <li><a href="#">Vídeos rep. orquestal</a></li>
-        <li><a href="#">Webs amigas</a></li>
-        <li><a href="#">Patrocinadores</a></li>
+        <li><a href="webs-amigas.html">Webs amigas</a></li>
+        <li><a href="patrocinadores.html">Patrocinadores</a></li>
         <li><a href="mailto:oboeyfagotsevilla@gmail.com">Contacto</a></li>
       </ul>
     </div>

@@ -27,6 +27,9 @@ a{text-decoration:none;color:inherit}
 /* ---- LOGO ---- */
 .logo-svg{display:block}
 .nav-logo-link{display:flex;align-items:center;gap:0.6rem;flex-shrink:0}
+.logo-img{height:56px;width:auto;display:block}
+.logo-img-footer{height:64px;width:auto;display:block}
+@media(max-width:768px){.logo-img{height:48px}}
 
 /* ---- NAV ---- */
 nav.topnav{background:#fff;padding:0.85rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;border-bottom:1.5px solid var(--borde);flex-wrap:wrap;gap:1rem}
