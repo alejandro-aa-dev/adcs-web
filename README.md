@@ -107,6 +107,66 @@ Los detalles completos están en `CONTEXT.md`, pero los colores principales son:
 
 ---
 
+## 🔑 Área de socios y socias (zona protegida con contraseña)
+
+La página `area-socios.html` está cifrada con [StatiCrypt](https://robinmoisson.github.io/staticrypt/), un cifrador AES-256 que funciona directamente en el navegador del visitante. No requiere servidor.
+
+### Archivos implicados
+
+| Archivo | Descripción |
+|---------|-------------|
+| `area-socios.src.html` | **Fuente editable** (sin cifrar). Aquí haces los cambios. |
+| `area-socios.html` | Versión publicada y cifrada. Se regenera con el comando de abajo. |
+
+> ⚠️ **Nunca edites `area-socios.html` directamente.** Edita siempre `area-socios.src.html` y regenera.
+
+### Cómo añadir un vídeo o cambiar contenido
+
+1. Abre `area-socios.src.html` y haz los cambios.
+2. Regenera la versión cifrada (ver más abajo).
+3. Haz commit y push de **ambos archivos**.
+
+### Cómo regenerar la página cifrada
+
+```bash
+npx staticrypt area-socios.src.html \
+  --password "TU_CONTRASEÑA_AQUÍ" \
+  -d _enc_temp \
+  --short \
+  --template-title "Área de socios · ADCS Sevilla" \
+  --template-instructions "Introduce la contraseña de socias y socios de la ADCS" \
+  --template-button "Entrar" \
+  --template-placeholder "Contraseña" \
+  --template-error "Contraseña incorrecta. Si has renovado la cuota y sigues sin poder entrar, escríbenos a oboeyfagotsevilla@gmail.com" \
+  --template-color-primary "#e8903a" \
+  --template-color-secondary "#fff4ea"
+
+# Mover el resultado al nombre correcto:
+mv _enc_temp/area-socios.src.html area-socios.html
+rmdir _enc_temp  # En Windows: rmdir /s /q _enc_temp
+```
+
+### Cómo cambiar la contraseña
+
+Ejecuta el comando anterior con la nueva contraseña y haz push. La contraseña anterior dejará de funcionar de inmediato.
+
+### Recomendación: renovar la contraseña cada curso
+
+La cuota de la ADCS es anual (11 septiembre — 10 septiembre). Se recomienda **cambiar la contraseña al inicio de cada curso** para que solo accedan las personas socias al día de cuota:
+
+- Las socias y socios activos reciben la nueva contraseña por email al renovar.
+- Las personas cuya cuota ha vencido pierden el acceso automáticamente.
+- Guarda la contraseña en un lugar seguro (no en el repositorio).
+
+### Contenido pendiente de rellenar en `area-socios.src.html`
+
+| Marcador | Qué poner |
+|----------|-----------|
+| `VIDEO_ID_1`, `VIDEO_ID_2`, `VIDEO_ID_3` | El ID de YouTube de cada vídeo "no listado" (la parte después de `?v=` en la URL) |
+| `URL_ALBUM_DRIVE` | Enlace a la carpeta de Google Drive con las fotos |
+
+---
+
 ## 👤 Créditos
 
 Diseño y desarrollo: **A. Álvarez** (Alejandro Álvarez Asencio, vocal de la ADCS).
