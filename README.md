@@ -151,41 +151,217 @@ ADCS Web/
 
 ---
 
-## 🎨 Identidad Visual
+## 🎨 Identidad Visual y Estilo
 
-### Colores (CSS variables)
+### El sistema de colores por instrumento
+
+La web tiene **tres colores principales**, cada uno con un significado semántico claro:
+
+| Color | Variable | Hex | Uso |
+|-------|----------|-----|-----|
+| **Naranja** | `--naranja` | `#FFAB60` | Color de la marca ADCS, acciones, CTA, nav activo |
+| **Verde** | `--oboe` | `#4a9e6b` | Color del **oboe** — todo lo relacionado con el oboe |
+| **Azul/turquesa** | `--fagot` | `#3bbfcc` | Color del **fagot** — todo lo relacionado con el fagot |
+
+Cada color tiene tres tonos: base, dark (para hover y texto sobre fondo claro) y light (para fondos suaves):
+
 ```css
 :root {
-  --naranja:       #FFAB60;      /* Color principal de la marca */
-  --naranja-dark:  #e8903a;      /* Versión oscura */
-  --naranja-light: #fff4ea;      /* Versión clara */
-  
-  --oboe:          #4a9e6b;      /* VERDE — color del oboe */
-  --oboe-light:    #e8f5ee;      /* Verde claro */
-  
-  --fagot:         #3bbfcc;      /* AZUL/turquesa — color del fagot */
-  --fagot-light:   #e6f8fa;      /* Azul claro */
-  
-  --texto:         #1a1a1a;      /* Texto principal */
-  --gris:          #666;         /* Texto secundario */
-  --borde:         #e8e8e8;      /* Bordes y divisores */
+  /* Naranja — marca ADCS */
+  --naranja:       #FFAB60;
+  --naranja-dark:  #e8903a;
+  --naranja-light: #fff4ea;
+
+  /* Verde — oboe */
+  --oboe:          #4a9e6b;
+  --oboe-light:    #e8f5ee;
+  /* Oscuro: no hay variable, se usa #2d6b47 puntualmente (en .tag-oboe) */
+
+  /* Azul — fagot */
+  --fagot:         #3bbfcc;
+  --fagot-light:   #e6f8fa;
+  /* Oscuro: no hay variable, se usa #1a8a95 puntualmente (en .tag-fagot) */
+
+  /* Neutros */
+  --texto:         #1a1a1a;
+  --gris:          #666;
+  --borde:         #e8e8e8;
 }
 ```
 
+### Regla fundamental: oboe = verde, fagot = azul
+
+**Siempre** que las palabras "oboe" o "fagot" aparezcan en el texto, van con su color. Sin excepción:
+
+```html
+<!-- En texto corrido -->
+<span class="txt-oboe">oboe</span>     → verde #4a9e6b, negrita
+<span class="txt-fagot">fagot</span>   → azul  #3bbfcc, negrita
+
+<!-- En el hero (página de inicio) -->
+<span class="oboe">oboe</span>
+<span class="fagot">fagot</span>
+```
+
+Esta regla se aplica en **todas las páginas**, en el hero de inicio, en las descripciones, en los subtítulos, en los formularios, etc. Es una señal de identidad de la marca.
+
+---
+
 ### Tipografías
-- **Playfair Display** (700, 900) — Títulos y números grandes
-- **Inter** (400, 500, 600, 700) — Cuerpo de texto y UI
-- Cargadas desde Google Fonts
+
+| Fuente | Pesos | Uso |
+|--------|-------|-----|
+| **Playfair Display** | 700, 900 | Títulos de página, títulos de sección, números grandes (stats) |
+| **Inter** | 400, 500, 600, 700 | Todo lo demás: cuerpo, nav, botones, labels, breadcrumb |
+
+Cargadas desde Google Fonts en el `<head>` de cada página:
+```html
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+```
+
+Los tamaños de título usan `clamp()` para escalar en función del viewport:
+- Título de página (`page-title`): `clamp(2.2rem, 5vw, 3.5rem)`
+- Título de sección (`section-title`): `clamp(1.8rem, 3.5vw, 2.4rem)`
+- Hero de inicio: `clamp(2.6rem, 6vw, 5.2rem)`
+
+---
 
 ### Logo
-- ✅ `assets/img/logo-claro.png` — Logo con fondo blanco (para nav)
-- ✅ `assets/img/logo-oscuro.png` — Logo con fondo negro (para footer)
-- Ambos están **siendo usados** en todas las páginas (tag `<img src="assets/img/logo-*.png">`)
 
-### Convenciones de texto
-- Palabra **"oboe"** → siempre con clase `.txt-oboe` (verde `#4a9e6b`)
-- Palabra **"fagot"** → siempre con clase `.txt-fagot` (azul `#3bbfcc`)
-- **NO usar emojis decorativos** en tarjetas de contenido (solo permitidos en nav/footer)
+| Archivo | Versión | Dónde se usa |
+|---------|---------|-------------|
+| `assets/img/logo-claro.png` | Fondo blanco | Nav superior (sticky) |
+| `assets/img/logo-oscuro.png` | Fondo negro | Footer |
+
+```html
+<!-- Nav -->
+<img src="assets/img/logo-claro.png" class="logo-img" alt="Asociación de Doble Caña de Sevilla"/>
+<!-- Footer -->
+<img src="assets/img/logo-oscuro.png" class="logo-img-footer" alt="..."/>
+```
+
+Tamaños: `logo-img` → 56px alto; `logo-img-footer` → 64px alto; mobile: 48px.
+
+---
+
+### Componentes de estructura (presentes en todas las páginas)
+
+#### 1. Nav superior sticky
+```
+[Logo ADCS] [Inicio] [Quiénes somos] [Hazte socio/a] [V Concurso] [VII Encuentro]
+            [Asociaciones] [Patrocinadores] [Recursos] [🔑 Área de socios]
+```
+- Fondo blanco, borde inferior `--borde`
+- Links en gris, `hover` y `.active` en naranja
+- `.active` tiene una barra naranja de 2px debajo
+- Mobile: hamburguesa `☰` que muestra/oculta el menú
+
+#### 2. Breadcrumb (todas las páginas menos `index.html`)
+```
+Inicio › Nombre de la página actual
+```
+- Fondo `#fafafa`, borde inferior
+- Separador `›` en gris claro (`#bbb`)
+- Página actual en negrita
+
+#### 3. Page header (cabecera de página)
+```
+┌─────────────────────────────────────────────┐
+│   [badge de sección]                        │
+│   TÍTULO GRANDE CON PLAYFAIR                │
+│   Subtítulo descriptivo con oboe y fagot    │
+└─────────────────────────────────────────────┘
+```
+- Círculo decorativo naranja claro (arriba-derecha)
+- Círculo decorativo azul o verde claro (abajo-izquierda, varía por página)
+- En `quienes-somos.html` el segundo círculo es verde (`--oboe-light`)
+- En el resto es azul (`--fagot-light`)
+
+#### 4. Section tags (badges de sección)
+
+Son pills de texto pequeño en mayúsculas que encabezan cada sección. Hay tres variantes:
+
+```html
+<div class="section-tag tag-naranja">Texto</div>  <!-- fondo naranja claro -->
+<div class="section-tag tag-oboe">Texto</div>     <!-- fondo verde claro -->
+<div class="section-tag tag-fagot">Texto</div>    <!-- fondo azul claro -->
+```
+
+**Criterio de uso observado:**
+- `tag-naranja` → secciones de información general, CTA, datos bancarios
+- `tag-oboe` (verde) → secciones relacionadas con oboe o "nuestro propósito"
+- `tag-fagot` (azul) → secciones de proceso, historia, archivo, directorio
+- En la práctica se alternan para dar variedad visual, no siguen una regla estricta de instrumento
+
+#### 5. Botones
+
+Hay cuatro variantes de botón:
+
+| Clase | Aspecto | Uso |
+|-------|---------|-----|
+| `.btn-primary` | Naranja sólido | CTA principal en la home |
+| `.btn-outline` | Borde gris, texto oscuro | Acción secundaria en la home |
+| `.btn-cta` | Naranja sólido, grande | CTA al final de secciones |
+| `.btn-cta-white` | Blanco sobre fondo naranja | CTA dentro del banner "Hazte socio/a" |
+
+Todos tienen `border-radius: 999px` (cápsulas), sin esquinas cuadradas. Hover levanta 2px con `translateY(-2px)`.
+
+#### 6. Banner "Hazte socio/a" (bloque CTA)
+
+Aparece al final de casi todas las páginas (excepto en `hazte-socio.html`). Fondo naranja oscuro, texto blanco, botón blanco.
+
+#### 7. Footer
+```
+┌─────────────────────┬──────────────┬──────────────┐
+│ Logo + descripción  │ Navegación   │ Más enlaces  │
+│ Redes sociales      │              │              │
+├─────────────────────┴──────────────┴──────────────┤
+│ © 2026 ADCS Sevilla   Legal   Diseño: A. Álvarez  │
+└────────────────────────────────────────────────────┘
+```
+- Fondo `#1a1a1a` (negro)
+- Texto en blanco con opacidad reducida
+- Links hover en naranja
+- Iconos de redes sociales en círculos translúcidos
+
+---
+
+### Decoración visual: círculos de fondo
+
+Un motivo que se repite en la web son **círculos decorativos difusos** colocados en las esquinas de los headers. Se crean con `::before` y `::after` en CSS, sin HTML extra.
+
+- En el **hero** (inicio): círculo naranja (arriba-derecha, 420px) + círculo azul (abajo-izquierda, 300px)
+- En el **page header** (resto de páginas): círculo naranja pequeño (arriba-derecha, 280px) + círculo de color variable (abajo-izquierda, 200px)
+- Están fuera del viewport visual — solo se ve el borde suave del degradado
+
+---
+
+### Placeholders de imagen
+
+Cuando falta una foto real, se usa un `div` con clase `.img-placeholder`. Tiene un degradado diagonal naranja→azul claro y borde punteado. Internamente puede tener:
+```html
+<div class="img-placeholder">
+  <span class="ph-icon">📷</span>          <!-- emoji funcional (no decorativo) -->
+  <div class="ph-label">Nombre de foto</div>
+  <div class="ph-hint">Tamaño sugerido</div>
+</div>
+```
+
+---
+
+### Reglas de estilo a respetar
+
+1. **Sin emojis decorativos** en tarjetas de contenido — solo en el nav/footer y en placeholders de foto (donde son funcionales, no decorativos). Esto incluye no poner emojis en `section-tag`, en listas, ni en titulares.
+
+2. **Oboe = verde, fagot = azul.** Siempre, en todas las páginas, en cualquier contexto donde aparezcan esas palabras.
+
+3. **Todos los botones son cápsulas** (`border-radius: 999px`). No usar botones cuadrados ni redondeados a medias.
+
+4. **Playfair Display solo para títulos.** El cuerpo, los badges, los botones y el nav van siempre en Inter.
+
+5. **Max-width de contenido: 1100px** (`.container`), centrado con `margin: 0 auto`. Las secciones tienen `padding: 4rem 2rem`.
+
+6. **Los colores de instrumentos no son aleatorios.** Si añades una nueva sección sobre oboe, usa `tag-oboe`. Si es sobre fagot, `tag-fagot`. Si es sobre la asociación en general, `tag-naranja`.
 
 ---
 
