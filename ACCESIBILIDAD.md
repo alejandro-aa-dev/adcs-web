@@ -11,6 +11,37 @@
 
 ---
 
+## Segunda Evaluación WAVE (tras arreglar encabezados)
+**Puntuación:** 5.5/10
+**Estructura:** ✅ Resuelta (WAVE detecta 1×h1, 2×h2, main, nav, footer)
+
+### Desglose:
+| Categoría | Cantidad |
+|-----------|----------|
+| Errors | 0 |
+| Contrast Errors | 13 |
+| Alerts | 2 |
+| Structure | 8 |
+
+### Decisión de diseño importante
+Los **13 errores de contraste** provienen de los colores de marca de la ADCS
+(naranja `#FFAB60`, azul `#3bbfcc`, verde `#4a9e6b`) usados como texto sobre
+fondo blanco. Estos colores son **parte de la identidad visual de la ADCS y NO
+se modifican**. Es un compromiso conocido: se prioriza la identidad de marca
+sobre la puntuación máxima de contraste WCAG.
+
+Por tanto, solo se corrigen los problemas de contraste y accesibilidad que **NO
+afectan a los colores de marca**.
+
+### Ratios de contraste de los colores de marca (sobre blanco)
+| Color | Uso | Ratio | WCAG AA (4.5:1) |
+|-------|-----|-------|-----------------|
+| Naranja `#FFAB60` | "Doble Caña", estadísticas, botones | 1.87:1 | ❌ (se mantiene) |
+| Azul `#3bbfcc` | "Sevilla", "fagot" | 2.21:1 | ❌ (se mantiene) |
+| Verde `#4a9e6b` | "oboe" | 3.28:1 | ❌ (se mantiene) |
+
+---
+
 ## Cambios Realizados
 
 ### Commit 1: Mejorar estructura de encabezados HTML (7fe8eeb)
@@ -125,4 +156,58 @@ Agregado en `index.html` y `cv-*.html` para envoltura semántica correcta del co
 | Saltos de nivel | Sí (h1→h5) | No |
 | Tags `<main>` | Faltaba | Agregado |
 | CSS actualizado | — | Sí (.footer-col) |
+
+---
+
+## Tercera Ronda: Correcciones SIN tocar colores de marca
+
+Tras decidir mantener los colores de marca intactos, se corrigen los problemas
+de accesibilidad restantes que NO dependen de dichos colores:
+
+### 1. Contraste del texto atenuado del footer
+- **Antes:** `.footer-bottom` usaba `rgba(255,255,255,0.4)` → 3.83:1 ❌
+- **Después:** `rgba(255,255,255,0.6)` → ~6.95:1 ✅
+- Afecta a: copyright "© 2026…" y créditos "Diseño y desarrollo:"
+- Es texto blanco (no color de marca), así que su opacidad sí se ajusta.
+
+### 2. Contraste del separador del breadcrumb
+- **Antes:** `.breadcrumb .sep` (el "›") en `#bbb` → ~1.8:1 ❌
+- **Después:** `#6f6f6f` → ~4.8:1 ✅
+- Mejora el contraste en todas las páginas interiores (no es color de marca).
+
+### 3. Alert "imagen con alt duplicado"
+- El logo de la nav ya tiene `aria-label="Inicio ADCS"` en el enlace.
+- Su `alt` (idéntico al del logo del footer) se vacía: `alt=""`.
+- Patrón correcto: imagen decorativa dentro de un enlace ya etiquetado.
+- Elimina la duplicación de texto alternativo.
+
+### 4. Botón de menú hamburguesa sin etiqueta
+- **Antes:** `<button class="menu-toggle">☰</button>` (sin nombre accesible útil)
+- **Después:** `<button class="menu-toggle" aria-label="Abrir menú de navegación">`
+- Aplicado en las 11 páginas con nav estándar.
+
+### Alert que se mantiene (patrón estándar e inofensivo)
+- **Enlace redundante:** el logo ("Inicio ADCS") y el enlace "Inicio" de la nav
+  apuntan ambos a `index.html`. Es el patrón habitual de cualquier cabecera web
+  (logo clicable + enlace de inicio). WAVE lo marca como *alert* (no *error*) y
+  apenas afecta a la puntuación. Resolverlo perjudicaría la usabilidad.
+
+---
+
+## Resultado Esperado (3ª ronda)
+
+| Categoría | 2ª eval. | Esperado 3ª eval. |
+|-----------|----------|-------------------|
+| Errors | 0 | 0 |
+| Contrast Errors | 13 | ~11 (footer resuelto; resto = marca, intencional) |
+| Alerts | 2 | ~1 (alt duplicado resuelto; redundante se mantiene) |
+| AIM Score | 5.5 | ~6.5 |
+
+> **Nota:** La puntuación queda limitada por la decisión consciente de conservar
+> los colores de marca de la ADCS. Los errores de contraste restantes son
+> intencionales y forman parte de la identidad visual de la asociación.
+
+### Archivos modificados (3ª ronda)
+- `assets/css/styles.css` — opacidad footer + color separador breadcrumb
+- 11 archivos HTML — `alt=""` en logo nav + `aria-label` en botón menú
 
