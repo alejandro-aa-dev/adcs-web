@@ -15,7 +15,7 @@ Sitio web estático de la **Asociación de Doble Caña de Sevilla (ADCS)**, enti
 | **CSS compartido** | ✅ Refactorizado | `assets/css/styles.css` (7.5 KB) |
 | **Logo (real)** | ✅ Subido | `logo-claro.png` y `logo-oscuro.png` (62-65 KB) |
 | **Fotos de junta** | ⏳ Parcial | Solo Irene Pérez Cantillón en `assets/img/junta/irene.jpg` |
-| **Área de socios** | ✅ Funcional | Protegida con contraseña (StatiCrypt), pendiente de vídeos |
+| **Área de socios** | 🔄 Reestructurada (Fase 1) | Multi-página en `/socios/`, contenido de ejemplo. Pendiente: Cloudflare Access (Fase 2) y contenido real |
 | **GitHub Pages** | ❌ Pendiente | Repositorio en origin/main, pero DNS no apunta aún |
 | **Validación móvil** | ⚠️ No verificado | CSS responsivo, pero sin testing en dispositivos reales |
 
@@ -28,7 +28,6 @@ ADCS Web/
 ├── CONTEXT.md                          ← Briefing original del proyecto
 ├── README.md                           ← Este archivo (análisis completo)
 ├── .gitignore                          ← Archivos a ignorar en Git
-├── .staticrypt.json                    ← Configuración para cifrado StatiCrypt
 │
 ├── 📄 PÁGINAS PÚBLICAS:
 │   ├── index.html                      ✅ Página de inicio (121 líneas)
@@ -41,13 +40,18 @@ ADCS Web/
 │   ├── recursos.html                   ✅ Recursos educativos (244 líneas) — Sin placeholders
 │   └── cv-irene-perez-cantillon.html   ✅ CV especial (137 líneas) — Sin placeholders
 │
-├── 🔐 ÁREA DE SOCIOS (protegida con contraseña):
-│   ├── area-socios.src.html            ⏳ Fuente editable (243 líneas) — 5 placeholders (3 vídeos + 1 Drive)
-│   └── area-socios.html                ✅ Versión cifrada publicada (892 líneas)
+├── 🔑 ÁREA DE SOCIOS (`/socios/`) — Fase 1: estructura + contenido de ejemplo,
+│   │                                  sin protección de acceso todavía (ver Fase 2 más abajo):
+│   ├── index.html                      ✅ Bienvenida, accesos rápidos, novedades
+│   ├── actividades.html                ✅ Concursos, encuentros, masterclasses, talleres, clases, conciertos
+│   ├── archivo.html                    ✅ Archivo histórico por periodos (2010–2015 … 2026–…)
+│   ├── documentacion.html              ✅ Actas, cuentas, memorias, estatutos (enlaces a Drive)
+│   ├── partituras.html                 ✅ Partituras con clasificación legal + nota de criterio
+│   └── participa.html                  ✅ Propuestas, sugerencias, contacto con la Junta
 │
 └── 📦 ASSETS:
     ├── css/
-    │   └── styles.css                  ✅ Estilos compartidos (7.5 KB, 260+ líneas)
+    │   └── styles.css                  ✅ Estilos compartidos (incluye componentes del área de socios)
     │
     └── img/
         ├── logo-claro.png              ✅ Logo (62 KB) — fondo blanco
@@ -57,7 +61,7 @@ ADCS Web/
             └── irene.jpg               ✅ Foto de Irene (147 KB)
 ```
 
-**Total:** 10 páginas públicas + 1 área de socios = **11 páginas**. ~3,211 líneas de HTML (sin contar area-socios.html cifrado).
+**Total:** 10 páginas públicas + 6 páginas del área de socios = **16 páginas**.
 
 ---
 
@@ -130,24 +134,20 @@ ADCS Web/
 - **Nav activo:** Sí
 - **Uso:** Página auxiliar, probablemente sin enlace público en nav principal
 
-### 10. `area-socios.src.html` — Área de socios (FUENTE EDITABLE)
-- **Estado:** ⏳ Incompleta
-- **Contenido:** Vídeos de concursos, fotos de eventos
-- **Placeholders pendientes:** **5 total**
-  - 3 × `VIDEO_ID_1`, `VIDEO_ID_2`, `VIDEO_ID_3` — IDs de YouTube (vídeos ocultos del IV Concurso y III Concurso)
-  - 1 × `URL_ALBUM_DRIVE` — Enlace a carpeta de Google Drive con fotos de eventos
-- **Líneas de código:** 243 (sin cifrar)
-- **Contraseña actual:** `ADCS202526` (última actualización: commit ad631b3)
-- **Notas:** 
-  - NUNCA editar directamente `area-socios.html` (está cifrada)
-  - Los cambios SIEMPRE en `area-socios.src.html` y luego regenerar con StatiCrypt
-  - Comando para regenerar: ver sección "🔐 Área de socios" abajo
-
-### 11. `area-socios.html` — Área de socios (VERSIÓN CIFRADA PUBLICADA)
-- **Estado:** ✅ Publicada
-- **Contenido:** Versión AES-256 cifrada de `area-socios.src.html`
-- **Líneas de código:** 892 (cifrado — no es legible)
-- **Cómo se regenera:** Desde `area-socios.src.html` con `npx staticrypt`
+### 10–15. `socios/*.html` — Área de socios (Fase 1: estructura + contenido de ejemplo)
+- **Estado:** 🔄 Reestructurada — sin protección de acceso técnica todavía
+- **Páginas:**
+  - `socios/index.html` — bienvenida, accesos rápidos a las 5 secciones, novedades de ejemplo
+  - `socios/actividades.html` — concursos, encuentros, masterclasses, talleres, clases y conciertos, agrupados por categoría con anclas internas. Eventos "importantes" (concursos, encuentros, conciertos) llevan ficha completa (`.evento-card`); actividades menores (masterclasses, talleres, clases) usan un bloque ligero (`.actividad-ligera`)
+  - `socios/archivo.html` — archivo histórico agrupado por periodos (2010–2015, 2016–2020, 2021–2025, 2026–…)
+  - `socios/documentacion.html` — actas, cuentas, memorias y estatutos, con enlaces a Google Drive (los PDFs no se suben al repo — ver nota de seguridad más abajo)
+  - `socios/partituras.html` — partituras con etiqueta de clasificación legal (dominio público / material propio / autorización expresa) y nota sobre el criterio de publicación
+  - `socios/participa.html` — enlaces a Google Forms (placeholder) para proponer actividades, sugerir repertorio o contactar con la Junta
+- **Todo el contenido real (eventos, vídeos, documentos) está marcado como "contenido de ejemplo"** — pendiente de sustituir por el material real de la ADCS
+- **Notas:**
+  - No usa StatiCrypt ni ningún otro cifrado — ese sistema se retiró (ver sección "Autenticación" abajo)
+  - Los documentos privados (actas, cuentas, memorias) **no deben subirse como archivos a este repo**, porque es público en GitHub. Deben alojarse en Google Drive con permisos restringidos y enlazarse desde `documentacion.html`
+  - Rutas relativas: al vivir en `/socios/`, cada página usa `../` para enlazar a `assets/` y a las páginas públicas
 
 ---
 
@@ -387,67 +387,49 @@ Ubicación esperada: `assets/img/junta/[nombre].jpg`
 | `v-concurso-2026.html` | Foto concurso | Línea 150 | Foto o cartel del concurso |
 | `resources.html` | (no especificado) | — | Ninguno aparente |
 
-### Vídeos de YouTube (Área de socios)
-| ID | Ubicación | Descripción | Estado |
-|----|-----------|-------------|--------|
-| `VIDEO_ID_1` | `area-socios.src.html:115` | IV Concurso — Final de fagot | ❌ Falta |
-| `VIDEO_ID_2` | `area-socios.src.html:135` | IV Concurso — Final de oboe | ❌ Falta |
-| `VIDEO_ID_3` | `area-socios.src.html:155` | III Concurso — Gala final | ❌ Falta |
-
-### Google Drive (Área de socios)
-| Contenido | Ubicación | Descripción | Estado |
-|-----------|-----------|-------------|--------|
-| `URL_ALBUM_DRIVE` | `area-socios.src.html:182` | Enlace a carpeta con fotos de eventos | ❌ Falta |
+### Contenido del área de socios (`/socios/`)
+Todas las páginas de `/socios/` contienen actualmente **contenido de ejemplo** (eventos, vídeos, documentos y partituras ficticios, marcados con avisos "🚧 Contenido de ejemplo"). Antes de publicar hace falta sustituir:
+- Vídeos reales de YouTube (no listados) por evento, en `socios/actividades.html`
+- Enlaces reales a los álbumes de Google Drive, en `socios/actividades.html` y `socios/archivo.html`
+- Documentos reales (actas, cuentas, memorias, estatutos) alojados en Drive con permisos restringidos, enlazados desde `socios/documentacion.html`
+- Partituras reales clasificadas legalmente, en `socios/partituras.html`
+- URLs de los Google Forms reales, en `socios/participa.html`
 
 ---
 
-## 🔑 Área de Socios (Protección con contraseña)
+## 🔑 Área de Socios — Autenticación
 
-La página `area-socios.html` está cifrada con **StatiCrypt** — cifrado AES-256 en el navegador, sin necesidad de servidor.
+### Historial: por qué ya no se usa StatiCrypt
 
-### Archivos implicados
+Hasta el rediseño de esta sección, `area-socios.html` estaba cifrada con **StatiCrypt** (AES-256 en el navegador, contraseña única compartida por curso). Se ha retirado por dos motivos:
 
-| Archivo | Rol | Editable | Despliegue |
-|---------|-----|----------|-----------|
-| `area-socios.src.html` | Fuente editable | ✅ Sí | ❌ No |
-| `area-socios.html` | Versión publicada | ❌ No | ✅ Sí |
+1. **No hay forma de revocar el acceso a un socio individual.** Con una contraseña compartida, un socio que no renueva la cuota puede seguir entrando (o puede pasarle la contraseña nueva a otra persona), y la única forma de cortar el acceso es cambiar la contraseña para todo el mundo.
+2. **La nueva estructura tiene 6 páginas**, no una sola — proteger cada una por separado con StatiCrypt sería inviable de mantener.
 
-### Flujo de trabajo
+### Estado actual (Fase 1): sin protección técnica todavía
 
-1. **Editar contenido** en `area-socios.src.html`
-2. **Ejecutar comando** para regenerar `area-socios.html` (ver abajo)
-3. **Hacer commit** de **AMBOS archivos**
-4. **Push** a GitHub
+Las páginas de `/socios/` **no están protegidas por contraseña ni por ningún otro mecanismo ahora mismo** — son HTML público como cualquier otra página del sitio, con contenido de ejemplo. No subir contenido real (vídeos, documentos, datos de socios) a estas páginas hasta que la Fase 2 esté implementada.
 
-### Regenerar la página cifrada
+### Fase 2 (pendiente): Cloudflare Access
 
-```bash
-npx staticrypt area-socios.src.html \
-  --password "ADCS202526" \
-  -d _enc_temp \
-  --short \
-  --template-title "Área de socios · ADCS Sevilla" \
-  --template-instructions "Introduce la contraseña de socias y socios de la ADCS" \
-  --template-button "Entrar" \
-  --template-placeholder "Contraseña" \
-  --template-error "Contraseña incorrecta. Si has renovado la cuota y sigues sin poder entrar, escríbenos a oboeyfagotsevilla@gmail.com" \
-  --template-color-primary "#e8903a" \
-  --template-color-secondary "#fff4ea"
+El plan es proteger `/socios/*` con **Cloudflare Access**, autenticación individual por email + código de un solo uso (OTP), sin backend propio:
 
-# En Windows:
-move _enc_temp\area-socios.src.html area-socios.html
-rmdir /s /q _enc_temp
+1. **Prerrequisito de infraestructura** (fuera del alcance de este repo): migrar los nameservers de `adcsevilla.es` a Cloudflare (gratis, hasta 50 usuarios en Access), manteniendo **Hostalia** como origen del contenido — solo cambia quién resuelve el DNS y filtra el tráfico.
+2. Configurar una política de Cloudflare Access sobre el path `/socios/*`, con login por email + OTP.
+3. Gestión de altas/bajas: empezar **manual** (la Junta añade/retira emails en el dashboard de Cloudflare o en una hoja de cálculo) y, una vez validado el flujo, automatizar con Google Sheets + Apps Script + la API de Cloudflare.
 
-# En Mac/Linux:
-mv _enc_temp/area-socios.src.html area-socios.html
-rmdir _enc_temp
-```
+**Importante — separar acceso al sitio y almacenamiento de contenido:** Cloudflare Access protege el dominio servido, no el repositorio de GitHub (que es público). Los documentos privados (actas, cuentas, memorias) deben alojarse en Google Drive con permisos restringidos, nunca subirse como archivo a este repo.
 
-### Cambiar contraseña
+**Recomendación una vez activo Cloudflare Access:** revisar la lista de accesos al inicio de cada curso académico (11 de septiembre), cuando se renuevan las cuotas.
 
-Ejecuta el comando anterior con la nueva contraseña. **La contraseña anterior dejará de funcionar inmediatamente.**
+### Cómo añadir una actividad nueva a `socios/actividades.html`
 
-**Recomendación:** Cambiar la contraseña al inicio de cada curso académico (11 de septiembre), cuando se renuevan las cuotas.
+No hace falta tocar el CSS. Copia el bloque HTML del tipo de actividad que corresponda dentro de la sección (`<div class="actividad-group" id="...">`) que ya existe:
+
+- **Evento importante** (concurso, encuentro, concierto): copia un bloque `<div class="evento-card">...</div>` completo, cambia el título, la fecha/lugar (`.evento-meta`), la descripción, y dentro de `.evento-videos` añade un `.evento-video` por cada vídeo (con su ficha de obra/intérprete). Si hay álbum de fotos, añade o edita el `<a class="btn-drive">`.
+- **Actividad menor** (clase, taller pequeño, fragmento de masterclass): copia un bloque `<div class="actividad-ligera">...</div>`, cambia el título y la descripción, y añade un `<a>` dentro de `.video-links` por cada vídeo.
+
+El mismo patrón (`.evento-card` / `.actividad-ligera`) se reutiliza en `socios/archivo.html` para organizar por periodo en vez de por categoría.
 
 ---
 
@@ -463,7 +445,7 @@ VII Encuentro          → vii-encuentro-15.html
 Asociaciones           → asociaciones.html
 Patrocinadores         → patrocinadores.html
 Recursos               → recursos.html
-🔑 Área de socios      → area-socios.html (protegida)
+🔑 Área de socios      → socios/index.html (sin protección técnica aún, ver sección de Autenticación)
 ```
 
 ### Estado del nav activo
@@ -476,8 +458,8 @@ Recursos               → recursos.html
 - `asociaciones.html` → "Asociaciones"
 - `patrocinadores.html` → "Patrocinadores"
 - `recursos.html` → "Recursos"
-- `area-socios.src.html` → "Área de socios"
-- `cv-irene-perez-cantillon.html` → "Área de socios" (página auxiliar)
+- `socios/*.html` → "🔑 Área de socios" activo en el nav principal; el subnav interno de `/socios/` marca la página actual
+- `cv-alejandro-alvarez-asencio.html` / `cv-irene-perez-cantillon.html` → sin enlace activo (páginas auxiliares)
 
 ---
 
@@ -486,23 +468,19 @@ Recursos               → recursos.html
 | Métrica | Valor |
 |---------|-------|
 | **Páginas públicas** | 10 |
-| **Área de socios** | 1 (protegida) |
-| **Total de páginas** | 11 |
-| **Líneas HTML (sin cifrar)** | ~3,211 |
-| **Líneas CSS** | 260+ (compartidas) |
+| **Área de socios** | 6 páginas en `/socios/` (sin protección técnica aún — Fase 1) |
+| **Total de páginas** | 16 |
 | **Tamaño logo-claro.png** | 62 KB |
 | **Tamaño logo-oscuro.png** | 65 KB |
 | **Fotos de junta** | 1/6 (17%) |
-| **Vídeos del área de socios** | 0/3 (0%) |
-| **Placeholders pendientes** | 5 |
-| **Commits** | 13 |
+| **Placeholders pendientes (páginas públicas)** | 3 |
 | **Rama principal** | main (en origin) |
 
 ---
 
 ## 🛠️ Desarrollo Local
 
-El proyecto es **HTML estático puro** — sin build step ni dependencias (salvo StatiCrypt para regenerar el área de socios).
+El proyecto es **HTML estático puro** — sin build step ni dependencias. (StatiCrypt ya no se usa; ver sección de Autenticación.)
 
 ### Opción 1: Abrir directamente en navegador
 ```
@@ -522,97 +500,74 @@ python -m http.server 8000
 
 ---
 
-## 🚀 Despliegue y GitHub Pages
+## 🚀 Despliegue
+
+**Importante:** GitHub **no es el hosting definitivo**. Este repositorio (público en `github.com/alejandro-aa-dev/adcs-web`) sirve como repositorio de desarrollo, control de versiones y entorno de trabajo con Claude Code. El hosting definitivo del dominio `adcsevilla.es` es **Hostalia**.
 
 ### Estado actual
-- ✅ Repositorio Git inicializado localmente
-- ✅ Rama `main` creada
-- ✅ Código subido a `origin/main` (GitHub)
-- ❌ **Dominio `adcsevilla.es` aún NO apunta a GitHub Pages**
+- ✅ Repositorio Git inicializado, código en `origin/main` (GitHub) — solo para desarrollo
+- ❌ Publicación del contenido en Hostalia bajo `adcsevilla.es` aún pendiente
+- ❌ Dominio `adcsevilla.es` aún no apunta al hosting definitivo
 
-### Próximos pasos para activar GitHub Pages
+### Publicar en Hostalia
+Subir el contenido del repo (excepto archivos de desarrollo como `.git/`, `CONTEXT.md`, `README.md`) al hosting contratado en Hostalia, por FTP/SFTP o el panel de control que ofrezca. Al ser HTML/CSS estático puro, no requiere build ni proceso de despliegue especial.
 
-1. En GitHub, ir a **Settings → Pages**
-2. En "Source", seleccionar **Deploy from a branch**
-3. Rama: `main`, carpeta: `/ (root)`
-4. Guardar — En ~1 minuto estará en `https://[usuario].github.io/adcs-web/`
-
-### Configurar dominio personalizado (`adcsevilla.es`)
-
-En GitHub Pages (Settings → Pages):
-- Custom domain: `adcsevilla.es`
-
-En el proveedor de dominio (Namecheap, Godaddy, etc.):
-- Crear registros DNS tipo **A** apuntando a:
-  ```
-  185.199.108.153
-  185.199.109.153
-  185.199.110.153
-  185.199.111.153
-  ```
-- Esperar propagación DNS (15 min — 48 horas)
+### Prerrequisito de la Fase 2 del área de socios (Cloudflare)
+Para poder proteger `/socios/*` con Cloudflare Access, el DNS de `adcsevilla.es` deberá gestionarse desde Cloudflare (cambio de nameservers en el proveedor de dominio), manteniendo Hostalia como origen del contenido. Esto es una decisión de infraestructura de la Junta, independiente de este repositorio — ver la sección "🔑 Área de Socios — Autenticación" más arriba.
 
 ---
 
 ## 📋 Tareas Pendientes (en orden de prioridad)
 
-### 🔴 Crítico (bloquea publicación)
-1. **Rellenar placeholders de vídeos** — `area-socios.src.html` (VIDEO_ID_1, VIDEO_ID_2, VIDEO_ID_3)
-   - Ubicación: Líneas 115, 135, 155
-   - Acción: Reemplazar `VIDEO_ID_X` con el ID real de YouTube
-
-2. **URL de Google Drive** — `area-socios.src.html`
-   - Ubicación: Línea 182 (URL_ALBUM_DRIVE)
-   - Acción: Reemplazar con enlace a carpeta compartida
-
-3. **Configurar dominio en GitHub Pages**
-   - Acción: Apuntar DNS de `adcsevilla.es` a GitHub Pages
+### 🔴 Crítico (bloquea publicación real del área de socios)
+1. **Decidir y ejecutar la migración de DNS a Cloudflare** — decisión de la Junta, fuera del alcance del repo
+2. **Configurar Cloudflare Access** sobre `/socios/*` (email + OTP)
+3. **Sustituir el contenido de ejemplo** de `/socios/` por contenido real: eventos, vídeos de YouTube no listados, enlaces de Google Drive, documentos, partituras y URLs de los Google Forms
+4. **Configurar dominio `adcsevilla.es`** apuntando al hosting definitivo (Hostalia)
 
 ### 🟡 Importante (mejora visual)
-4. **Subir 5 fotos de junta directiva** faltantes
+5. **Subir 5 fotos de junta directiva** faltantes
    - Ubicación esperada: `assets/img/junta/[nombre].jpg`
    - Faltan: Johanna, Jesús Manuel, Jacobo, Nuria, Alejandro
 
-5. **Subir imágenes para placeholders**
+6. **Subir imágenes para placeholders**
    - `quienes-somos.html` — Foto histórica
    - `hazte-socio.html` — Foto de grupo/evento
    - `v-concurso-2026.html` — Foto/cartel concurso
 
 ### 🟢 Opcional (pulido)
-6. **Verificar responsive en móviles** — Testing en dispositivos reales (iPhone, Android)
-7. **Crear página "Actividades"** — Desglose de ciclos, concursos, encuentros
-8. **Optimizar imágenes** — Comprimir PNGs del logo y fotos JPG
+7. **Verificar responsive en móviles** — Testing en dispositivos reales (iPhone, Android)
+8. **Automatizar altas/bajas de socios** — Google Sheets + Apps Script + API de Cloudflare (una vez validado el flujo manual)
+9. **Optimizar imágenes** — Comprimir PNGs del logo y fotos JPG
 
 ---
 
 ## 🎯 Resumen Rápido
 
-**Estado:** 85% del proyecto completado.
-
 ✅ **Hecho:**
-- Estructura HTML de 11 páginas
-- CSS refactorizado y compartido
+- Estructura HTML de 10 páginas públicas + 6 páginas del área de socios (16 en total)
+- CSS refactorizado y compartido, incluyendo los componentes reutilizables del área de socios
 - Logo real (claro y oscuro)
 - Navegación funcional
-- Área de socios con cifrado
+- Área de socios reestructurada en `/socios/` (Fase 1: estructura + contenido de ejemplo)
 - Enlace a Google Forms
 - IBAN y datos bancarios
 - Información de cuota
 - Links a webs amigas
 
-⏳ **Pendiente (multimedia):**
+⏳ **Pendiente:**
 - 5 fotos de junta (de 6)
-- 3 vídeos de YouTube
-- 1 enlace a Google Drive
-- 3 imágenes para placeholders
-- Publicación en dominio `adcsevilla.es`
+- 3 imágenes para placeholders de páginas públicas
+- Migración de DNS a Cloudflare + configuración de Cloudflare Access (Fase 2 del área de socios)
+- Contenido real de `/socios/` (vídeos, documentos, partituras, formularios)
+- Publicación en el dominio `adcsevilla.es` (Hostalia)
 
-**Próximo paso recomendado:** Rellenar los datos pendientes de `area-socios.src.html` y regenerar la página cifrada. Luego, configurar el dominio en GitHub Pages.
+**Próximo paso recomendado:** decidir con la Junta la migración de DNS a Cloudflare para poder activar Cloudflare Access sobre `/socios/*`. Mientras tanto, no subir contenido real ni datos de socios a esa carpeta.
 
 ---
 
 ## 👤 Créditos
 
 - **Diseño y desarrollo:** Alejandro Álvarez Asencio (vocal de la ADCS)
-- **Última actualización:** 2026-06-26
-- **Herramientas:** HTML5, CSS3, StatiCrypt, Git, GitHub Pages
+- **Última actualización:** 2026-08-18
+- **Herramientas:** HTML5, CSS3, Git, GitHub (repo de desarrollo), Hostalia (hosting definitivo). Área de socios: Cloudflare Access (planeado, Fase 2)

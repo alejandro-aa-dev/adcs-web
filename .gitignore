@@ -27,4 +27,7 @@ build/
 ~*
 
 # Archivos temporales de sistemas FUSE (Linux)
-.fuse_hidden*.claude/
+.fuse_hidden*
+
+# Configuración local de Claude Code
+.claude/

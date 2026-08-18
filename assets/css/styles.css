@@ -116,6 +116,99 @@ footer{background:#1a1a1a;color:#fff;padding:3rem 2rem 1.5rem;margin-top:auto}
 .footer-bottom .legal a:hover{color:var(--naranja)}
 .footer-bottom .credits span{color:var(--naranja);font-weight:600}
 
+/* ================================================
+   ÁREA DE SOCIOS — componentes compartidos
+   Usados en socios/index.html, actividades.html,
+   archivo.html, documentacion.html, partituras.html,
+   participa.html
+   ================================================ */
+
+/* ---- SUBNAV DE SECCIONES ---- */
+.socios-nav{background:#fafafa;border-bottom:1px solid var(--borde);padding:1rem 2rem}
+.socios-nav-inner{max-width:1100px;margin:0 auto;display:flex;gap:0.6rem;flex-wrap:wrap}
+.socios-nav a{font-size:0.8rem;font-weight:600;color:var(--gris);padding:0.55rem 1.2rem;border-radius:999px;border:1.5px solid var(--borde);transition:all .2s;white-space:nowrap}
+.socios-nav a:hover{border-color:var(--fagot);color:#1a8a95}
+.socios-nav a.active{background:var(--fagot);border-color:var(--fagot);color:#fff}
+
+/* ---- AVISO DE CONTENIDO DE EJEMPLO ---- */
+.aviso-ejemplo{background:linear-gradient(90deg,var(--fagot-light),var(--naranja-light));border:1.5px solid var(--borde);border-radius:1rem;padding:1rem 1.5rem;display:flex;align-items:center;gap:0.75rem;font-size:0.85rem;color:var(--texto);margin-top:1.5rem;line-height:1.6}
+.aviso-ejemplo strong{color:var(--naranja-dark)}
+
+/* ---- ACCESOS RÁPIDOS (portada del área de socios) ---- */
+.accesos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;margin-top:2.5rem}
+.acceso-card{background:#fff;border:1.5px solid var(--borde);border-radius:1.2rem;padding:2rem 1.75rem;transition:border-color .2s,transform .2s;display:block}
+.acceso-card:hover{border-color:var(--fagot);transform:translateY(-3px)}
+.acceso-icon{font-size:2rem;margin-bottom:0.85rem;opacity:0.85}
+.acceso-card h3{font-family:'Playfair Display',serif;font-size:1.1rem;margin-bottom:0.4rem;color:var(--texto)}
+.acceso-card p{color:var(--gris);font-size:0.87rem;line-height:1.6}
+
+/* ---- NOVEDADES (portada) ---- */
+.novedades-list{display:flex;flex-direction:column;gap:0.9rem;margin-top:2rem}
+.novedad-item{display:flex;gap:1rem;align-items:baseline;background:#fff;border:1.5px solid var(--borde);border-radius:1rem;padding:1rem 1.4rem}
+.novedad-item .novedad-fecha{font-size:0.72rem;font-weight:700;color:var(--naranja-dark);white-space:nowrap;text-transform:uppercase;letter-spacing:0.4px}
+.novedad-item p{font-size:0.9rem;color:var(--texto);line-height:1.5}
+
+/* ---- GRUPOS DE ACTIVIDAD / PERIODO ---- */
+.actividad-group{padding-top:3rem}
+.actividad-group:first-of-type{padding-top:0}
+.actividad-group + .actividad-group{border-top:1px solid var(--borde);margin-top:1rem}
+
+/* ---- FICHA DE EVENTO IMPORTANTE ---- */
+.evento-card{background:#fff;border:1.5px solid var(--borde);border-radius:1.5rem;overflow:hidden;margin-top:2rem}
+.evento-head{padding:2rem 2rem 0.5rem}
+.evento-meta{display:flex;gap:1rem;flex-wrap:wrap;font-size:0.8rem;color:var(--gris);margin-bottom:0.6rem}
+.evento-head h3{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--texto);margin-bottom:0.6rem;line-height:1.3}
+.evento-head p{color:var(--gris);font-size:0.92rem;line-height:1.7}
+.evento-sub{padding:0.5rem 2rem 2rem}
+.evento-sub h4{font-size:0.75rem;text-transform:uppercase;letter-spacing:1px;color:#1a8a95;font-weight:700;margin:1.5rem 0 1rem}
+.evento-videos{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.25rem}
+.evento-video{border:1px solid var(--borde);border-radius:1rem;overflow:hidden;background:#fafafa}
+.evento-video .video-wrap{position:relative;width:100%;padding-top:56.25%;background:linear-gradient(135deg,var(--fagot-light),var(--naranja-light))}
+.evento-video .video-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--gris);gap:0.3rem;text-align:center;padding:0.5rem}
+.evento-video .video-ph .ph-icon{font-size:1.6rem;opacity:0.6}
+.evento-video .video-ph .ph-text{font-size:0.7rem;font-weight:600;opacity:0.75}
+.evento-video-body{padding:0.85rem 1rem}
+.evento-video-body .obra{font-size:0.85rem;font-weight:600;color:var(--texto);line-height:1.4}
+.evento-video-body .interprete{font-size:0.78rem;color:var(--gris);margin-top:0.2rem}
+
+/* ---- ACTIVIDAD LIGERA (clases, talleres pequeños) ---- */
+.actividad-ligera{background:#fafafa;border:1px solid var(--borde);border-radius:1rem;padding:1.5rem 1.75rem;margin-top:1.25rem}
+.actividad-ligera h4{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--texto);margin-bottom:0.4rem}
+.actividad-ligera p{color:var(--gris);font-size:0.88rem;line-height:1.65;margin-bottom:0.75rem}
+.actividad-ligera .video-links{display:flex;flex-wrap:wrap;gap:0.6rem}
+.actividad-ligera .video-links a{font-size:0.8rem;font-weight:600;color:#1a8a95;background:var(--fagot-light);padding:0.4rem 0.9rem;border-radius:999px;transition:all .2s}
+.actividad-ligera .video-links a:hover{background:var(--fagot);color:#fff}
+
+/* ---- BOTÓN DRIVE ---- */
+.btn-drive{display:inline-flex;align-items:center;gap:0.7rem;background:linear-gradient(135deg,var(--oboe),#3d8c5f);color:#fff;font-weight:700;font-size:0.95rem;padding:0.9rem 1.8rem;border-radius:1rem;border:none;cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 18px rgba(74,158,107,0.2);text-decoration:none}
+.btn-drive:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(74,158,107,0.3)}
+
+/* ---- LISTA DE DOCUMENTOS / PARTITURAS ---- */
+.doc-list{display:flex;flex-direction:column;gap:0.9rem;margin-top:2rem}
+.doc-item{display:flex;align-items:center;gap:1rem;background:#fff;border:1.5px solid var(--borde);border-radius:1rem;padding:1.1rem 1.4rem;transition:border-color .2s;flex-wrap:wrap}
+.doc-item:hover{border-color:var(--naranja)}
+.doc-icon{width:44px;height:44px;border-radius:0.7rem;background:var(--naranja-light);display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.doc-info{flex:1;min-width:180px}
+.doc-info .doc-title{font-weight:600;font-size:0.95rem;color:var(--texto)}
+.doc-info .doc-meta{font-size:0.78rem;color:var(--gris);margin-top:0.15rem}
+.doc-badge{font-size:0.66rem;font-weight:700;text-transform:uppercase;letter-spacing:0.4px;padding:0.3rem 0.7rem;border-radius:999px;white-space:nowrap}
+.doc-badge.dominio-publico{background:var(--oboe-light);color:#2d6b47}
+.doc-badge.material-propio{background:var(--fagot-light);color:#1a8a95}
+.doc-badge.autorizado{background:var(--naranja-light);color:var(--naranja-dark)}
+.doc-link{font-size:0.82rem;font-weight:600;color:var(--naranja-dark);white-space:nowrap}
+
+/* ---- NOTA LEGAL ---- */
+.nota-legal{background:var(--texto);color:rgba(255,255,255,0.85);border-radius:1.2rem;padding:1.75rem 2rem;margin-top:2.5rem;font-size:0.85rem;line-height:1.75}
+.nota-legal strong{color:var(--naranja)}
+
+/* ---- PARTICIPA ---- */
+.participa-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-top:2.5rem}
+.participa-card{background:#fff;border:1.5px solid var(--borde);border-radius:1.2rem;padding:2rem 1.75rem;text-align:center;transition:border-color .2s,transform .2s}
+.participa-card:hover{border-color:var(--fagot);transform:translateY(-3px)}
+.participa-card .acceso-icon{margin-bottom:1rem}
+.participa-card h3{font-family:'Playfair Display',serif;font-size:1.05rem;margin-bottom:0.5rem;color:var(--texto)}
+.participa-card p{color:var(--gris);font-size:0.87rem;line-height:1.65;margin-bottom:1.25rem}
+
 /* ---- RESPONSIVE ---- */
 @media(max-width:768px){
   .nav-links{display:none;width:100%;flex-direction:column;align-items:flex-start;gap:0.8rem;padding:1rem 0 0}
