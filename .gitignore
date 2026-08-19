@@ -31,3 +31,8 @@ build/
 
 # Configuración local de Claude Code
 .claude/
+
+# Documentación interna de la ADCS (actas, cuentas, memorias) — NUNCA subir
+# al repo público. Vive en Google Drive con permisos restringidos; el área
+# de socios solo enlaza a ella.
+Memorias/

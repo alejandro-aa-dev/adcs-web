@@ -185,16 +185,22 @@ footer{background:#1a1a1a;color:#fff;padding:3rem 2rem 1.5rem;margin-top:auto}
 
 /* ---- LISTA DE DOCUMENTOS / PARTITURAS ---- */
 .doc-list{display:flex;flex-direction:column;gap:0.9rem;margin-top:2rem}
-.doc-item{display:flex;align-items:center;gap:1rem;background:#fff;border:1.5px solid var(--borde);border-radius:1rem;padding:1.1rem 1.4rem;transition:border-color .2s;flex-wrap:wrap}
+.doc-item{display:flex;align-items:flex-start;gap:1rem;background:#fff;border:1.5px solid var(--borde);border-radius:1rem;padding:1.1rem 1.4rem;transition:border-color .2s;flex-wrap:wrap}
 .doc-item:hover{border-color:var(--naranja)}
 .doc-icon{width:44px;height:44px;border-radius:0.7rem;background:var(--naranja-light);display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
 .doc-info{flex:1;min-width:180px}
 .doc-info .doc-title{font-weight:600;font-size:0.95rem;color:var(--texto)}
 .doc-info .doc-meta{font-size:0.78rem;color:var(--gris);margin-top:0.15rem}
+.doc-info .doc-desc{font-size:0.85rem;color:var(--texto);opacity:0.85;margin-top:0.5rem;line-height:1.6}
+.doc-item .doc-icon{margin-top:0.1rem}
+.doc-item .doc-badge{margin-top:0.15rem}
 .doc-badge{font-size:0.66rem;font-weight:700;text-transform:uppercase;letter-spacing:0.4px;padding:0.3rem 0.7rem;border-radius:999px;white-space:nowrap}
 .doc-badge.dominio-publico{background:var(--oboe-light);color:#2d6b47}
 .doc-badge.material-propio{background:var(--fagot-light);color:#1a8a95}
 .doc-badge.autorizado{background:var(--naranja-light);color:var(--naranja-dark)}
+.doc-badge.pendiente{background:#f0f0f0;color:var(--gris)}
+.doc-badge.proximamente{background:var(--naranja-light);color:var(--naranja-dark)}
+.doc-item .doc-meta.por-confirmar{color:var(--naranja-dark);font-weight:600}
 .doc-link{font-size:0.82rem;font-weight:600;color:var(--naranja-dark);white-space:nowrap}
 
 /* ---- NOTA LEGAL ---- */
