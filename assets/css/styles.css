@@ -98,6 +98,23 @@ section{padding:4rem 2rem}
 .img-placeholder .ph-label{font-size:0.9rem;font-weight:600;color:var(--naranja-dark)}
 .img-placeholder .ph-hint{font-size:0.72rem;color:var(--gris);margin-top:0.4rem;opacity:0.7}
 
+/* ---- ACCESIBILIDAD: foco visible por teclado ---- */
+/* Contorno negro sobre fondo claro y blanco sobre el footer oscuro:
+   ambos superan holgadamente 3:1, sin tocar los colores de marca. */
+:focus-visible{outline:3px solid var(--texto);outline-offset:3px;border-radius:4px}
+footer :focus-visible,.nota-legal :focus-visible,.socios-nav a.active:focus-visible{outline-color:#fff}
+
+/* ---- ENLACE "SALTAR AL CONTENIDO" ---- */
+.skip-link{position:absolute;left:1rem;top:-4rem;z-index:200;background:var(--texto);color:#fff;font-size:0.85rem;font-weight:600;padding:0.7rem 1.2rem;border-radius:0 0 0.6rem 0.6rem;transition:top .15s}
+.skip-link:focus{top:0}
+
+/* ---- RESPETAR "REDUCIR MOVIMIENTO" ---- */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}
+  .btn-primary:hover,.btn-cta:hover,.btn-cta-white:hover,.btn-drive:hover,
+  .acceso-card:hover,.participa-card:hover,.footer-social a:hover{transform:none}
+}
+
 /* ---- FOOTER ---- */
 footer{background:#1a1a1a;color:#fff;padding:3rem 2rem 1.5rem;margin-top:auto}
 .footer-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,0.1)}

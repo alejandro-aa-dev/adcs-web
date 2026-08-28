@@ -4,18 +4,49 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Actividades y audiovisual — Área de socios · ADCS Sevilla</title>
+<meta name="description" content="Vídeos y fotos de concursos, encuentros, masterclasses, talleres y conciertos de la ADCS."/>
+<link rel="canonical" href="https://adcsevilla.es/socios/actividades.html"/>
+<meta name="robots" content="noindex, nofollow"/>
+
+<!-- Compartir en redes (Open Graph / Twitter) -->
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="ADCS Sevilla"/>
+<meta property="og:locale" content="es_ES"/>
+<meta property="og:title" content="Actividades y audiovisual — Área de socios · ADCS Sevilla"/>
+<meta property="og:description" content="Vídeos y fotos de concursos, encuentros, masterclasses, talleres y conciertos de la ADCS."/>
+<meta property="og:url" content="https://adcsevilla.es/socios/actividades.html"/>
+<meta property="og:image" content="https://adcsevilla.es/assets/img/og-adcs.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="Logotipo de la Asociación de Doble Caña de Sevilla"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Actividades y audiovisual — Área de socios · ADCS Sevilla"/>
+<meta name="twitter:description" content="Vídeos y fotos de concursos, encuentros, masterclasses, talleres y conciertos de la ADCS."/>
+<meta name="twitter:image" content="https://adcsevilla.es/assets/img/og-adcs.png"/>
+
+<!-- Iconos -->
+<link rel="icon" href="../favicon.ico" sizes="any"/>
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32.png"/>
+<link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png"/>
+<link rel="manifest" href="../site.webmanifest"/>
+<meta name="theme-color" content="#FFAB60"/>
+
+<!-- Precarga de fuentes -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="../assets/css/styles.css"/>
 </head>
 <body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
 
 <!-- NAV -->
 <nav class="topnav">
   <a href="../index.html" class="nav-logo-link" aria-label="Inicio ADCS">
-    <img src="../assets/img/logo-claro.png" class="logo-img" alt=""/>
+    <img src="../assets/img/logo-claro.png" class="logo-img" width="600" height="457" alt=""/>
   </a>
-  <button class="menu-toggle" aria-label="Abrir menú de navegación" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
-  <div class="nav-links">
+  <button class="menu-toggle" type="button" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="nav-links" onclick="var n=document.getElementById('nav-links'),o=n.classList.toggle('open');this.setAttribute('aria-expanded',o);this.setAttribute('aria-label',o?'Cerrar menú de navegación':'Abrir menú de navegación')">☰</button>
+  <div class="nav-links" id="nav-links">
     <a href="../index.html">Inicio</a>
     <a href="../quienes-somos.html">Quiénes somos</a>
     <a href="../hazte-socio.html">Hazte socio/a</a>
@@ -51,7 +82,7 @@
   </div>
 </div>
 
-<main>
+<main id="contenido" tabindex="-1">
 
   <!-- PAGE HEADER -->
   <div class="page-header">
@@ -414,13 +445,13 @@
   <div class="footer-grid">
     <div class="footer-brand">
       <div class="footer-logo-mark">
-        <img src="../assets/img/logo-oscuro.png" class="logo-img-footer" alt="Asociación de Doble Caña de Sevilla"/>
+        <img src="../assets/img/logo-oscuro.png" class="logo-img-footer" width="600" height="600" alt="Asociación de Doble Caña de Sevilla"/>
       </div>
       <p>Asociación sin ánimo de lucro fundada en 2010 que une al profesorado y al alumnado de oboe y fagot de Sevilla y su provincia.</p>
       <div class="footer-social">
-        <a href="https://www.facebook.com/adcsevilla/" target="_blank" aria-label="Facebook">📘</a>
-        <a href="https://www.instagram.com/adcsevilla/" target="_blank" aria-label="Instagram">📸</a>
-        <a href="https://www.whatsapp.com/channel/0029Va8ocKGGJP8EXYqmqn34" target="_blank" aria-label="WhatsApp">💬</a>
+        <a href="https://www.facebook.com/adcsevilla/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">📘</a>
+        <a href="https://www.instagram.com/adcsevilla/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">📸</a>
+        <a href="https://www.whatsapp.com/channel/0029Va8ocKGGJP8EXYqmqn34" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">💬</a>
         <a href="mailto:oboeyfagotsevilla@gmail.com" aria-label="Email">✉️</a>
       </div>
     </div>

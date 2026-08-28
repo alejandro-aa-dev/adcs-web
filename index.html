@@ -4,6 +4,35 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>ADCS Sevilla — Asociación de Doble Caña</title>
+<meta name="description" content="Asociación de Doble Caña de Sevilla: une al profesorado y al alumnado de oboe y fagot de Sevilla y su provincia desde 2010. Encuentros, concursos, ciclos de cámara y masterclasses."/>
+<link rel="canonical" href="https://adcsevilla.es/"/>
+
+<!-- Compartir en redes (Open Graph / Twitter) -->
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="ADCS Sevilla"/>
+<meta property="og:locale" content="es_ES"/>
+<meta property="og:title" content="ADCS Sevilla — Asociación de Doble Caña"/>
+<meta property="og:description" content="Asociación de Doble Caña de Sevilla: une al profesorado y al alumnado de oboe y fagot de Sevilla y su provincia desde 2010. Encuentros, concursos, ciclos de cámara y masterclasses."/>
+<meta property="og:url" content="https://adcsevilla.es/"/>
+<meta property="og:image" content="https://adcsevilla.es/assets/img/og-adcs.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="Logotipo de la Asociación de Doble Caña de Sevilla"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="ADCS Sevilla — Asociación de Doble Caña"/>
+<meta name="twitter:description" content="Asociación de Doble Caña de Sevilla: une al profesorado y al alumnado de oboe y fagot de Sevilla y su provincia desde 2010. Encuentros, concursos, ciclos de cámara y masterclasses."/>
+<meta name="twitter:image" content="https://adcsevilla.es/assets/img/og-adcs.png"/>
+
+<!-- Iconos -->
+<link rel="icon" href="favicon.ico" sizes="any"/>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png"/>
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png"/>
+<link rel="manifest" href="site.webmanifest"/>
+<meta name="theme-color" content="#FFAB60"/>
+
+<!-- Precarga de fuentes -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="assets/css/styles.css"/>
 <style>
@@ -27,15 +56,49 @@
 .aniv-banner span{font-size:0.85rem;font-weight:600;color:var(--naranja-dark)}
 .aniv-banner .pill{background:var(--naranja);color:#fff;font-size:0.72rem;font-weight:700;padding:0.2rem 0.7rem;border-radius:999px}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NGO",
+  "name": "Asociación de Doble Caña de Sevilla",
+  "alternateName": "ADCS Sevilla",
+  "url": "https://adcsevilla.es/",
+  "logo": "https://adcsevilla.es/assets/img/logo-claro.png",
+  "image": "https://adcsevilla.es/assets/img/og-adcs.png",
+  "description": "Asociación sin ánimo de lucro que une al profesorado y al alumnado de oboe y fagot de Sevilla y su provincia. Organiza encuentros, concursos, ciclos de cámara, masterclasses y talleres.",
+  "foundingDate": "2010-12-10",
+  "email": "oboeyfagotsevilla@gmail.com",
+  "areaServed": {
+    "@type": "AdministrativeArea",
+    "name": "Sevilla, España"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Sevilla",
+    "addressRegion": "Andalucía",
+    "addressCountry": "ES"
+  },
+  "sameAs": [
+    "https://www.facebook.com/adcsevilla/",
+    "https://www.instagram.com/adcsevilla/"
+  ],
+  "identifier": {
+    "@type": "PropertyValue",
+    "name": "Registro Nacional de Asociaciones",
+    "value": "598607"
+  }
+}
+</script>
 </head>
 <body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
 
 <nav class="topnav">
   <a href="index.html" class="nav-logo-link" aria-label="Inicio ADCS">
-    <img src="assets/img/logo-claro.png" class="logo-img" alt=""/>
+    <img src="assets/img/logo-claro.png" class="logo-img" width="600" height="457" alt=""/>
   </a>
-  <button class="menu-toggle" aria-label="Abrir menú de navegación" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
-  <div class="nav-links">
+  <button class="menu-toggle" type="button" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="nav-links" onclick="var n=document.getElementById('nav-links'),o=n.classList.toggle('open');this.setAttribute('aria-expanded',o);this.setAttribute('aria-label',o?'Cerrar menú de navegación':'Abrir menú de navegación')">☰</button>
+  <div class="nav-links" id="nav-links">
     <a href="index.html" class="active">Inicio</a>
     <a href="quienes-somos.html">Quiénes somos</a>
     <a href="hazte-socio.html">Hazte socio/a</a>
@@ -48,7 +111,7 @@
   </div>
 </nav>
 
-<main>
+<main id="contenido" tabindex="-1">
 
 <!-- HERO -->
 <section class="hero">
@@ -79,13 +142,13 @@
   <div class="footer-grid">
     <div class="footer-brand">
       <div class="footer-logo-mark">
-        <img src="assets/img/logo-oscuro.png" class="logo-img-footer" alt="Asociación de Doble Caña de Sevilla"/>
+        <img src="assets/img/logo-oscuro.png" class="logo-img-footer" width="600" height="600" alt="Asociación de Doble Caña de Sevilla"/>
       </div>
       <p>Asociación sin ánimo de lucro fundada en 2010 que une al profesorado y al alumnado de oboe y fagot de Sevilla y su provincia.</p>
       <div class="footer-social">
-        <a href="https://www.facebook.com/adcsevilla/" target="_blank" aria-label="Facebook">📘</a>
-        <a href="https://www.instagram.com/adcsevilla/" target="_blank" aria-label="Instagram">📸</a>
-        <a href="https://www.whatsapp.com/channel/0029Va8ocKGGJP8EXYqmqn34" target="_blank" aria-label="WhatsApp">💬</a>
+        <a href="https://www.facebook.com/adcsevilla/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">📘</a>
+        <a href="https://www.instagram.com/adcsevilla/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">📸</a>
+        <a href="https://www.whatsapp.com/channel/0029Va8ocKGGJP8EXYqmqn34" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">💬</a>
         <a href="mailto:oboeyfagotsevilla@gmail.com" aria-label="Email">✉️</a>
       </div>
     </div>
