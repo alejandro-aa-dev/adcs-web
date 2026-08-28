@@ -1,0 +1,8 @@
+# ADCS Sevilla — https://adcsevilla.es
+User-agent: *
+Allow: /
+
+# El área de socios es contenido interno: no debe indexarse.
+Disallow: /socios/
+
+Sitemap: https://adcsevilla.es/sitemap.xml
