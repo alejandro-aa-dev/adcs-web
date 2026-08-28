@@ -211,3 +211,79 @@ de accesibilidad restantes que NO dependen de dichos colores:
 - `assets/css/styles.css` — opacidad footer + color separador breadcrumb
 - 11 archivos HTML — `alt=""` en logo nav + `aria-label` en botón menú
 
+
+---
+
+## Cuarta Ronda: navegación por teclado y preferencias del sistema
+
+Estas correcciones tampoco tocan los colores de marca.
+
+### 1. Foco visible por teclado (WCAG 2.4.7 / 2.4.11)
+La hoja de estilos no definía ningún indicador de foco propio y varios componentes
+(botones cápsula, tarjetas enlazadas, píldoras del subnav de socios) dejaban el
+contorno por defecto del navegador casi invisible sobre el naranja.
+
+```css
+:focus-visible{outline:3px solid var(--texto);outline-offset:3px;border-radius:4px}
+footer :focus-visible,.nota-legal :focus-visible{outline-color:#fff}
+```
+
+Se usa **negro sobre fondo claro (21:1)** y **blanco sobre el footer oscuro (18:1)**.
+Ambos superan con holgura el 3:1 exigido para elementos no textuales, y ninguno de
+los dos es un color de marca, así que la identidad visual queda intacta.
+
+### 2. Enlace «Saltar al contenido» (WCAG 2.4.1)
+El nav principal tiene 9 enlaces que un usuario de teclado o lector de pantalla
+tenía que recorrer en cada página. Se añade como primer elemento del `<body>`
+de las 17 páginas:
+
+```html
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+```
+
+El `<main>` pasa a ser `<main id="contenido" tabindex="-1">`. El enlace está fuera
+de pantalla hasta que recibe el foco (`.skip-link:focus{top:0}`), así que no altera
+el diseño visual.
+
+### 3. Estado del menú móvil (WCAG 4.1.2)
+El botón hamburguesa cambiaba la clase del menú, pero no comunicaba si estaba
+abierto o cerrado. Ahora expone `aria-expanded` y `aria-controls`, y su etiqueta
+alterna entre «Abrir» y «Cerrar menú de navegación».
+
+### 4. Respetar «reducir movimiento» (WCAG 2.3.3)
+Todas las tarjetas y botones se elevan con `transform:translateY(-2px)` al pasar el
+ratón. Bajo `@media(prefers-reduced-motion:reduce)` se anulan transiciones,
+animaciones y desplazamientos.
+
+### 5. Enlaces externos
+Los 56 enlaces con `target="_blank"` que no llevaban `rel` reciben
+`rel="noopener noreferrer"`.
+
+### 6. Estabilidad de la maquetación (CLS)
+Los `<img>` del logo y de la foto de junta llevan ya `width`/`height` intrínsecos,
+de modo que el navegador reserva el espacio antes de descargarlas y la página no
+"salta" al cargar.
+
+### 7. Desbordamiento horizontal en móvil
+Auditoría automática de las 17 páginas a 320, 375, 414 y 768 px (68 comprobaciones).
+Un único fallo real: en `hazte-socio.html` el IBAN llevaba `white-space:nowrap` y
+empujaba la página 12 px fuera de la pantalla a 375 px. Se corrige permitiendo el
+salto de línea solo en los espacios entre grupos de dígitos, de forma que ningún
+grupo de cuatro cifras se parte:
+
+```css
+@media(max-width:520px){
+  .bank-value.iban{white-space:normal;letter-spacing:1px;font-size:0.9rem}
+}
+```
+
+Tras la corrección: **68/68 comprobaciones sin desbordamiento**.
+
+---
+
+## Pendiente
+
+- **Re-escanear con WAVE** tras esta cuarta ronda.
+- **Prueba con lector de pantalla** (NVDA o VoiceOver).
+- Los errores de contraste que queden seguirán siendo los de los colores de marca,
+  que se mantienen intencionadamente (ver la decisión de diseño más arriba).

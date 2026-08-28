@@ -13,11 +13,16 @@ Sitio web estático de la **Asociación de Doble Caña de Sevilla (ADCS)**, enti
 |-------|--------|----------|
 | **Estructura HTML** | ✅ Completa | 10 páginas creadas |
 | **CSS compartido** | ✅ Refactorizado | `assets/css/styles.css` (7.5 KB) |
-| **Logo (real)** | ✅ Subido | `logo-claro.png` y `logo-oscuro.png` (62-65 KB) |
+| **Logo (real)** | ✅ Subido | `logo-claro.png` y `logo-oscuro.png` (~15 KB tras optimizar) |
+| **Favicon e iconos** | ✅ Hecho | `favicon.ico`, `apple-touch-icon.png`, `icon-192/512.png`, `site.webmanifest` |
+| **SEO y redes sociales** | ✅ Hecho | `description`, `canonical`, Open Graph y Twitter Card en las 16 páginas + JSON-LD en la portada |
+| **`robots.txt` / `sitemap.xml`** | ✅ Hecho | 10 URLs públicas; `/socios/` excluido e marcado `noindex` |
+| **Página 404** | ✅ Hecha | `404.html` + `ErrorDocument` en `.htaccess` |
 | **Fotos de junta** | ⏳ Parcial | Solo Irene Pérez Cantillón en `assets/img/junta/irene.jpg` |
 | **Área de socios** | 🔄 Reestructurada (Fase 1) | Multi-página en `/socios/`, contenido de ejemplo. Pendiente: Cloudflare Access (Fase 2) y contenido real |
 | **GitHub Pages** | ❌ Pendiente | Repositorio en origin/main, pero DNS no apunta aún |
-| **Validación móvil** | ⚠️ No verificado | CSS responsivo, pero sin testing en dispositivos reales |
+| **Validación móvil** | ✅ Verificado | 17 páginas × 4 anchos (320/375/414/768 px): sin desbordamiento horizontal |
+| **Optimización de imágenes** | ✅ Hecha | Logos −77 %, foto de junta −73 % (sin pérdida visible) |
 
 ---
 
@@ -27,7 +32,13 @@ Sitio web estático de la **Asociación de Doble Caña de Sevilla (ADCS)**, enti
 ADCS Web/
 ├── CONTEXT.md                          ← Briefing original del proyecto
 ├── README.md                           ← Este archivo (análisis completo)
+├── ACCESIBILIDAD.md                    ← Registro de mejoras de accesibilidad
 ├── .gitignore                          ← Archivos a ignorar en Git
+├── .htaccess                           ← Config. Apache para Hostalia (404, gzip, caché, cabeceras)
+├── robots.txt                          ← Permite indexar todo excepto /socios/
+├── sitemap.xml                         ← 10 URLs públicas
+├── site.webmanifest                    ← Nombre e iconos al añadir a pantalla de inicio
+├── favicon.ico                         ← Icono de pestaña
 │
 ├── 📄 PÁGINAS PÚBLICAS:
 │   ├── index.html                      ✅ Página de inicio (121 líneas)
@@ -38,7 +49,8 @@ ADCS Web/
 │   ├── asociaciones.html               ✅ Enlaces a webs amigas (186 líneas) — Sin placeholders
 │   ├── patrocinadores.html             ✅ Patrocinadores (253 líneas) — Sin placeholders
 │   ├── recursos.html                   ✅ Recursos educativos (244 líneas) — Sin placeholders
-│   └── cv-irene-perez-cantillon.html   ✅ CV especial (137 líneas) — Sin placeholders
+│   ├── cv-irene-perez-cantillon.html   ✅ CV especial (137 líneas) — Sin placeholders
+│   └── 404.html                        ✅ Página de error (no indexada, rutas absolutas)
 │
 ├── 🔑 ÁREA DE SOCIOS (`/socios/`) — Fase 1: estructura + contenido de ejemplo,
 │   │                                  sin protección de acceso todavía (ver Fase 2 más abajo):
@@ -54,11 +66,15 @@ ADCS Web/
     │   └── styles.css                  ✅ Estilos compartidos (incluye componentes del área de socios)
     │
     └── img/
-        ├── logo-claro.png              ✅ Logo (62 KB) — fondo blanco
-        ├── logo-oscuro.png             ✅ Logo (65 KB) — fondo negro
+        ├── logo-claro.png              ✅ Logo (15 KB) — fondo blanco
+        ├── logo-oscuro.png             ✅ Logo (14 KB) — fondo negro
+        ├── og-adcs.png                 ✅ Imagen 1200×630 para compartir en redes
+        ├── apple-touch-icon.png        ✅ Icono iOS 180×180
+        ├── icon-192.png / icon-512.png ✅ Iconos del manifest
+        ├── favicon-32.png              ✅ Favicon PNG 32×32
         │
         └── junta/
-            └── irene.jpg               ✅ Foto de Irene (147 KB)
+            └── irene.jpg               ✅ Foto de Irene (40 KB, 540×360)
 ```
 
 **Total:** 10 páginas públicas + 6 páginas del área de socios = **16 páginas**.
@@ -467,13 +483,17 @@ Recursos               → recursos.html
 
 | Métrica | Valor |
 |---------|-------|
-| **Páginas públicas** | 10 |
+| **Páginas públicas** | 10 (+ `404.html`) |
 | **Área de socios** | 6 páginas en `/socios/` (sin protección técnica aún — Fase 1) |
-| **Total de páginas** | 16 |
-| **Tamaño logo-claro.png** | 62 KB |
-| **Tamaño logo-oscuro.png** | 65 KB |
+| **Total de páginas** | 17 |
+| **Tamaño logo-claro.png** | 15 KB (antes 62 KB) |
+| **Tamaño logo-oscuro.png** | 14 KB (antes 65 KB) |
+| **Peso total de imágenes** | 129 KB (antes 274 KB) |
 | **Fotos de junta** | 1/6 (17%) |
 | **Placeholders pendientes (páginas públicas)** | 3 |
+| **Enlaces internos rotos** | 0 (25 recursos comprobados) |
+| **Desbordamiento horizontal en móvil** | 0 (68 comprobaciones) |
+| **Enlaces legales sin destino (`href="#"`)** | 51 (3 × 17 páginas) |
 | **Rama principal** | main (en origin) |
 
 ---
@@ -510,7 +530,20 @@ python -m http.server 8000
 - ❌ Dominio `adcsevilla.es` aún no apunta al hosting definitivo
 
 ### Publicar en Hostalia
-Subir el contenido del repo (excepto archivos de desarrollo como `.git/`, `CONTEXT.md`, `README.md`) al hosting contratado en Hostalia, por FTP/SFTP o el panel de control que ofrezca. Al ser HTML/CSS estático puro, no requiere build ni proceso de despliegue especial.
+Subir el contenido del repo (excepto archivos de desarrollo como `.git/`, `CONTEXT.md`, `README.md`, `ACCESIBILIDAD.md`) al hosting contratado en Hostalia, por FTP/SFTP o el panel de control que ofrezca. Al ser HTML/CSS estático puro, no requiere build ni proceso de despliegue especial.
+
+**Sí hay que subir** `.htaccess`, `robots.txt`, `sitemap.xml`, `site.webmanifest`, `favicon.ico` y `404.html`: son parte del sitio publicado, no archivos de desarrollo.
+
+**Al activar el dominio, en este orden:**
+1. Apuntar `adcsevilla.es` a Hostalia y activar el certificado SSL.
+2. Comprobar que `https://adcsevilla.es/404.html` y `/robots.txt` responden.
+3. Descomentar el bloque `mod_rewrite` de `.htaccess` (fuerza HTTPS y quita el `www`).
+   Hacerlo antes de tener SSL dejaría el sitio inaccesible.
+4. Dar de alta el sitio en Google Search Console y enviar `sitemap.xml`.
+
+Las URLs absolutas de `canonical`, `og:url` y `og:image` ya apuntan a `https://adcsevilla.es`.
+Si el dominio final fuera otro, hay que sustituirlo en las 16 páginas, en `sitemap.xml`,
+en `robots.txt` y en el JSON-LD de `index.html`.
 
 ### Prerrequisito de la Fase 2 del área de socios (Cloudflare)
 Para poder proteger `/socios/*` con Cloudflare Access, el DNS de `adcsevilla.es` deberá gestionarse desde Cloudflare (cambio de nameservers en el proveedor de dominio), manteniendo Hostalia como origen del contenido. Esto es una decisión de infraestructura de la Junta, independiente de este repositorio — ver la sección "🔑 Área de Socios — Autenticación" más arriba.
@@ -536,9 +569,24 @@ Para poder proteger `/socios/*` con Cloudflare Access, el DNS de `adcsevilla.es`
    - `v-concurso-2026.html` — Foto/cartel concurso
 
 ### 🟢 Opcional (pulido)
-7. **Verificar responsive en móviles** — Testing en dispositivos reales (iPhone, Android)
+7. ~~**Verificar responsive en móviles**~~ ✅ Hecho — auditoría automática de desbordamiento
+   horizontal en las 17 páginas a 320, 375, 414 y 768 px (68 comprobaciones, 0 fallos).
+   Se corrigió el IBAN de `hazte-socio.html`, que llevaba `white-space:nowrap` y sacaba
+   la página 12 px fuera de pantalla en móviles estrechos.
+   *(Queda pendiente, si se quiere, la prueba manual en dispositivos físicos reales.)*
 8. **Automatizar altas/bajas de socios** — Google Sheets + Apps Script + API de Cloudflare (una vez validado el flujo manual)
-9. **Optimizar imágenes** — Comprimir PNGs del logo y fotos JPG
+9. ~~**Optimizar imágenes**~~ ✅ Hecho — logos convertidos a PNG con paleta (−77 %) y foto de
+   junta redimensionada a 540 px y recomprimida (−73 %). Sin diferencia visible.
+
+### 🔵 Nuevo pendiente (requiere decisión de la Junta)
+10. **Páginas legales.** El pie de las 17 páginas enlaza a *Aviso legal*, *Política de privacidad*
+    y *Cookies* con `href="#"` (51 enlaces sin destino). Para una asociación que recoge datos
+    de socios por formulario, la LSSI-CE y el RGPD piden al menos aviso legal e información
+    sobre el tratamiento de datos. Falta decidir el texto con la Junta antes de redactar
+    `aviso-legal.html`, `privacidad.html` y `cookies.html`.
+    *Nota técnica:* el sitio no instala cookies propias; la única transferencia a un tercero
+    es la carga de Google Fonts (que expone la IP del visitante). Se puede eliminar
+    autoalojando las tipografías si la Junta lo prefiere.
 
 ---
 
@@ -554,6 +602,12 @@ Para poder proteger `/socios/*` con Cloudflare Access, el DNS de `adcsevilla.es`
 - IBAN y datos bancarios
 - Información de cuota
 - Links a webs amigas
+- Metadatos SEO y de redes sociales (Open Graph / Twitter Card) en las 16 páginas
+- Favicon, iconos de aplicación e imagen de previsualización 1200×630
+- `robots.txt`, `sitemap.xml`, `site.webmanifest`, `404.html` y `.htaccess`
+- Accesibilidad: foco visible por teclado, enlace «Saltar al contenido»,
+  menú móvil con `aria-expanded` y soporte de «reducir movimiento»
+- Responsive verificado a 320/375/414/768 px e imágenes optimizadas
 
 ⏳ **Pendiente:**
 - 5 fotos de junta (de 6)
@@ -561,6 +615,7 @@ Para poder proteger `/socios/*` con Cloudflare Access, el DNS de `adcsevilla.es`
 - Migración de DNS a Cloudflare + configuración de Cloudflare Access (Fase 2 del área de socios)
 - Contenido real de `/socios/` (vídeos, documentos, partituras, formularios)
 - Publicación en el dominio `adcsevilla.es` (Hostalia)
+- Textos de las páginas legales (aviso legal, privacidad, cookies) — decisión de la Junta
 
 **Próximo paso recomendado:** decidir con la Junta la migración de DNS a Cloudflare para poder activar Cloudflare Access sobre `/socios/*`. Mientras tanto, no subir contenido real ni datos de socios a esa carpeta.
 
@@ -569,5 +624,5 @@ Para poder proteger `/socios/*` con Cloudflare Access, el DNS de `adcsevilla.es`
 ## 👤 Créditos
 
 - **Diseño y desarrollo:** Alejandro Álvarez Asencio (vocal de la ADCS)
-- **Última actualización:** 2026-08-18
+- **Última actualización:** 2026-08-28
 - **Herramientas:** HTML5, CSS3, Git, GitHub (repo de desarrollo), Hostalia (hosting definitivo). Área de socios: Cloudflare Access (planeado, Fase 2)
