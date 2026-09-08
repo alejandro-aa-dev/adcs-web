@@ -125,13 +125,19 @@ Páginas (heredadas de la web actual):
 - **Caja:** Caja Rural
 - **IBAN:** ES09 3187 0101 0851 5831 1919
 - **BIC:** BCOEESMM187
-- **Concepto:** `CUOTA ADCS 2025-26 — [DNI DEL SOCIO/A]`
+- **Concepto:** `CUOTA ADCS 2026-27 — [DNI DEL SOCIO/A]`
 
-## Cuotas 2025/26
+## Cuotas 2026/27
 
 - 20€ individual
 - 30€ dos hermanos/as
-- Vigencia: 11 sept 2025 → 10 sept 2026
+- Vigencia: 11 sept 2026 → 10 sept 2027
+
+> Las cuotas se renuevan cada 11 de septiembre. Al cambiar de curso hay que actualizar
+> el año en `hazte-socio.html` (etiqueta de curso, periodo de validez, concepto de
+> transferencia y los tres metadatos SEO) y en los CTA "Hazte socio/a 20XX/XX" del resto
+> de páginas: `index.html`, `quienes-somos.html`, `v-concurso-2026.html`,
+> `vii-encuentro-15.html` y `patrocinadores.html`.
 
 ## Formulario de inscripción (Google Forms)
 

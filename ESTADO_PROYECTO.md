@@ -44,9 +44,12 @@ dato real de socios, acta, cuenta ni documento privado hasta que la Fase 2 esté
   `jacobo.jpg`, `alejandro.jpg`, `nuria.jpg` (solo existe `irene.jpg`)
 - **3 imágenes de placeholder**: foto histórica (`quienes-somos.html`),
   foto de grupo (`hazte-socio.html`), cartel del concurso (`v-concurso-2026.html`)
-- **Cuotas caducadas:** la web anuncia el curso 2025/26 con vigencia hasta el
-  **10 de septiembre de 2026** — ya vencida. Hay que actualizar `hazte-socio.html`
-  con las cuotas y fechas del curso 2026/27 (y el concepto de transferencia).
+✅ **Cuotas actualizadas al curso 2026/27** (20 € / 30 €, vigencia 11 sept 2026 → 10 sept 2027).
+
+⏰ **Recordatorio anual:** las cuotas caducan cada **10 de septiembre**. Al renovar hay que
+cambiar el año en `hazte-socio.html` (etiqueta de curso, periodo, concepto de transferencia
+y los 3 metadatos SEO) y en los CTA de `index.html`, `quienes-somos.html`,
+`v-concurso-2026.html`, `vii-encuentro-15.html` y `patrocinadores.html` — 13 sitios en total.
 
 ---
 
@@ -100,4 +103,4 @@ Rama: `claude/afoes-web-analysis-adcs-p52oc9`
 | Fecha | Qué se hizo |
 |-------|-------------|
 | 2026-08-28 | Optimización de imágenes, metadatos SEO/redes, navegación por teclado, favicon, 404, robots, sitemap, `.htaccess`; área de socios poblada con el archivo real de actividades |
-| 2026-09-08 | Creado `ESTADO_PROYECTO.md`. Intento de análisis de `nueva.afoes.es` bloqueado por la política de red del entorno |
+| 2026-09-08 | Creado `ESTADO_PROYECTO.md`. Intento de análisis de `nueva.afoes.es` bloqueado por la política de red del entorno. Cuotas actualizadas al curso 2026/27 (13 referencias en 6 páginas) |
