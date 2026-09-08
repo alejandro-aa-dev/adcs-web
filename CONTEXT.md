@@ -1,5 +1,14 @@
 # Proyecto: Web ADCS Sevilla
 
+> ⚠️ **Documento histórico: briefing original del proyecto.**
+> Las secciones de *estado de avance* y *próximos pasos* están **desactualizadas**
+> (las páginas que aquí figuran como pendientes ya existen, el CSS ya está refactorizado
+> y el logo real ya está subido). El estado vigente está en
+> [`ESTADO_PROYECTO.md`](ESTADO_PROYECTO.md).
+>
+> Lo que **sí sigue siendo válido**: datos de la organización, identidad visual, reglas de
+> diseño y contenido, datos de contacto, junta directiva, datos bancarios y cuotas.
+
 ## Sobre la organización
 
 **Asociación de Doble Caña de Sevilla (ADCS)** — entidad sin ánimo de lucro fundada el 10 de diciembre de 2010, inscrita en el Registro Nacional de Asociaciones el 6 de junio de 2011 con el número **598607**.
