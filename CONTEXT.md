@@ -101,7 +101,7 @@ Páginas (heredadas de la web actual):
 - **Instagram:** https://www.instagram.com/adcsevilla/
 - **WhatsApp (grupo de difusión):** https://www.whatsapp.com/channel/0029Va8ocKGGJP8EXYqmqn34
 
-## Junta directiva 2025/26
+## Junta directiva 2026/27
 
 - **Presidenta:** Johanna Suárez González
 - **Secretaria:** Irene Pérez Cantillón
@@ -116,13 +116,13 @@ Páginas (heredadas de la web actual):
 - **Caja:** Caja Rural
 - **IBAN:** ES09 3187 0101 0851 5831 1919
 - **BIC:** BCOEESMM187
-- **Concepto:** `CUOTA ADCS 2025-26 — [DNI DEL SOCIO/A]`
+- **Concepto:** `CUOTA ADCS 2026-27 — [DNI DEL SOCIO/A]`
 
-## Cuotas 2025/26
+## Cuotas 2026/27
 
 - 20€ individual
 - 30€ dos hermanos/as
-- Vigencia: 11 sept 2025 → 10 sept 2026
+- Vigencia: 11 sept 2026 → 10 sept 2027
 
 ## Formulario de inscripción (Google Forms)
 

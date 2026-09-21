@@ -78,8 +78,8 @@ ADCS Web/
         │
         └── junta/
             ├── irene.jpg               ✅ Foto de Irene (72 KB, 640×640)
-            ├── jacobo.jpg              ✅ Foto de Jacobo (75 KB, 640×640)
-            └── nuria.jpg               ✅ Foto de Nuria (88 KB, 640×640)
+            ├── jacobo.jpg              ✅ Foto de Jacobo (81 KB, 640×640)
+            └── nuria.jpg               ✅ Foto de Nuria (95 KB, 640×640)
 ```
 
 **Total:** 12 páginas públicas + 6 páginas del área de socios = **18 páginas**.
@@ -97,7 +97,7 @@ ADCS Web/
 
 ### 2. `quienes-somos.html` — Quiénes somos
 - **Estado:** ✅ Completa (con placeholder)
-- **Contenido:** Historia, misión, junta directiva 2025-26
+- **Contenido:** Historia, misión, junta directiva 2026-27
 - **Placeholders:** 1 imagen (Historia)
   - Ubicación: Línea 126 (`div.img-placeholder.ph-historia`)
   - Qué va: Foto histórica de la ADCS
@@ -402,9 +402,9 @@ Ubicación esperada: `assets/img/junta/[nombre].jpg`
 | Johanna Suárez González | Presidenta | `johanna.jpg` | ❌ Falta |
 | Irene Pérez Cantillón | Secretaria | `irene.jpg` | ✅ Existe (72 KB, 640×640) |
 | Jesús Manuel Moreno González | Tesorero | `jesus-manuel.jpg` | ❌ Falta |
-| Jacobo Díaz Giráldez | Vocal | `jacobo.jpg` | ✅ Existe (75 KB, 640×640) |
+| Jacobo Díaz Giráldez | Vocal | `jacobo.jpg` | ✅ Existe (81 KB, 640×640) |
 | Alejandro Álvarez Asencio | Vocal (desarrollador web) | `alejandro.jpg` | ❌ Falta |
-| Nuria Ferrero López | Vocal | `nuria.jpg` | ✅ Existe (88 KB, 640×640) |
+| Nuria Ferrero López | Vocal | `nuria.jpg` | ✅ Existe (95 KB, 640×640) |
 
 ### Imágenes de placeholders (4 total esperadas)
 | Página | Tipo | Ubicación | Descripción |
@@ -573,7 +573,7 @@ Para poder proteger `/socios/*` con Cloudflare Access, el DNS de `adcsevilla.es`
 5. **Subir 3 fotos de junta directiva** faltantes
    - Ubicación esperada: `assets/img/junta/[nombre].jpg`
    - Faltan: Johanna, Jesús Manuel, Alejandro
-   - Encuadre a replicar: recorte cuadrado 640×640, ojos a ~30 % de la altura y
+   - Encuadre a replicar: recorte cuadrado 640×640, ojos a ~27-31 % de la altura y
      distancia entre ojos y mentón de ~15 % de la altura (así todas las fotos
      tienen la misma cercanía a la cara); el instrumento se incluye si cabe
 
