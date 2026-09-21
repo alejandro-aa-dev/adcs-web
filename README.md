@@ -15,13 +15,13 @@ Sitio web estático de la **Asociación de Doble Caña de Sevilla (ADCS)**, enti
 | **CSS compartido** | ✅ Refactorizado | `assets/css/styles.css` (7.5 KB) |
 | **Logo (real)** | ✅ Subido | `logo-claro.png` y `logo-oscuro.png` (~15 KB tras optimizar) |
 | **Favicon e iconos** | ✅ Hecho | `favicon.ico`, `apple-touch-icon.png`, `icon-192/512.png`, `site.webmanifest` |
-| **SEO y redes sociales** | ✅ Hecho | `description`, `canonical`, Open Graph y Twitter Card en las 16 páginas + JSON-LD en la portada |
-| **`robots.txt` / `sitemap.xml`** | ✅ Hecho | 10 URLs públicas; `/socios/` excluido e marcado `noindex` |
+| **SEO y redes sociales** | ✅ Hecho | `description`, `canonical`, Open Graph y Twitter Card en las 18 páginas + JSON-LD en la portada |
+| **`robots.txt` / `sitemap.xml`** | ✅ Hecho | 12 URLs públicas; `/socios/` excluido e marcado `noindex` |
 | **Página 404** | ✅ Hecha | `404.html` + `ErrorDocument` en `.htaccess` |
-| **Fotos de junta** | ⏳ Parcial | Solo Irene Pérez Cantillón en `assets/img/junta/irene.jpg` |
+| **Fotos de junta** | ⏳ Parcial | Irene, Jacobo y Nuria en `assets/img/junta/` (recorte cuadrado 640×640, mismo encuadre) — faltan Johanna, Jesús Manuel y Alejandro |
 | **Área de socios** | 🔄 Reestructurada (Fase 1) | Multi-página en `/socios/`, contenido de ejemplo. Pendiente: Cloudflare Access (Fase 2) y contenido real |
 | **GitHub Pages** | ❌ Pendiente | Repositorio en origin/main, pero DNS no apunta aún |
-| **Validación móvil** | ✅ Verificado | 17 páginas × 4 anchos (320/375/414/768 px): sin desbordamiento horizontal |
+| **Validación móvil** | ✅ Verificado | 19 páginas × 4 anchos (320/375/414/768 px): sin desbordamiento horizontal |
 | **Optimización de imágenes** | ✅ Hecha | Logos −77 %, foto de junta −73 % (sin pérdida visible) |
 
 ---
@@ -36,7 +36,7 @@ ADCS Web/
 ├── .gitignore                          ← Archivos a ignorar en Git
 ├── .htaccess                           ← Config. Apache para Hostalia (404, gzip, caché, cabeceras)
 ├── robots.txt                          ← Permite indexar todo excepto /socios/
-├── sitemap.xml                         ← 10 URLs públicas
+├── sitemap.xml                         ← 12 URLs públicas
 ├── site.webmanifest                    ← Nombre e iconos al añadir a pantalla de inicio
 ├── favicon.ico                         ← Icono de pestaña
 │
@@ -49,7 +49,10 @@ ADCS Web/
 │   ├── asociaciones.html               ✅ Enlaces a webs amigas (186 líneas) — Sin placeholders
 │   ├── patrocinadores.html             ✅ Patrocinadores (253 líneas) — Sin placeholders
 │   ├── recursos.html                   ✅ Recursos educativos (244 líneas) — Sin placeholders
-│   ├── cv-irene-perez-cantillon.html   ✅ CV especial (137 líneas) — Sin placeholders
+│   ├── cv-irene-perez-cantillon.html   ✅ CV especial — Sin placeholders
+│   ├── cv-alejandro-alvarez-asencio.html ✅ CV especial — Falta su foto
+│   ├── cv-jacobo-diaz-giraldez.html    ✅ CV especial — Sin placeholders
+│   ├── cv-nuria-ferrero-lopez.html     ✅ CV especial — Sin placeholders
 │   └── 404.html                        ✅ Página de error (no indexada, rutas absolutas)
 │
 ├── 🔑 ÁREA DE SOCIOS (`/socios/`) — Fase 1: estructura + contenido de ejemplo,
@@ -74,10 +77,12 @@ ADCS Web/
         ├── favicon-32.png              ✅ Favicon PNG 32×32
         │
         └── junta/
-            └── irene.jpg               ✅ Foto de Irene (40 KB, 540×360)
+            ├── irene.jpg               ✅ Foto de Irene (72 KB, 640×640)
+            ├── jacobo.jpg              ✅ Foto de Jacobo (75 KB, 640×640)
+            └── nuria.jpg               ✅ Foto de Nuria (88 KB, 640×640)
 ```
 
-**Total:** 10 páginas públicas + 6 páginas del área de socios = **16 páginas**.
+**Total:** 12 páginas públicas + 6 páginas del área de socios = **18 páginas**.
 
 ---
 
@@ -96,9 +101,10 @@ ADCS Web/
 - **Placeholders:** 1 imagen (Historia)
   - Ubicación: Línea 126 (`div.img-placeholder.ph-historia`)
   - Qué va: Foto histórica de la ADCS
-- **Fotos de junta:** 6 miembros con placeholders (círculos de color) — **FALTAN 5 FOTOS**
-  - Solo existe: `assets/img/junta/irene.jpg` (Irene Pérez Cantillón)
-  - Faltan: Johanna, Jesús Manuel, Jacobo, Nuria, Alejandro
+- **Fotos de junta:** 6 miembros — **FALTAN 3 FOTOS**
+  - Existen: `irene.jpg`, `jacobo.jpg` y `nuria.jpg` en `assets/img/junta/`
+  - Faltan: Johanna, Jesús Manuel, Alejandro (siguen con placeholder de círculo)
+  - Las tarjetas con foto enlazan a su página de CV
 - **Nav activo:** Sí
 
 ### 3. `hazte-socio.html` — Hazte socio/a
@@ -143,11 +149,16 @@ ADCS Web/
 - **Últimas mejoras:** Refacción de "Webs amigas" — ahora es "Recursos" (commit 843de20)
 - **Nav activo:** Sí
 
-### 9. `cv-irene-perez-cantillon.html` — CV especial
-- **Estado:** ✅ Completa (página especial)
-- **Contenido:** CV de Irene Pérez Cantillón (secretaria de la ADCS)
-- **Placeholders:** Ninguno
-- **Nav activo:** Sí
+### 9. `cv-*.html` — CV de la junta (páginas especiales)
+- **Estado:** ✅ Completas (4 páginas)
+- **Páginas:** `cv-irene-perez-cantillon.html`, `cv-alejandro-alvarez-asencio.html`,
+  `cv-jacobo-diaz-giraldez.html`, `cv-nuria-ferrero-lopez.html`
+- **Estructura común:** cabecera con foto circular, nombre, cargo e instrumento +
+  tres secciones fijas: «Formación académica», «Carrera como intérprete» y
+  «Trayectoria docente»
+- **Color:** acentos de fagot (azul) o de oboe (verde) según el instrumento
+- **Placeholders:** solo falta la foto de Alejandro
+- **Nav activo:** Sí (marca «Quiénes somos»)
 - **Uso:** Página auxiliar, probablemente sin enlace público en nav principal
 
 ### 10–15. `socios/*.html` — Área de socios (Fase 1: estructura + contenido de ejemplo)
@@ -383,17 +394,17 @@ Cuando falta una foto real, se usa un `div` con clase `.img-placeholder`. Tiene 
 
 ## 🖼️ Multimedia Pendiente
 
-### Fotos de junta directiva (5 de 6 faltan)
+### Fotos de junta directiva (3 de 6 faltan)
 Ubicación esperada: `assets/img/junta/[nombre].jpg`
 
 | Nombre | Rol | Foto | Estado |
 |--------|-----|------|--------|
 | Johanna Suárez González | Presidenta | `johanna.jpg` | ❌ Falta |
-| Irene Pérez Cantillón | Secretaria | `irene.jpg` | ✅ Existe (147 KB) |
+| Irene Pérez Cantillón | Secretaria | `irene.jpg` | ✅ Existe (72 KB, 640×640) |
 | Jesús Manuel Moreno González | Tesorero | `jesus-manuel.jpg` | ❌ Falta |
-| Jacobo Díaz Giráldez | Vocal | `jacobo.jpg` | ❌ Falta |
+| Jacobo Díaz Giráldez | Vocal | `jacobo.jpg` | ✅ Existe (75 KB, 640×640) |
 | Alejandro Álvarez Asencio | Vocal (desarrollador web) | `alejandro.jpg` | ❌ Falta |
-| Nuria Ferrero López | Vocal | `nuria.jpg` | ❌ Falta |
+| Nuria Ferrero López | Vocal | `nuria.jpg` | ✅ Existe (88 KB, 640×640) |
 
 ### Imágenes de placeholders (4 total esperadas)
 | Página | Tipo | Ubicación | Descripción |
@@ -475,7 +486,7 @@ Recursos               → recursos.html
 - `patrocinadores.html` → "Patrocinadores"
 - `recursos.html` → "Recursos"
 - `socios/*.html` → "🔑 Área de socios" activo en el nav principal; el subnav interno de `/socios/` marca la página actual
-- `cv-alejandro-alvarez-asencio.html` / `cv-irene-perez-cantillon.html` → sin enlace activo (páginas auxiliares)
+- `cv-*.html` (Irene, Alejandro, Jacobo, Nuria) → sin enlace activo (páginas auxiliares)
 
 ---
 
@@ -483,17 +494,17 @@ Recursos               → recursos.html
 
 | Métrica | Valor |
 |---------|-------|
-| **Páginas públicas** | 10 (+ `404.html`) |
+| **Páginas públicas** | 12 (+ `404.html`) |
 | **Área de socios** | 6 páginas en `/socios/` (sin protección técnica aún — Fase 1) |
-| **Total de páginas** | 17 |
+| **Total de páginas** | 19 |
 | **Tamaño logo-claro.png** | 15 KB (antes 62 KB) |
 | **Tamaño logo-oscuro.png** | 14 KB (antes 65 KB) |
 | **Peso total de imágenes** | 129 KB (antes 274 KB) |
-| **Fotos de junta** | 1/6 (17%) |
+| **Fotos de junta** | 3/6 (50%) |
 | **Placeholders pendientes (páginas públicas)** | 3 |
 | **Enlaces internos rotos** | 0 (25 recursos comprobados) |
-| **Desbordamiento horizontal en móvil** | 0 (68 comprobaciones) |
-| **Enlaces legales sin destino (`href="#"`)** | 51 (3 × 17 páginas) |
+| **Desbordamiento horizontal en móvil** | 0 (76 comprobaciones) |
+| **Enlaces legales sin destino (`href="#"`)** | 57 (3 × 19 páginas) |
 | **Rama principal** | main (en origin) |
 
 ---
@@ -542,7 +553,7 @@ Subir el contenido del repo (excepto archivos de desarrollo como `.git/`, `CONTE
 4. Dar de alta el sitio en Google Search Console y enviar `sitemap.xml`.
 
 Las URLs absolutas de `canonical`, `og:url` y `og:image` ya apuntan a `https://adcsevilla.es`.
-Si el dominio final fuera otro, hay que sustituirlo en las 16 páginas, en `sitemap.xml`,
+Si el dominio final fuera otro, hay que sustituirlo en las 18 páginas, en `sitemap.xml`,
 en `robots.txt` y en el JSON-LD de `index.html`.
 
 ### Prerrequisito de la Fase 2 del área de socios (Cloudflare)
@@ -559,9 +570,12 @@ Para poder proteger `/socios/*` con Cloudflare Access, el DNS de `adcsevilla.es`
 4. **Configurar dominio `adcsevilla.es`** apuntando al hosting definitivo (Hostalia)
 
 ### 🟡 Importante (mejora visual)
-5. **Subir 5 fotos de junta directiva** faltantes
+5. **Subir 3 fotos de junta directiva** faltantes
    - Ubicación esperada: `assets/img/junta/[nombre].jpg`
-   - Faltan: Johanna, Jesús Manuel, Jacobo, Nuria, Alejandro
+   - Faltan: Johanna, Jesús Manuel, Alejandro
+   - Encuadre a replicar: recorte cuadrado 640×640, ojos a ~30 % de la altura y
+     distancia entre ojos y mentón de ~15 % de la altura (así todas las fotos
+     tienen la misma cercanía a la cara); el instrumento se incluye si cabe
 
 6. **Subir imágenes para placeholders**
    - `quienes-somos.html` — Foto histórica
@@ -570,7 +584,7 @@ Para poder proteger `/socios/*` con Cloudflare Access, el DNS de `adcsevilla.es`
 
 ### 🟢 Opcional (pulido)
 7. ~~**Verificar responsive en móviles**~~ ✅ Hecho — auditoría automática de desbordamiento
-   horizontal en las 17 páginas a 320, 375, 414 y 768 px (68 comprobaciones, 0 fallos).
+   horizontal en las 19 páginas a 320, 375, 414 y 768 px (76 comprobaciones, 0 fallos).
    Se corrigió el IBAN de `hazte-socio.html`, que llevaba `white-space:nowrap` y sacaba
    la página 12 px fuera de pantalla en móviles estrechos.
    *(Queda pendiente, si se quiere, la prueba manual en dispositivos físicos reales.)*
@@ -579,7 +593,7 @@ Para poder proteger `/socios/*` con Cloudflare Access, el DNS de `adcsevilla.es`
    junta redimensionada a 540 px y recomprimida (−73 %). Sin diferencia visible.
 
 ### 🔵 Nuevo pendiente (requiere decisión de la Junta)
-10. **Páginas legales.** El pie de las 17 páginas enlaza a *Aviso legal*, *Política de privacidad*
+10. **Páginas legales.** El pie de las 19 páginas enlaza a *Aviso legal*, *Política de privacidad*
     y *Cookies* con `href="#"` (51 enlaces sin destino). Para una asociación que recoge datos
     de socios por formulario, la LSSI-CE y el RGPD piden al menos aviso legal e información
     sobre el tratamiento de datos. Falta decidir el texto con la Junta antes de redactar
@@ -602,7 +616,7 @@ Para poder proteger `/socios/*` con Cloudflare Access, el DNS de `adcsevilla.es`
 - IBAN y datos bancarios
 - Información de cuota
 - Links a webs amigas
-- Metadatos SEO y de redes sociales (Open Graph / Twitter Card) en las 16 páginas
+- Metadatos SEO y de redes sociales (Open Graph / Twitter Card) en las 18 páginas
 - Favicon, iconos de aplicación e imagen de previsualización 1200×630
 - `robots.txt`, `sitemap.xml`, `site.webmanifest`, `404.html` y `.htaccess`
 - Accesibilidad: foco visible por teclado, enlace «Saltar al contenido»,
@@ -610,7 +624,7 @@ Para poder proteger `/socios/*` con Cloudflare Access, el DNS de `adcsevilla.es`
 - Responsive verificado a 320/375/414/768 px e imágenes optimizadas
 
 ⏳ **Pendiente:**
-- 5 fotos de junta (de 6)
+- 3 fotos de junta (de 6)
 - 3 imágenes para placeholders de páginas públicas
 - Migración de DNS a Cloudflare + configuración de Cloudflare Access (Fase 2 del área de socios)
 - Contenido real de `/socios/` (vídeos, documentos, partituras, formularios)
