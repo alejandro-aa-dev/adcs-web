@@ -593,14 +593,17 @@ Para poder proteger `/socios/*` con Cloudflare Access, el DNS de `adcsevilla.es`
    junta redimensionada a 540 px y recomprimida (−73 %). Sin diferencia visible.
 
 ### 🔵 Nuevo pendiente (requiere decisión de la Junta)
-10. **Páginas legales.** El pie de las 19 páginas enlaza a *Aviso legal*, *Política de privacidad*
-    y *Cookies* con `href="#"` (51 enlaces sin destino). Para una asociación que recoge datos
-    de socios por formulario, la LSSI-CE y el RGPD piden al menos aviso legal e información
-    sobre el tratamiento de datos. Falta decidir el texto con la Junta antes de redactar
-    `aviso-legal.html`, `privacidad.html` y `cookies.html`.
-    *Nota técnica:* el sitio no instala cookies propias; la única transferencia a un tercero
-    es la carga de Google Fonts (que expone la IP del visitante). Se puede eliminar
-    autoalojando las tipografías si la Junta lo prefiere.
+10. **Páginas legales — borradores redactados, pendientes de la Junta.** Creadas
+    `aviso-legal.html`, `privacidad.html` y `cookies.html` (el pie de las 19 páginas ya las enlaza).
+    Están marcadas `noindex`, fuera de `sitemap.xml`, y con un aviso de borrador visible.
+    Los huecos están resaltados como `[PENDIENTE: …]`: NIF, domicilio social, campos exactos del
+    formulario de inscripción, plazos de conservación, cómo se recoge el consentimiento de imagen
+    (y de tutores en menores) y fecha de aprobación. Cuando la Junta las apruebe: quitar el aviso
+    y el `noindex` y añadirlas al sitemap. No sustituyen asesoramiento jurídico.
+    *Nota técnica:* el sitio no instala cookies propias; los terceros que se cargan son
+    Google Fonts (todas las páginas) y las imágenes de logos de patrocinadores alojadas en
+    Blogger (`patrocinadores.html`). Autoalojar ambos eliminaría toda conexión a terceros
+    y simplificaría `cookies.html`.
 
 ---
 
@@ -629,7 +632,7 @@ Para poder proteger `/socios/*` con Cloudflare Access, el DNS de `adcsevilla.es`
 - Migración de DNS a Cloudflare + configuración de Cloudflare Access (Fase 2 del área de socios)
 - Contenido real de `/socios/` (vídeos, documentos, partituras, formularios)
 - Publicación en el dominio `adcsevilla.es` (Hostalia)
-- Textos de las páginas legales (aviso legal, privacidad, cookies) — decisión de la Junta
+- Páginas legales: borradores hechos; la Junta debe completar los `[PENDIENTE]` y aprobarlos
 
 **Próximo paso recomendado:** decidir con la Junta la migración de DNS a Cloudflare para poder activar Cloudflare Access sobre `/socios/*`. Mientras tanto, no subir contenido real ni datos de socios a esa carpeta.
 

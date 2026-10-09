@@ -240,3 +240,22 @@ footer{background:#1a1a1a;color:#fff;padding:3rem 2rem 1.5rem;margin-top:auto}
   .footer-grid{grid-template-columns:1fr;gap:2rem}
   .footer-bottom{flex-direction:column;text-align:center}
 }
+
+/* ---- PÁGINAS LEGALES (aviso legal, privacidad, cookies) ---- */
+.legal-doc{background:#fff;padding:1rem 2rem 4rem}
+.legal-doc .container{max-width:820px}
+.legal-doc h2{font-family:'Playfair Display',serif;font-size:1.45rem;color:var(--texto);margin:2.25rem 0 0.75rem;line-height:1.3}
+.legal-doc h3{font-size:1.05rem;color:var(--texto);margin:1.5rem 0 0.5rem}
+.legal-doc p,.legal-doc li{color:var(--gris);font-size:1rem;line-height:1.8}
+.legal-doc p{margin-bottom:0.9rem}
+.legal-doc ul{margin:0 0 1rem 1.25rem}
+.legal-doc li{margin-bottom:0.4rem}
+.legal-doc strong{color:var(--texto)}
+.legal-doc a{color:var(--texto);text-decoration:underline}
+.legal-doc .actualizado{margin-top:2rem;font-size:0.9rem}
+.borrador-aviso{background:var(--naranja-light);border-left:4px solid var(--naranja);border-radius:0.6rem;padding:1rem 1.25rem;color:var(--texto)!important;font-size:0.95rem!important}
+mark.pendiente{background:#fff3a3;color:var(--texto);padding:0.05em 0.35em;border-radius:0.25em}
+.tabla-legal{width:100%;border-collapse:collapse;margin:0 0 1.25rem;font-size:0.95rem}
+.tabla-legal th,.tabla-legal td{border:1px solid var(--borde);padding:0.65rem 0.85rem;text-align:left;vertical-align:top;color:var(--gris);line-height:1.6}
+.tabla-legal th{background:var(--naranja-light);color:var(--texto)}
+@media(max-width:600px){.legal-doc{padding:0.5rem 1.25rem 3rem}}
