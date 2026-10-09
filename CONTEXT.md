@@ -11,7 +11,9 @@ Diseñador/desarrollador del nuevo sitio: **A. Álvarez** (el propietario del pr
 
 ## Objetivo del proyecto
 
-Reemplazar la web actual de Blogger por un sitio estático moderno, alojado en GitHub Pages (o similar), apuntando el dominio `adcsevilla.es` al nuevo hosting.
+Sustituir la web de Blogger por un sitio estático (HTML/CSS sin build ni backend) en `adcsevilla.es`.
+**Hosting definitivo: Hostalia** (GitHub es solo repositorio de desarrollo). Para el estado real
+del proyecto, tareas pendientes y despliegue, ver `README.md`; para accesibilidad, `ACCESIBILIDAD.md`.
 
 ## Identidad visual
 
@@ -32,25 +34,18 @@ Reemplazar la web actual de Blogger por un sitio estático moderno, alojado en G
 }
 ```
 
-**REGLA IMPORTANTE:** Siempre que se mencione "oboe" en el texto, va con la clase `.txt-oboe` (verde). Siempre que se mencione "fagot", con `.txt-fagot` (azul). El usuario mencionó que el verde del logo real es distinto al actual `#4a9e6b` — pendiente de que él pase el código exacto.
+**REGLA IMPORTANTE:** Siempre que se mencione "oboe" en el texto, va con la clase `.txt-oboe` (verde). Siempre que se mencione "fagot", con `.txt-fagot` (azul). Los colores de marca no se modifican aunque fallen el contraste WCAG.
 
 ### Tipografías
 
 - **Playfair Display** (700, 900) — títulos y números grandes
-- **Inter** (400, 500, 600, 700) — cuerpo de texto y UI
+- **Inter** (400–700) — cuerpo de texto y UI
 
-Cargadas desde Google Fonts:
-```html
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-```
+Autoalojadas en `assets/fonts/` y declaradas en `assets/css/fonts.css` (no usar Google Fonts).
 
 ### Logo
 
-Hay dos versiones:
-- **Logo fondo claro** (para nav y zonas claras): usar el archivo con texto blanco sobre fondo naranja
-- **Logo fondo oscuro** (para footer negro): usar el archivo con texto negro sobre fondo naranja
-
-En los HTML actuales hay un **SVG provisional aproximado** del logo que el usuario quiere reemplazar por las imágenes reales subidas al repo. Buscar el bloque `<!-- LOGO ADCS - VERSIÓN FONDO CLARO -->` y `<!-- LOGO ADCS - VERSIÓN FONDO OSCURO -->` para localizarlos.
+`assets/img/logo-claro.png` (nav y zonas claras) y `assets/img/logo-oscuro.png` (footer oscuro).
 
 ## Reglas de diseño y contenido
 
@@ -66,33 +61,19 @@ En los HTML actuales hay un **SVG provisional aproximado** del logo que el usuar
 
 ## Estructura del sitio
 
-Páginas (heredadas de la web actual):
-
-| URL                       | Estado actual                                  |
-|---------------------------|------------------------------------------------|
-| `index.html`              | ✅ Hecha (versión simplificada, solo hero)     |
-| `quienes-somos.html`      | ✅ Hecha (historia, misión, junta, datos)      |
-| `hazte-socio.html`        | ✅ Hecha (cuota, pasos, banco, casos)          |
-| `v-concurso-2026.html`    | ⏳ Pendiente — V Concurso 2026 (aplazado)      |
-| `vii-encuentro-15.html`   | ⏳ Pendiente — VII Encuentro 15º Aniversario   |
-| `videos-orquestal.html`   | ⏳ Pendiente — Vídeos de repertorio orquestal  |
-| `webs-amigas.html`        | ⏳ Pendiente                                   |
-| `patrocinadores.html`     | ⏳ Pendiente                                   |
+12 páginas públicas, 6 páginas del área de socios (`/socios/`), 3 páginas legales en borrador
+(`aviso-legal`, `privacidad`, `cookies`) y `404.html`. Listado completo en `README.md`.
 
 ## Componentes comunes que se repiten en todas las páginas
 
-1. **Nav superior fijo** (sticky) con logo SVG a la izquierda y enlaces a las 8 páginas. Versión mobile: hamburguesa.
+1. **Nav superior fijo** con logo y enlaces; versión móvil con hamburguesa.
+2. **Breadcrumb** ("Inicio › Nombre de página"), salvo en `index.html`.
+3. **Page header** con `section-tag`, título grande y subtítulo.
+4. **Footer** común: marca y redes / navegación / más enlaces, y barra inferior con copyright,
+   enlaces legales y créditos.
+5. **`section-tag`**: `.tag-naranja`, `.tag-oboe` (verde), `.tag-fagot` (azul).
 
-2. **Breadcrumb** ("Inicio › Nombre de página"). Excepto en `index.html`.
-
-3. **Page header** con `section-tag` (badge de color), título grande y subtítulo.
-
-4. **Footer** común — 3 columnas (marca + descripción + redes / navegación / más enlaces) + barra inferior con copyright, legales y créditos a A. Álvarez.
-
-5. **Patrón de `section-tag`**:
-   - `.tag-naranja` (fondo naranja claro)
-   - `.tag-oboe` (verde claro)
-   - `.tag-fagot` (azul claro)
+El nav y el footer están duplicados en cada HTML: al cambiarlos hay que cambiarlos en todas las páginas.
 
 ## Datos de contacto
 
@@ -128,54 +109,9 @@ Páginas (heredadas de la web actual):
 
 https://docs.google.com/forms/d/e/1FAIpQLSfpWCU81MLHCoMFYFMkvD-0xaCaBvAaudAu87r45o8hEFq3Rw/viewform
 
-## Próximos pasos pendientes (en orden sugerido)
-
-### 1. Refactorización inicial (prioridad alta)
-
-El código HTML actual repite los estilos CSS en cada archivo. Extraer todo el CSS a un único `assets/css/styles.css` compartido. Cada HTML solo debería tener un `<link rel="stylesheet" href="assets/css/styles.css"/>`.
-
-Lo mismo con el SVG del logo y el nav/footer si se quiere ir más allá (en sitio estático puro se duplica; con un sistema de plantillas como Eleventy/Astro/Jekyll se podría extraer a un partial).
-
-### 2. Crear las páginas pendientes
-
-Seguir el mismo patrón estructural que `quienes-somos.html` y `hazte-socio.html`:
-
-- Nav + Breadcrumb + Page Header + Secciones + CTA "Hazte socio" + Footer
-- Sin iconos emoji decorativos
-- Placeholders de foto donde corresponda
-- Oboe/fagot siempre en sus colores
-- Marcar el enlace activo del nav con `class="active"`
-
-### 3. Subir el logo real
-
-El usuario tiene dos versiones del logo (fondo claro y fondo oscuro). Crear `assets/img/logo-claro.png` (o .svg) y `assets/img/logo-oscuro.png`. Reemplazar los SVG provisionales del nav y footer por `<img>` con clase `logo-img`.
-
-### 4. Configurar GitHub Pages
-
-- `git init` en la carpeta del proyecto
-- Crear repo en GitHub (sugerencia: `adcs-web` o `adcsevilla`)
-- `git remote add origin ...`
-- `git push -u origin main`
-- En GitHub: Settings → Pages → Source: `main` branch
-- Una vez funcionando, configurar dominio personalizado `adcsevilla.es` (DNS A records apuntando a GitHub Pages)
-
-### 5. Página adicional sugerida
-
-Una página de **Actividades** o **Qué hacemos** (extraída de la sección que había en la versión completa de la home) con detalle del Ciclo "José Antonio Pérez Madrigal", concursos, encuentros, etc.
-
 ## Estilo de comunicación del usuario
 
 - Habla en español
 - Es directo y le gusta iterar rápido
 - Prefiere preview HTML estándar para trabajar (no la versión XML de Blogger)
 - Va a usar Claude Code para terminar el proyecto
-
-## Notas finales
-
-El usuario tiene la conversación previa donde fuimos construyendo cada decisión paso a paso. El estado actual de cada página (HTML completo) está en los artefactos:
-
-- `adcs_landing` — index.html (Inicio)
-- `adcs_quienes_somos` — quienes-somos.html
-- `adcs_hazte_socio` — hazte-socio.html
-
-Estos artefactos se exportarán a archivos en el siguiente paso.

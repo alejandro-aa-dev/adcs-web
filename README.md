@@ -610,6 +610,21 @@ Para poder proteger `/socios/*` con Cloudflare Access, el DNS de `adcsevilla.es`
 
 ---
 
+## 🧰 Herramientas y documentación de apoyo
+
+| Archivo | Para qué sirve |
+|---------|----------------|
+| `tools/auditar.py` | Auditoría estática de las 22 páginas: `lang`, `<title>`, un solo `<h1>`, saltos de encabezado, `alt`, IDs duplicados, enlaces `#`, `target=_blank` sin `noopener`, JSON-LD y recursos locales inexistentes. Los únicos avisos esperados son los `#` de contenido de ejemplo en `/socios/`. |
+| `tools/empaquetar.py` | Comprueba que no quede nada que impida publicar (`[PENDIENTE]`, `noindex`, recursos rotos) y genera `dist/adcs-web/` y `dist/adcs-web.zip` solo con los archivos públicos, listo para subir a Hostalia. `--forzar` empaqueta aun con avisos graves. |
+| `docs/guia-cloudflare-access.md` | Guía para la Junta: migrar el DNS y proteger `/socios/*`. |
+| `docs/cuestionario-junta.md` | Preguntas que la Junta debe responder para completar las páginas legales y publicar. |
+| `docs/modelo-autorizacion-imagen.md` | Borrador de autorización de imagen (adultos y menores) y texto para casilla de formulario. |
+| `docs/checklist-lanzamiento.md` | Pasos ordenados del día de la publicación (subida, SSL, `mod_rewrite`, Search Console). |
+
+`docs/`, `tools/` y `dist/` no se publican en el hosting. Las páginas imprimen limpias (hoja `@media print` al final de `styles.css`: sin menú ni pie decorativo, con la URL de los enlaces externos).
+
+---
+
 ## 🎯 Resumen Rápido
 
 ✅ **Hecho:**

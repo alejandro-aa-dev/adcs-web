@@ -229,7 +229,7 @@ footer{background:#1a1a1a;color:#fff;padding:3rem 2rem 1.5rem;margin-top:auto}
 .participa-card{background:#fff;border:1.5px solid var(--borde);border-radius:1.2rem;padding:2rem 1.75rem;text-align:center;transition:border-color .2s,transform .2s}
 .participa-card:hover{border-color:var(--fagot);transform:translateY(-3px)}
 .participa-card .acceso-icon{margin-bottom:1rem}
-.participa-card h3{font-family:'Playfair Display',serif;font-size:1.05rem;margin-bottom:0.5rem;color:var(--texto)}
+.participa-card h2,.participa-card h3{font-family:'Playfair Display',serif;font-size:1.05rem;margin-bottom:0.5rem;color:var(--texto)}
 .participa-card p{color:var(--gris);font-size:0.87rem;line-height:1.65;margin-bottom:1.25rem}
 
 /* ---- RESPONSIVE ---- */
@@ -259,3 +259,22 @@ mark.pendiente{background:#fff3a3;color:var(--texto);padding:0.05em 0.35em;borde
 .tabla-legal th,.tabla-legal td{border:1px solid var(--borde);padding:0.65rem 0.85rem;text-align:left;vertical-align:top;color:var(--gris);line-height:1.6}
 .tabla-legal th{background:var(--naranja-light);color:var(--texto)}
 @media(max-width:600px){.legal-doc{padding:0.5rem 1.25rem 3rem}}
+
+/* ---- IMPRESIÓN (CV, bases del concurso, páginas legales...) ---- */
+@media print{
+  @page{margin:1.6cm}
+  body{background:#fff!important;color:#000!important;font-size:11pt}
+  .skip-link,.topnav,.breadcrumb-bar,.menu-toggle,.footer-social,.footer-grid,.socios-nav,
+  .btn-primary,.btn-outline,.btn-cta,.cta-note,.click-hint,.error-ctas{display:none!important}
+  .page-header::before,.page-header::after,section::before,section::after{display:none!important}
+  .page-header,section,.container,.legal-doc{padding-top:0.4cm!important;padding-bottom:0.4cm!important;background:#fff!important}
+  *{box-shadow:none!important;animation:none!important;transition:none!important}
+  a{color:#000!important;text-decoration:underline}
+  main a[href^="http"]:after{content:" (" attr(href) ")";font-size:9pt;word-break:break-all}
+  a[href^="mailto"]:after,a[href^="#"]:after,.nav-logo-link:after{content:none}
+  h1,h2,h3,h4{break-after:avoid-page}
+  img,table,.legal-card,.evento-card,.participa-card{break-inside:avoid}
+  footer{background:#fff!important;color:#000!important;padding:0.4cm 0!important;border-top:1px solid #999}
+  footer *{color:#000!important}
+  mark.pendiente{background:none;border-bottom:1px dotted #000}
+}
