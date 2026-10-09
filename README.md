@@ -22,6 +22,7 @@ Sitio web estático de la **Asociación de Doble Caña de Sevilla (ADCS)**, enti
 | **Área de socios** | 🔄 Reestructurada (Fase 1) | Multi-página en `/socios/`, contenido de ejemplo. Pendiente: Cloudflare Access (Fase 2) y contenido real |
 | **GitHub Pages** | ❌ Pendiente | Repositorio en origin/main, pero DNS no apunta aún |
 | **Validación móvil** | ✅ Verificado | 19 páginas × 4 anchos (320/375/414/768 px): sin desbordamiento horizontal |
+| **Recursos autoalojados** | ✅ Hecho | Google Fonts (4 archivos woff2, 200 KB) y 33 imágenes de Blogger descargadas; sin conexiones a terceros |
 | **Optimización de imágenes** | ✅ Hecha | Logos −77 %, foto de junta −73 % (sin pérdida visible) |
 
 ---
@@ -241,9 +242,11 @@ Esta regla se aplica en **todas las páginas**, en el hero de inicio, en las des
 | **Playfair Display** | 700, 900 | Títulos de página, títulos de sección, números grandes (stats) |
 | **Inter** | 400, 500, 600, 700 | Todo lo demás: cuerpo, nav, botones, labels, breadcrumb |
 
-Cargadas desde Google Fonts en el `<head>` de cada página:
+Autoalojadas (variables, subconjuntos latin y latin-ext) en `assets/fonts/`, declaradas en
+`assets/css/fonts.css` y enlazadas desde el `<head>` de cada página, con `preload` de los dos
+archivos `latin`:
 ```html
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/fonts.css"/>
 ```
 
 Los tamaños de título usan `clamp()` para escalar en función del viewport:
@@ -600,10 +603,10 @@ Para poder proteger `/socios/*` con Cloudflare Access, el DNS de `adcsevilla.es`
     formulario de inscripción, plazos de conservación, cómo se recoge el consentimiento de imagen
     (y de tutores en menores) y fecha de aprobación. Cuando la Junta las apruebe: quitar el aviso
     y el `noindex` y añadirlas al sitemap. No sustituyen asesoramiento jurídico.
-    *Nota técnica:* el sitio no instala cookies propias; los terceros que se cargan son
-    Google Fonts (todas las páginas) y las imágenes de logos de patrocinadores alojadas en
-    Blogger (`patrocinadores.html`). Autoalojar ambos eliminaría toda conexión a terceros
-    y simplificaría `cookies.html`.
+    *Nota técnica:* el sitio no instala cookies propias y **ya no carga nada de terceros**:
+    tipografías en `assets/fonts/` (+ `assets/css/fonts.css`) e imágenes de patrocinadores y
+    del VII Encuentro en `assets/img/patrocinadores/`. Si se añade algún recurso externo
+    (vídeo incrustado, mapa, analítica) hay que revisar `cookies.html`.
 
 ---
 

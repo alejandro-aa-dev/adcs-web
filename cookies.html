@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Política de cookies — ADCS Sevilla</title>
-<meta name="description" content="Política de cookies de la web de la Asociación de Doble Caña de Sevilla (ADCS): esta web no instala cookies propias; detalle de los servicios de terceros."/>
+<meta name="description" content="Política de cookies de la web de la Asociación de Doble Caña de Sevilla (ADCS): esta web no instala cookies propias ni carga recursos de terceros."/>
 <!-- BORRADOR: quitar noindex y añadir a sitemap.xml cuando la Junta apruebe el texto -->
 <meta name="robots" content="noindex, follow"/>
 <link rel="canonical" href="https://adcsevilla.es/cookies.html"/>
@@ -16,10 +16,10 @@
 <link rel="manifest" href="site.webmanifest"/>
 <meta name="theme-color" content="#FFAB60"/>
 
-<!-- Precarga de fuentes -->
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<!-- Tipografías autoalojadas -->
+<link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin/>
+<link rel="preload" href="assets/fonts/playfair-latin.woff2" as="font" type="font/woff2" crossorigin/>
+<link rel="stylesheet" href="assets/css/fonts.css"/>
 <link rel="stylesheet" href="assets/css/styles.css"/>
 </head>
 <body>
@@ -72,16 +72,9 @@
 <h2>2. Cookies propias</h2>
 <p>Esta web <strong>no instala cookies propias</strong> ni utiliza herramientas de analítica, publicidad o seguimiento. Por eso no mostramos un banner de consentimiento.</p>
 
-<h2>3. Servicios de terceros que se cargan al visitar la web</h2>
-<p>Aunque no instalemos cookies, algunas páginas cargan recursos desde servidores de terceros. Al hacerlo, el proveedor recibe necesariamente tu dirección IP y datos técnicos del navegador, como ocurre en cualquier conexión a internet.</p>
-<table class="tabla-legal">
-  <thead><tr><th scope="col">Servicio</th><th scope="col">Para qué</th><th scope="col">Dónde</th></tr></thead>
-  <tbody>
-    <tr><td>Google Fonts</td><td>Cargar las tipografías de la web (Playfair Display e Inter)</td><td>Todas las páginas</td></tr>
-    <tr><td>Blogger / Google (googleusercontent.com)</td><td>Alojar los logotipos de los patrocinadores</td><td>Página de patrocinadores</td></tr>
-  </tbody>
-</table>
-<p><mark class="pendiente">[PENDIENTE: Si se decide autoalojar las tipografías y los logotipos de patrocinadores, esta sección se eliminará y la web no contactará con terceros al cargarse. Actualizar esta tabla si se añade algún otro recurso externo.]</mark></p>
+<h2>3. Servicios de terceros al cargar la web</h2>
+<p>Las tipografías, las imágenes, las hojas de estilo y el resto de recursos se sirven desde el propio dominio de la ADCS. Al visitar esta web <strong>tu navegador no se conecta a servidores de terceros</strong> (ni a Google Fonts ni a ningún otro servicio), de modo que ningún tercero recibe tu dirección IP por el hecho de navegar por ella. La única información técnica que se registra es la que genera el propio servidor de alojamiento (Hostalia) al atender cada petición.</p>
+<p><mark class="pendiente">[PENDIENTE: Revisar esta sección si en el futuro se incorporan vídeos incrustados, mapas, analítica u otros recursos externos.]</mark></p>
 
 <h2>4. Enlaces y contenidos externos</h2>
 <p>Al pulsar enlaces a Google Forms, Google Drive, YouTube, Facebook, Instagram, WhatsApp o webs de patrocinadores, sales de esta web y pasas a regirte por las políticas de cookies y privacidad de esos servicios, que pueden instalar sus propias cookies.</p>

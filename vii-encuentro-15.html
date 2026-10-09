@@ -30,10 +30,10 @@
 <link rel="manifest" href="site.webmanifest"/>
 <meta name="theme-color" content="#FFAB60"/>
 
-<!-- Precarga de fuentes -->
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<!-- Tipografías autoalojadas -->
+<link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin/>
+<link rel="preload" href="assets/fonts/playfair-latin.woff2" as="font" type="font/woff2" crossorigin/>
+<link rel="stylesheet" href="assets/css/fonts.css"/>
 <link rel="stylesheet" href="assets/css/styles.css"/>
 <style>
 /* ---- POSTER + INTRO ---- */
@@ -130,7 +130,7 @@
     <div class="enc-top-inner">
       <!-- Cartel del congreso (imagen alojada en el Blogger actual; localizar en assets/img/eventos/ al migrar) -->
       <div class="enc-poster">
-        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEix12I_8xW36Ziwx0BEh8LeopeQJRrsvIQm4fsgHQB3P3iN8pd31CERgtoW64cWf4vyHidAnQuYxmyPTOtbG8xmZ7V22rdMVrpAqfaNjEM85J7MmljRu3sBZLdSHM9tkgdLcA8RjFvlEPz-hLHWpdTKaKJZ1yhXg6cyKr2kgMQGzuINwqBQPOpJdAvcNx0/s1080/Cartel%20RRSS%20%20V.5.jpg" alt="Cartel del VII Encuentro Especial 15º Aniversario de la ADCS" loading="lazy"/>
+        <img src="assets/img/patrocinadores/enc-01.jpg" alt="Cartel del VII Encuentro Especial 15º Aniversario de la ADCS" loading="lazy"/>
       </div>
       <div class="enc-intro">
         <span class="badge-done">Celebrado · 28 de febrero a 2 de marzo de 2025</span>
@@ -210,20 +210,20 @@
       <h2 class="section-title">Horarios y <span class="accent">programas</span></h2>
       <p class="section-desc">Horarios definitivos y programas de los conciertos del congreso. Haz clic en cualquier imagen para verla a tamaño completo.</p>
       <div class="enc-gallery">
-        <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgi1Q3LxOEg3bsmiwvV-Yu_w7mGhY6lIS54wKiwenLKqjqUlfxrp2-jTcBPktAkfLIgpIOP7B_W-R9UChYJeQdpekVIYtpAYolrFJUdsuUrc0BUYjPdGwOKJFAY4SW9UzXhgN3pcVm_vRwnBN0WMVp5N7JD4wfTuW5FCO-KyIVwzWG5RXmaX9F6yVBcMTE/s1080/Horarios%20RRSS%20RRSS2.jpg" target="_blank" rel="noopener noreferrer">
-          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgi1Q3LxOEg3bsmiwvV-Yu_w7mGhY6lIS54wKiwenLKqjqUlfxrp2-jTcBPktAkfLIgpIOP7B_W-R9UChYJeQdpekVIYtpAYolrFJUdsuUrc0BUYjPdGwOKJFAY4SW9UzXhgN3pcVm_vRwnBN0WMVp5N7JD4wfTuW5FCO-KyIVwzWG5RXmaX9F6yVBcMTE/w640-h640/Horarios%20RRSS%20RRSS2.jpg" alt="Horarios del congreso (1)" loading="lazy"/>
+        <a href="assets/img/patrocinadores/enc-02.jpg" target="_blank" rel="noopener noreferrer">
+          <img src="assets/img/patrocinadores/enc-03.jpg" alt="Horarios del congreso (1)" loading="lazy"/>
         </a>
-        <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj2qczG7iBsMuluVmt99ddVVyyGrQBNffWxXdmoangQRhorvOazZTVXLqPdKlIBmHtsBjaTfczgoLDAwKhRay2IfZ84VbNQJE-z-EPAOZlVFFHe7IYd1SLbvI5ghgtjcN5yjPlQ8NILWCt9EJTkWnNHnRlseglpY7hLvLCT19na-zUBnF6b4oEZ9hgeQPg/s1080/Horarios%20RRSS3.jpg" target="_blank" rel="noopener noreferrer">
-          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj2qczG7iBsMuluVmt99ddVVyyGrQBNffWxXdmoangQRhorvOazZTVXLqPdKlIBmHtsBjaTfczgoLDAwKhRay2IfZ84VbNQJE-z-EPAOZlVFFHe7IYd1SLbvI5ghgtjcN5yjPlQ8NILWCt9EJTkWnNHnRlseglpY7hLvLCT19na-zUBnF6b4oEZ9hgeQPg/w640-h640/Horarios%20RRSS3.jpg" alt="Horarios del congreso (2)" loading="lazy"/>
+        <a href="assets/img/patrocinadores/enc-04.jpg" target="_blank" rel="noopener noreferrer">
+          <img src="assets/img/patrocinadores/enc-05.jpg" alt="Horarios del congreso (2)" loading="lazy"/>
         </a>
-        <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhEjsokI6WdHkopTe5Jbs5RQU0JFrgI0drD66VfOKm2sHQ0BK45kjZ7vt5elEpNvCkYIeL21GBKaBCkSKUc3JsYme7fzXQXZ4ykdPxa8Eo47IpC8-fbMP6VEFJBSlTSBteKUPPrnQX06FrGFMMDysHI1vgSQqgBGgdxVKdKZbzmfE2Bc5G5X9Tr27RwPJ4/s1080/Horarios%20RRSS4.jpg" target="_blank" rel="noopener noreferrer">
-          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhEjsokI6WdHkopTe5Jbs5RQU0JFrgI0drD66VfOKm2sHQ0BK45kjZ7vt5elEpNvCkYIeL21GBKaBCkSKUc3JsYme7fzXQXZ4ykdPxa8Eo47IpC8-fbMP6VEFJBSlTSBteKUPPrnQX06FrGFMMDysHI1vgSQqgBGgdxVKdKZbzmfE2Bc5G5X9Tr27RwPJ4/w640-h640/Horarios%20RRSS4.jpg" alt="Horarios del congreso (3)" loading="lazy"/>
+        <a href="assets/img/patrocinadores/enc-06.jpg" target="_blank" rel="noopener noreferrer">
+          <img src="assets/img/patrocinadores/enc-07.jpg" alt="Horarios del congreso (3)" loading="lazy"/>
         </a>
-        <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEigvb3JAWGC0ITXihZUtP6zOU0l4Kiq7mfi2YZ0luQ9LoivRGYGOrqWdpFMXWemkGuexGTZ5T3Q_YmwVK_fCOv6B4k-bfVklk8c-VhWvcoIuKVQDbXHeAHTuPXHTj50pgOX-XDu6I1fX_pvrFwTPvYwMYwY-wLxPELYXD8Mmi71aH6CedcqUf8bcUNSCDc/s1080/Feb%2025_2%20-%20Programas%20conciertos1_TEXTO.jpg" target="_blank" rel="noopener noreferrer">
-          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEigvb3JAWGC0ITXihZUtP6zOU0l4Kiq7mfi2YZ0luQ9LoivRGYGOrqWdpFMXWemkGuexGTZ5T3Q_YmwVK_fCOv6B4k-bfVklk8c-VhWvcoIuKVQDbXHeAHTuPXHTj50pgOX-XDu6I1fX_pvrFwTPvYwMYwY-wLxPELYXD8Mmi71aH6CedcqUf8bcUNSCDc/w640-h640/Feb%2025_2%20-%20Programas%20conciertos1_TEXTO.jpg" alt="Programa de los conciertos (1)" loading="lazy"/>
+        <a href="assets/img/patrocinadores/enc-08.jpg" target="_blank" rel="noopener noreferrer">
+          <img src="assets/img/patrocinadores/enc-09.jpg" alt="Programa de los conciertos (1)" loading="lazy"/>
         </a>
-        <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjWZ9XLB8p1DOhc6fBxDc4omI2NDUiGuR3hNDa7jCGbo_RRogJcPIiLdGOra67VWxbQXzkRvnFWzRKPiYtHb2GbiGcdqFZYslg6GnyPE8CanxBbKlhIDcHE7dzbY7otTRSDT5ios6xVSvCyeburkyqiujxiHlH-chYfRsLXIrI5i4Xn2Q_TPI5BGhWAq3E/s1080/Feb%2025_2%20-%20Programas%20conciertos2_TEXTO.jpg" target="_blank" rel="noopener noreferrer">
-          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjWZ9XLB8p1DOhc6fBxDc4omI2NDUiGuR3hNDa7jCGbo_RRogJcPIiLdGOra67VWxbQXzkRvnFWzRKPiYtHb2GbiGcdqFZYslg6GnyPE8CanxBbKlhIDcHE7dzbY7otTRSDT5ios6xVSvCyeburkyqiujxiHlH-chYfRsLXIrI5i4Xn2Q_TPI5BGhWAq3E/w640-h640/Feb%2025_2%20-%20Programas%20conciertos2_TEXTO.jpg" alt="Programa de los conciertos (2)" loading="lazy"/>
+        <a href="assets/img/patrocinadores/enc-10.jpg" target="_blank" rel="noopener noreferrer">
+          <img src="assets/img/patrocinadores/enc-11.jpg" alt="Programa de los conciertos (2)" loading="lazy"/>
         </a>
       </div>
     </div>
@@ -237,7 +237,7 @@
       <p class="cierre-text">Con esta foto de familia cerramos un congreso inolvidable. Después de tres días intensos de música, aprendizaje y convivencia, despedimos un 15º aniversario que quedará en el recuerdo de toda la comunidad de la doble caña sevillana. Gracias a todas las personas que lo hicieron posible.</p>
       <!-- Foto final (imagen alojada en el Blogger actual; localizar en assets/img/eventos/ al migrar) -->
       <div class="enc-foto-final">
-        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgJnkw94KepCDULzQOjllLMqFYOS7m_PTw46AnuYuYVDcyZ1vaRM11hz3eeetFrxA1XH5yuVhrCOwzcMeGXE27X7D8YxmQLGaaec_qDOO0L8xXPvdLqf6DxN1eNM5Mm7SmUbu6Y8UaVPqOc2K5ikL8FYkZpJNo5y0fmsE6jMs8YzvEIiQK9r6Ro3y-zBtg/s1080/VII%20Encuentro%20-%20Foto%20final_.jpg" alt="Foto de familia del VII Encuentro Especial 15º Aniversario de la ADCS" loading="lazy"/>
+        <img src="assets/img/patrocinadores/enc-12.jpg" alt="Foto de familia del VII Encuentro Especial 15º Aniversario de la ADCS" loading="lazy"/>
       </div>
     </div>
   </section>
