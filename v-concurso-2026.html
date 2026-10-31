@@ -49,7 +49,7 @@
 .aviso-card::before{content:'';position:absolute;top:-50px;right:-50px;width:180px;height:180px;border-radius:50%;background:rgba(255,171,96,0.12)}
 .aviso-card::after{content:'';position:absolute;bottom:-40px;left:-40px;width:140px;height:140px;border-radius:50%;background:rgba(255,171,96,0.08)}
 .aviso-card > *{position:relative;z-index:1}
-.aviso-badge{display:inline-flex;align-items:center;gap:0.5rem;background:var(--naranja);color:#fff;font-size:0.8rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:0.45rem 1.3rem;border-radius:999px;margin-bottom:1.5rem}
+.aviso-badge{display:inline-flex;align-items:center;gap:0.5rem;background:var(--naranja);color:var(--texto);font-size:0.8rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:0.45rem 1.3rem;border-radius:999px;margin-bottom:1.5rem}
 .aviso-card h2{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3.5vw,2.2rem);color:var(--texto);line-height:1.2;margin-bottom:1rem}
 .aviso-card h2 .accent{color:var(--naranja)}
 .aviso-card p{color:var(--gris);font-size:1rem;line-height:1.8;max-width:580px;margin:0 auto}
@@ -72,8 +72,8 @@
 .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-top:2rem}
 .info-text p{color:var(--gris);line-height:1.85;margin-bottom:1.2rem;font-size:0.98rem}
 .ediciones-strip{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.5rem}
-.edicion-chip{background:var(--fagot-light);color:#1a8a95;font-size:0.75rem;font-weight:600;padding:0.3rem 0.9rem;border-radius:999px;letter-spacing:0.3px}
-.edicion-chip.actual{background:var(--naranja);color:#fff}
+.edicion-chip{background:var(--fagot-light);color:#0e6f79;font-size:0.8rem;font-weight:600;padding:0.3rem 0.9rem;border-radius:999px;letter-spacing:0.3px}
+.edicion-chip.actual{background:var(--naranja);color:var(--texto)}
 
 /* ---- REDES SOCIALES ---- */
 .redes-section{background:#fafafa;border-top:1px solid var(--borde);text-align:center;padding:3rem 2rem}
@@ -81,11 +81,11 @@
 .redes-inner p{color:var(--gris);font-size:0.95rem;line-height:1.7;margin-bottom:2rem}
 .redes-links{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
 .red-btn{display:inline-flex;align-items:center;gap:0.6rem;background:#fff;border:1.5px solid var(--borde);border-radius:999px;padding:0.65rem 1.4rem;font-size:0.88rem;font-weight:600;color:var(--texto);transition:all .2s}
-.red-btn:hover{border-color:var(--naranja);color:var(--naranja);transform:translateY(-2px)}
+.red-btn:hover{border-color:var(--naranja);color:var(--naranja-dark);transform:translateY(-2px)}
 
 /* ---- CTA SOCIO ---- */
 .cta-section{background:#fff;text-align:center;padding:3rem 2rem 5rem}
-.cta-card{max-width:700px;margin:0 auto;background:linear-gradient(135deg,var(--naranja),var(--naranja-dark));border-radius:1.5rem;padding:3rem 2rem;color:#fff}
+.cta-card{max-width:700px;margin:0 auto;background:linear-gradient(135deg,var(--naranja),var(--naranja-medio));border-radius:1.5rem;padding:3rem 2rem;color:var(--texto)}
 .cta-card h3{font-family:'Playfair Display',serif;font-size:1.6rem;margin-bottom:0.6rem}
 .cta-card p{opacity:0.9;font-size:0.95rem;margin-bottom:1.5rem;line-height:1.6}
 

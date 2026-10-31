@@ -2,7 +2,7 @@
 User-agent: *
 Allow: /
 
-# El área de socios es contenido interno: no debe indexarse.
-Disallow: /socios/
+# /socios/ es hoy una página "próximamente" con noindex. No se bloquea aquí
+# para que los buscadores puedan leer el noindex.
 
 Sitemap: https://adcsevilla.es/sitemap.xml
