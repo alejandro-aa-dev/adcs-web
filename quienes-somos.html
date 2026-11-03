@@ -52,7 +52,7 @@
 .mision-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-top:3rem}
 .mision-card{background:#fff;border-radius:1.2rem;padding:0;border:1.5px solid var(--borde);transition:transform .2s,border-color .2s;overflow:hidden}
 .mision-card:hover{transform:translateY(-4px);border-color:var(--naranja)}
-.mision-photo{height:180px;background:linear-gradient(135deg,var(--naranja-light),var(--fagot-light));display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--naranja-dark);text-align:center;padding:1rem;border-bottom:2px dashed rgba(0,0,0,0.1)}
+.mision-photo{height:180px;overflow:hidden;border-bottom:2px solid var(--borde)}
 .mision-photo .ph-icon{font-size:2.4rem;margin-bottom:0.4rem;opacity:0.6}
 .mision-photo .ph-label{font-size:0.78rem;font-weight:600;color:var(--naranja-dark)}
 .mision-card-body{padding:1.75rem}
@@ -152,12 +152,7 @@
           <p>La <strong>Asociación de Doble Caña de Sevilla (ADCS)</strong> nace con el propósito de estrechar la colaboración entre el profesorado y el alumnado de <span class="txt-oboe">oboe</span> y <span class="txt-fagot">fagot</span> de la provincia y de las zonas cercanas, fomentar la difusión de la cultura musical con especial atención a los instrumentos de doble caña, y contribuir al desarrollo artístico y profesional de las personas que la integran.</p>
           <p>Desde su primer día, la ADCS sigue creciendo, siendo una asociación que <strong>facilita el contacto entre estudiantes</strong> de los distintos conservatorios de la capital, así como las relaciones entre los conservatorios y las bandas y orquestas de la ciudad.</p>
         </div>
-        <!-- IMAGEN: foto del grupo, un concierto, una actuación, etc. Reemplazar por <img src="assets/img/eventos/...jpg" alt="..."> -->
-        <div class="img-placeholder ph-historia">
-          <div class="ph-icon">📸</div>
-          <div class="ph-label">Espacio para foto</div>
-          <div class="ph-hint">Sugerencia: una foto del grupo o un concierto reciente</div>
-        </div>
+        <div class="foto-hueco ph-historia"><img class="foto" src="assets/img/fotos/historia-xv-aniversario.jpg" width="1200" height="800" loading="lazy" alt="Participantes en el VII Encuentro de Oboe y Fagot, con camisetas del encuentro y sus oboes, posando juntos tras el concierto"/></div>
       </div>
     </div>
   </section>
@@ -170,30 +165,21 @@
       <p class="section-desc">Trabajamos cada día por estos objetivos que dieron origen a la asociación y que siguen guiándonos.</p>
       <div class="mision-grid">
         <div class="mision-card">
-          <div class="mision-photo">
-            <div class="ph-icon">📸</div>
-            <div class="ph-label">Foto: alumnado y profesorado</div>
-          </div>
+          <div class="mision-photo"><img class="foto" src="assets/img/fotos/encuentro-2013-ensayo.jpg" width="900" height="675" loading="lazy" alt="Alumnado y profesorado ensayando juntos en el IV Encuentro de la ADCS, en 2013"/></div>
           <div class="mision-card-body">
             <h3>Estrechar la colaboración</h3>
             <p>Entre el profesorado y el alumnado de <span class="txt-oboe">oboe</span> y <span class="txt-fagot">fagot</span> de la provincia y zonas cercanas, creando puentes entre conservatorios, bandas y orquestas.</p>
           </div>
         </div>
         <div class="mision-card">
-          <div class="mision-photo">
-            <div class="ph-icon">📸</div>
-            <div class="ph-label">Foto: un concierto o ensayo</div>
-          </div>
+          <div class="mision-photo"><img class="foto" src="assets/img/fotos/concierto-xv-aniversario.jpg" width="900" height="600" loading="lazy" alt="Concierto del 15º aniversario de la ADCS: oboes y fagotes en el escenario dirigidos por un director"/></div>
           <div class="mision-card-body">
             <h3>Difundir la cultura musical</h3>
             <p>Con especial atención a los instrumentos de doble caña, acercando su repertorio y belleza al público sevillano.</p>
           </div>
         </div>
         <div class="mision-card">
-          <div class="mision-photo">
-            <div class="ph-icon">📸</div>
-            <div class="ph-label">Foto: una clase magistral o taller</div>
-          </div>
+          <div class="mision-photo"><img class="foto" src="assets/img/fotos/taller-mantenimiento-2019.jpg" width="900" height="600" loading="lazy" alt="Taller de mantenimiento de oboe impartido por Sergio Navarro en 2019"/></div>
           <div class="mision-card-body">
             <h3>Desarrollar a las personas</h3>
             <p>Contribuir al desarrollo artístico y profesional de nuestros miembros mediante actividades, formación y oportunidades.</p>

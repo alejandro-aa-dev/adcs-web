@@ -281,3 +281,8 @@ mark.pendiente{background:#fff3a3;color:var(--texto);padding:0.05em 0.35em;borde
   footer *{color:#000!important}
   mark.pendiente{background:none;border-bottom:1px dotted #000}
 }
+
+/* ---- FOTOS ---- */
+.foto-hueco{border-radius:1.5rem;overflow:hidden;position:relative;background:var(--naranja-light)}
+.foto-hueco .foto{display:block;width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.mision-photo .foto{display:block;width:100%;height:100%;object-fit:cover}
