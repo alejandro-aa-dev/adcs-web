@@ -55,6 +55,13 @@
 .aniv-banner{margin-top:3rem;display:inline-flex;align-items:center;gap:0.75rem;background:linear-gradient(90deg,var(--naranja-light),var(--fagot-light));border:1.5px solid var(--borde);border-radius:999px;padding:0.6rem 1.5rem}
 .aniv-banner span{font-size:0.85rem;font-weight:600;color:var(--naranja-dark)}
 .aniv-banner .pill{background:var(--naranja);color:var(--texto);font-size:0.8rem;font-weight:700;padding:0.2rem 0.7rem;border-radius:999px}
+.fb-noticias{margin:3rem auto 0;max-width:520px;background:#fff;border:1.5px solid var(--borde);border-radius:1.5rem;padding:1.5rem}
+.fb-titulo{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--texto);margin-bottom:0.5rem}
+.fb-texto{color:var(--gris);font-size:0.9rem;line-height:1.6;margin-bottom:1rem}
+.fb-boton{background:var(--naranja);color:var(--texto);font:inherit;font-weight:700;border:0;border-radius:999px;padding:0.7rem 1.5rem;cursor:pointer}
+.fb-boton:hover{filter:brightness(0.95)}
+.fb-alt{margin-top:0.9rem;font-size:0.85rem}
+.fb-noticias iframe{display:block;width:100%;max-width:500px;height:600px;border:0;margin:0 auto}
 </style>
 <script type="application/ld+json">
 {
@@ -132,6 +139,12 @@
       <span class="pill">🎉 2010–2025</span>
       <span>¡Celebramos nuestro 15º aniversario!</span>
     </div>
+    <div class="fb-noticias" id="fb-noticias">
+      <h2 class="fb-titulo">Últimas noticias</h2>
+      <p class="fb-texto">Las publicaciones más recientes de nuestra página de Facebook. Al mostrarlas, Facebook (Meta) recibirá tu visita y podrá instalar sus propias cookies.</p>
+      <button type="button" class="fb-boton" id="fb-cargar">Mostrar noticias de Facebook</button>
+      <p class="fb-alt"><a href="https://www.facebook.com/adcsevilla/" target="_blank" rel="noopener noreferrer">O abre nuestra página de Facebook</a></p>
+    </div>
   </div>
 </section>
 
@@ -184,5 +197,18 @@
   </div>
 </footer>
 
+<script>
+document.getElementById('fb-cargar').addEventListener('click', function () {
+  var caja = document.getElementById('fb-noticias');
+  var f = document.createElement('iframe');
+  f.title = 'Últimas publicaciones de la ADCS en Facebook';
+  f.loading = 'lazy';
+  f.referrerPolicy = 'strict-origin-when-cross-origin';
+  f.src = 'https://www.facebook.com/plugins/page.php?href=' + encodeURIComponent('https://www.facebook.com/adcsevilla/') + '&tabs=timeline&width=500&height=600&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false';
+  caja.querySelector('.fb-texto').remove();
+  this.remove();
+  caja.insertBefore(f, caja.querySelector('.fb-alt'));
+});
+</script>
 </body>
 </html>
