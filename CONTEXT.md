@@ -2,7 +2,7 @@
 
 ## Sobre la organización
 
-**Asociación de Doble Caña de Sevilla (ADCS)** — entidad sin ánimo de lucro fundada el 10 de diciembre de 2010, inscrita en el Registro Nacional de Asociaciones el 6 de junio de 2011 con el número **598607**.
+**Asociación de Doble Caña de Sevilla (ADCS)** — entidad sin ánimo de lucro fundada el 10 de diciembre de 2010, inscrita en el Registro de Asociaciones de Andalucía el 6 de junio de 2011 con el número **41-1-13963**.
 
 Une a profesores y alumnos de **oboe** y **fagot** de Sevilla y su provincia. Organiza ciclos de cámara, masterclasses, talleres, concursos, conciertos y encuentros.
 

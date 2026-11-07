@@ -8,7 +8,7 @@ y se desbloquea la publicación. Lo marcado con ★ es imprescindible.
 1. ★ **NIF/CIF** de la asociación: ______
 2. ★ **Domicilio social** (dirección completa, código postal y localidad): ______
 3. ¿Hay algún **teléfono** de contacto que pueda ser público? ______ (si no, solo el correo oboeyfagotsevilla@gmail.com)
-4. ¿Está la asociación inscrita también en algún **registro autonómico o municipal**? ______ (opcional; solo consta el Registro Nacional, nº 598607)
+4. ¿Está la asociación inscrita también en algún **registro autonómico o municipal**? ______ (opcional; consta el Registro de Asociaciones de Andalucía, nº 41-1-13963)
 5. ¿Quién es la **persona de contacto** para cuestiones de privacidad? ( ) el propio correo de la asociación ( ) otra persona: ______
 6. Fuero de tribunales en el aviso legal: ( ) los de Sevilla ( ) sin fijar, que lo fije la ley
 
