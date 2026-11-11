@@ -62,11 +62,13 @@
 .fb-boton:hover{filter:brightness(0.95)}
 .fb-alt{margin-top:0.9rem;font-size:0.85rem}
 .fb-noticias iframe{display:block;width:100%;max-width:500px;height:600px;border:0;margin:0 auto}
-.seo-texto{background:#fff;padding:3rem 2rem 4rem}
-.seo-texto-inner{max-width:820px;margin:0 auto;color:var(--gris);line-height:1.8}
-.seo-texto h2{font-family:'Playfair Display',serif;color:var(--texto);font-size:1.6rem;line-height:1.25;margin:2rem 0 0.6rem}
-.seo-texto h2:first-child{margin-top:0}
-.seo-texto a{color:var(--texto);text-decoration:underline}
+.seo-texto{background:#fff}
+.seo-bloque{max-width:760px}
+.seo-bloque + .seo-bloque{margin-top:3rem}
+.seo-bloque p{color:var(--gris);line-height:1.85;margin-bottom:1.2rem;font-size:0.98rem}
+.seo-bloque p:last-child{margin-bottom:0}
+.seo-bloque a{color:var(--naranja-dark);font-weight:600;text-decoration:underline;text-underline-offset:2px}
+.seo-bloque a:hover{color:var(--naranja)}
 </style>
 <script type="application/ld+json">
 {
@@ -154,13 +156,22 @@
 </section>
 
 <section class="seo-texto" aria-labelledby="que-es-adcs">
-  <div class="seo-texto-inner">
-    <h2 id="que-es-adcs">¿Qué es la ADCS, la Asociación de Doble Caña de Sevilla?</h2>
-    <p>La <strong>Asociación de Doble Caña de Sevilla (ADCS)</strong> es una asociación sin ánimo de lucro, fundada en 2010, que reúne al profesorado y al alumnado de <strong>oboe y fagot</strong> de Sevilla y su provincia. Los instrumentos de doble caña se tocan con una lengüeta formada por dos cañas, y en la ADCS compartimos el interés por ellos, tanto en lo musical como en lo personal.</p>
-    <h2>Actividades para oboístas y fagotistas</h2>
-    <p>Organizamos <a href="vii-encuentro-15.html">encuentros de oboe y fagot</a>, <a href="v-concurso-2026.html">concursos</a>, el ciclo de música de cámara «José Antonio Pérez Madrigal», masterclasses y talleres, además de actividades de convivencia entre estudiantes, profesorado y aficionados. Puedes conocer nuestra trayectoria en <a href="quienes-somos.html">Quiénes somos</a>.</p>
-    <h2>Hazte socio o socia de la ADCS</h2>
-    <p>Si tocas el oboe o el fagot, enseñas o estudias en Sevilla o en su provincia, o simplemente quieres apoyar la música de doble caña, puedes <a href="hazte-socio.html">hacerte socio o socia</a>. Consulta también las <a href="asociaciones.html">asociaciones</a> con las que colaboramos, los <a href="patrocinadores.html">patrocinadores</a> que hacen posible nuestras actividades y los <a href="recursos.html">recursos</a> para estudiantes y profesorado.</p>
+  <div class="container">
+    <div class="seo-bloque">
+      <div class="section-tag tag-naranja">Quiénes somos</div>
+      <h2 class="section-title" id="que-es-adcs">¿Qué es la <span class="accent">ADCS</span>, la Asociación de Doble Caña de Sevilla?</h2>
+      <p>La <strong>Asociación de Doble Caña de Sevilla (ADCS)</strong> es una asociación sin ánimo de lucro, fundada en 2010, que reúne al profesorado y al alumnado de <span class="txt-oboe">oboe</span> y <span class="txt-fagot">fagot</span> de Sevilla y su provincia. Los instrumentos de doble caña se tocan con una lengüeta formada por dos cañas, y en la ADCS compartimos el interés por ellos, tanto en lo musical como en lo personal.</p>
+    </div>
+    <div class="seo-bloque">
+      <div class="section-tag tag-oboe">Actividades</div>
+      <h2 class="section-title">Actividades para <span class="accent">oboístas y fagotistas</span></h2>
+      <p>Organizamos <a href="vii-encuentro-15.html">encuentros de oboe y fagot</a>, <a href="v-concurso-2026.html">concursos</a>, el ciclo de música de cámara «José Antonio Pérez Madrigal», masterclasses y talleres, además de actividades de convivencia entre estudiantes, profesorado y aficionados. Puedes conocer nuestra trayectoria en <a href="quienes-somos.html">Quiénes somos</a>.</p>
+    </div>
+    <div class="seo-bloque">
+      <div class="section-tag tag-fagot">Únete</div>
+      <h2 class="section-title">Hazte socio o socia <span class="accent">de la ADCS</span></h2>
+      <p>Si tocas el oboe o el fagot, enseñas o estudias en Sevilla o en su provincia, o simplemente quieres apoyar la música de doble caña, puedes <a href="hazte-socio.html">hacerte socio o socia</a>. Consulta también las <a href="asociaciones.html">asociaciones</a> con las que colaboramos, los <a href="patrocinadores.html">patrocinadores</a> que hacen posible nuestras actividades y los <a href="recursos.html">recursos</a> para estudiantes y profesorado.</p>
+    </div>
   </div>
 </section>
 
