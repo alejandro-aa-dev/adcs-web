@@ -102,6 +102,11 @@ revoke all on function public.kb_search(text, int) from public, anon, authentica
 grant execute on function public.bump_rate(text, int) to service_role;
 grant execute on function public.kb_search(text, int) to service_role;
 
+-- Permisos explícitos: solo service_role (la Edge Function y sincronizar.py). anon/authenticated no reciben nada.
+grant usage on schema public to service_role;
+grant all on public.kb_documents, public.kb_chunks, public.bot_settings, public.unanswered, public.rate_limit to service_role;
+grant usage, select on all sequences in schema public to service_role;
+
 -- Limpieza de preguntas sin respuesta y contadores (programar con pg_cron o ejecutar a mano):
 -- delete from public.unanswered where creada < now() - interval '30 days';
 -- delete from public.rate_limit where dia < current_date - 2;

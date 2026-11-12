@@ -107,11 +107,16 @@ Deno.serve(async (req) => {
       model: Deno.env.get("GROQ_MODEL"),
       messages: [{ role: "system", content: sistema }, ...limpio],
       temperature: 0.2,
-      max_tokens: 450,
+      // Modelos de razonamiento (gpt-oss): poco razonamiento y más margen, para no quedarse sin texto visible.
+      ...(String(Deno.env.get("GROQ_MODEL")).includes("gpt-oss")
+        ? { max_tokens: 1000, reasoning_effort: "low", include_reasoning: false }
+        : { max_tokens: 450 }),
     }),
   });
   if (!r.ok) {
-    console.error("Groq", r.status);
+    let motivo = "";
+    try { motivo = String((await r.json())?.error?.message ?? "").slice(0, 200); } catch { /* sin cuerpo */ }
+    console.error("Groq", r.status, Deno.env.get("GROQ_MODEL"), motivo);
     return json({ reply: `Ahora mismo no puedo responder. Inténtalo de nuevo en unos minutos o escribe a ${CORREO}.` }, 502, h);
   }
   const out = await r.json();

@@ -1,7 +1,7 @@
 # Asistente virtual de la ADCS (chatbot)
 
-Estado: **código preparado, sin desplegar**. El widget está en las 15 páginas públicas pero es inerte (`data-endpoint=""`):
-no se muestra ni contacta con nadie hasta que se configure el endpoint. Nada de esto está publicado (sin `push`).
+Estado: **activo** desde el 12-nov-2026 (Supabase `ADCSBot`, modelo `openai/gpt-oss-120b` en Groq). Solo contiene la información de la web; el Drive queda fuera hasta filtrarlo (solo cursos 2025/26 y 2026/27; hoy no hay nada de esos cursos en el Drive).
+El widget está en las 15 páginas públicas y usa la Edge Function `chat`. Para apagarlo: ver «Mantenimiento».
 
 ## Cómo funciona
 ```
