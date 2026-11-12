@@ -34,6 +34,15 @@
   function formatear(t) {
     var h = esc(t);
     h = h.replace(/\*\*([^*\n]+)\*\*/g, '<strong>$1</strong>');
+    // Enlaces tipo [texto](url): solo https o adcsevilla.es (el modelo a veces omite el https://)
+    var guardados = [];
+    h = h.replace(/\[([^\]\n]+)\]\(([^)\s]+)\)/g, function (m, txt, u) {
+      var url = /^https?:\/\//.test(u) ? u : (/^(www\.)?adcsevilla\.es(\/|$)/.test(u) ? 'https://' + u : (/^[\w-]+\.html(#[\w-]+)?$/.test(u) ? 'https://adcsevilla.es/' + u : null));
+      if (!url) { return m; }
+      var ext = url.indexOf(location.origin) !== 0;
+      guardados.push('<a href="' + url + '"' + (ext ? ' target="_blank" rel="noopener noreferrer"' : '') + '>' + txt + '</a>');
+      return '\u0001' + (guardados.length - 1) + '\u0001';
+    });
     h = h.replace(/(https?:\/\/[^\s<)]+[^\s<).,;:!?])/g, function (u) {
       var externo = u.indexOf(location.origin) !== 0;
       return '<a href="' + u + '"' + (externo ? ' target="_blank" rel="noopener noreferrer"' : '') + '>' + u.replace(/^https?:\/\//, '') + '</a>';
@@ -41,6 +50,7 @@
     h = h.replace(/([\w.+-]+@[\w-]+(?:\.[\w-]+)+)/g, function (m, e, off, all) {
       return all.slice(Math.max(0, off - 1), off) === '>' || all.slice(Math.max(0, off - 7), off).indexOf('mailto:') > -1 ? m : '<a href="mailto:' + e + '">' + e + '</a>';
     });
+    h = h.replace(/\u0001(\d+)\u0001/g, function (m, i) { return guardados[+i]; });
     var lineas = h.split('\n'), out = [], lista = false;
     lineas.forEach(function (l) {
       var m = l.match(/^\s*(?:[-*•]|\d+[.)])\s+(.*)$/);
