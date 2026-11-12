@@ -47,3 +47,15 @@ y se desbloquea la publicación. Lo marcado con ★ es imprescindible.
 25. Contenido real para `/socios/`: enlaces a vídeos, álbumes de Drive, actas, cuentas, memorias, estatutos, partituras, formularios de participación.
 26. ¿Se mantiene el **V Concurso 2026 como aplazado**? ¿Hay nueva fecha? ______
 27. ¿Se aprueba el **texto final** de las tres páginas legales una vez completadas? ( ) Sí ( ) Quiero que las revise un asesor o gestor antes
+
+## G. Asistente virtual (chatbot con IA)
+
+28. ★ ¿La Junta aprueba poner un **asistente virtual con IA** en la web? ( ) Sí ( ) No ( ) Solo en pruebas
+29. ★ ¿Qué carpetas del Drive pueden alimentarlo? Propuesta: Historia de la ADCS, Estatutos, programas/bases/carteles de actividades y comunicaciones públicas.
+    Excluidas por defecto: Socios, Economía, Actas de Junta, Certificados, Formularios legales, fotos y vídeos, partituras. ( ) De acuerdo ( ) Cambios: ______
+30. ★ **Nombres de personas** que pueden aparecer en las respuestas (profesorado e invitados de actividades pasadas, miembros de la Junta). Por defecto solo los que ya figuran en la web; el resto se sustituye por «[persona]». Lista adicional aprobada: ______
+31. ¿Se acepta que el asistente guarde **solo las preguntas sin respuesta, de forma anónima, 30 días**? ( ) Sí ( ) No guardar nada
+32. ★ ¿Se aceptan como **encargados del tratamiento** Supabase (UE) y Groq (EE. UU., transferencia internacional)? ( ) Sí ( ) No
+33. ¿Quién de la Junta será **responsable del asistente** (revisar la información, apagarlo si falla, atender las preguntas sin respuesta)? ______
+34. ¿Se aprueba el texto del apartado 2.f de `privacidad.html` y el párrafo del asistente de `cookies.html`? ( ) Sí ( ) Cambios: ______
+35. Dato histórico a **confirmar**: fecha real del III Concurso (el archivo dice abril de 2022; los carteles son de 2020/aplazado).
