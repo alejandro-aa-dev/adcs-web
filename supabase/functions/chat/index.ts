@@ -57,6 +57,12 @@ Deno.serve(async (req) => {
   const origin = req.headers.get("origin");
   const h = cors(origin);
   if (req.method === "OPTIONS") return new Response(null, { status: 204, headers: h });
+  // Latido: una consulta mínima a la base de datos (sin Groq ni datos) para que Supabase no pause el proyecto por inactividad.
+  if (req.method === "GET" && new URL(req.url).searchParams.get("ping") === "1") {
+    const sbPing = createClient(Deno.env.get("SUPABASE_URL")!, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!, { auth: { persistSession: false } });
+    const { error } = await sbPing.from("bot_settings").select("id").limit(1);
+    return json({ ok: !error }, error ? 503 : 200, h);
+  }
   if (req.method !== "POST") return json({ error: "Método no permitido" }, 405, h);
   if (!origin || !ALLOWED.includes(origin)) return json({ error: "Origen no permitido" }, 403, h);
 
@@ -109,7 +115,7 @@ Deno.serve(async (req) => {
       temperature: 0.2,
       // Modelos de razonamiento (gpt-oss): poco razonamiento y más margen, para no quedarse sin texto visible.
       ...(String(Deno.env.get("GROQ_MODEL")).includes("gpt-oss")
-        ? { max_tokens: 1000, reasoning_effort: "low", include_reasoning: false }
+        ? { max_tokens: 700, reasoning_effort: "low", include_reasoning: false }
         : { max_tokens: 450 }),
     }),
   });

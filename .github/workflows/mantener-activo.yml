@@ -1,0 +1,15 @@
+# Evita que Supabase (plan gratuito) pause el proyecto del asistente por inactividad.
+# Cada 3 días consulta la función `chat` en modo «ping» (solo lee una fila de ajustes; no usa Groq).
+name: Mantener activo el asistente
+on:
+  schedule:
+    - cron: "17 6 */3 * *"
+  workflow_dispatch:
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping a la función
+        run: |
+          curl --fail --silent --show-error --max-time 30 \
+            "https://ahzgxfohznqxrfptliwd.supabase.co/functions/v1/chat?ping=1"

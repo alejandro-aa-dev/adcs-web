@@ -5,7 +5,7 @@ Uso: python tools/empaquetar.py            (desde la raíz del proyecto)
 import os, re, shutil, sys, zipfile, glob
 sys.stdout.reconfigure(encoding="utf-8")
 
-EXCLUIR_RAIZ = {".git", ".claude", ".gitignore", ".gitattributes", "docs", "privado", "tools", "supabase", "dist",
+EXCLUIR_RAIZ = {".git", ".github", ".claude", ".gitignore", ".gitattributes", "docs", "privado", "tools", "supabase", "dist",
                 "CONTEXT.md", "README.md", "ACCESIBILIDAD.md", "MEMORY.md",
                 "Memorias", "Fotos y CV"}
 EXCLUIR_PATRON = ("logo asoc*",)          # PDF del logo (original de trabajo)
