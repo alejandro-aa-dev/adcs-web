@@ -59,3 +59,13 @@ y se desbloquea la publicación. Lo marcado con ★ es imprescindible.
 33. ¿Quién de la Junta será **responsable del asistente** (revisar la información, apagarlo si falla, atender las preguntas sin respuesta)? ______
 34. ¿Se aprueba el texto del apartado 2.f de `privacidad.html` y el párrafo del asistente de `cookies.html`? ( ) Sí ( ) Cambios: ______
 35. Dato histórico a **confirmar**: fecha real del III Concurso (el archivo dice abril de 2022; los carteles son de 2020/aplazado).
+
+## H. Inscripción de socios: minimización de datos (ver `propuesta-junta-inscripcion.md`)
+
+36. ★ ¿Se sigue pidiendo **copia del DNI (imagen)** en el formulario? ( ) No, solo el número escrito ( ) Solo la cara delantera ( ) Ambas caras, porque: ______
+37. ★ ¿Se sigue pidiendo **subir el justificante de pago** al formulario? ( ) No, se comprueba en el banco con el concepto ( ) Sí, porque: ______
+38. ¿La inscripción debe poder hacerse **sin cuenta de Google**? ( ) Sí (implica quitar las subidas de archivos) ( ) No importa
+39. ¿Quién tiene **acceso** a la hoja de respuestas y a la carpeta de archivos subidos? Listar personas: ______
+40. ¿Se **borran** los DNI y justificantes ya acumulados que no hagan falta? ( ) Sí ( ) No, hasta: ______
+41. ¿Se aprueba añadir al formulario un **aviso de privacidad** con enlace a `privacidad.html`? ( ) Sí ( ) Cambios: ______
+42. El concepto de la transferencia lleva el **DNI** (`CUOTA ADCS 2026-27 — DNI`). ¿Se cambia a nombre y apellidos? ( ) Sí ( ) No, porque: ______
