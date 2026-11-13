@@ -38,10 +38,21 @@
 .adcs-chat-pie{padding:0 .9rem .7rem;font-size:.75rem;color:var(--gris,#666)}
 .adcs-chat-pie a{color:var(--naranja-dark,#a14f00)}
 .adcs-chat-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* Anuncio de novedad (una sola vez) */
+.adcs-anuncio-fondo{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:1rem;background:rgba(30,30,30,.7);animation:adcs-f .25s ease-out}
+.adcs-anuncio{box-sizing:border-box;width:min(440px,100%);max-height:calc(100vh - 2rem);overflow:auto;padding:1.6rem 1.5rem 1.4rem;background:#fff;color:var(--texto,#1a1a1a);
+  border-top:6px solid var(--naranja,#FFAB60);border-radius:14px;box-shadow:0 16px 48px rgba(0,0,0,.35);font:.98rem/1.55 'Inter',sans-serif}
+.adcs-anuncio p{margin:0 0 .8rem}
+.adcs-anuncio .adcs-anuncio-etq{margin:0 0 .3rem;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--naranja-dark,#a14f00)}
+.adcs-anuncio h2{margin:0 0 .6rem;font:700 1.35rem/1.25 'Playfair Display',serif}
+.adcs-anuncio-ok{min-height:44px;padding:.6rem 1.6rem;border:2px solid var(--texto,#1a1a1a);border-radius:10px;background:var(--naranja,#FFAB60);color:var(--texto,#1a1a1a);font:600 1rem 'Inter',sans-serif;cursor:pointer}
+.adcs-anuncio-ok:hover{background:var(--naranja-medio,#e8903a)}
+.adcs-anuncio-ok:focus-visible{outline:3px solid var(--texto,#1a1a1a);outline-offset:2px}
+@keyframes adcs-f{from{opacity:0}to{opacity:1}}
 @media (max-width:480px){
   .adcs-chat-panel{right:.5rem;left:.5rem;width:auto;bottom:4.5rem;height:calc(100vh - 6rem)}
   .adcs-chat-btn-txt{display:none}
   .adcs-chat-btn{padding:.6rem .8rem}
 }
-@media (prefers-reduced-motion:reduce){.adcs-chat-puntos i{animation:none;opacity:.6}}
-@media print{.adcs-chat-btn,.adcs-chat-panel{display:none!important}}
+@media (prefers-reduced-motion:reduce){.adcs-chat-puntos i{animation:none;opacity:.6}.adcs-anuncio-fondo{animation:none}}
+@media print{.adcs-chat-btn,.adcs-chat-panel,.adcs-anuncio-fondo{display:none!important}}

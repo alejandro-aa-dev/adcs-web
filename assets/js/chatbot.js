@@ -191,4 +191,44 @@
 
   document.body.appendChild(panel);
   document.body.appendChild(boton);
+
+  // ---- anuncio de novedad: una sola vez por navegador (no por IP: no se rastrea a nadie) ----
+  // Solo guarda una marca local ("ya visto"). Si el navegador no puede guardarla, no se muestra, para no molestar.
+  var CLAVE_ANUNCIO = 'adcs-anuncio-bot-v1';
+  function yaVisto() { try { return localStorage.getItem(CLAVE_ANUNCIO) === '1'; } catch (e) { return true; } }
+  function marcarVisto() { try { localStorage.setItem(CLAVE_ANUNCIO, '1'); } catch (e) {} }
+
+  function anunciar() {
+    if (yaVisto() || estado.aceptado || !panel.hidden) { return; }
+    marcarVisto();
+    var previo = document.activeElement;
+    var fondo = el('div', 'adcs-anuncio-fondo');
+    var caja = el('div', 'adcs-anuncio', { role: 'dialog', 'aria-modal': 'true', 'aria-labelledby': 'adcs-anuncio-t', 'aria-describedby': 'adcs-anuncio-d' });
+    caja.innerHTML =
+      '<p class="adcs-anuncio-etq" aria-hidden="true">Novedad</p>' +
+      '<h2 id="adcs-anuncio-t">Nuevo asistente virtual</h2>' +
+      '<p id="adcs-anuncio-d">Seguimos incorporando mejoras a la web: ahora contamos con un <strong>asistente virtual</strong> que te echa una mano. ' +
+      'Por ahora responde a cualquier pregunta relacionada con la información de este sitio web. ' +
+      'Puedes navegar por ella o preguntarle al asistente lo que necesites con el botón <strong>«Pregúntanos»</strong>.</p>';
+    var ok = el('button', 'adcs-anuncio-ok', { type: 'button' });
+    ok.textContent = 'Entendido';
+    caja.appendChild(ok);
+    fondo.appendChild(caja);
+
+    function cerrarAnuncio() {
+      document.removeEventListener('keydown', tecla, true);
+      fondo.remove();
+      if (previo && previo.focus) { try { previo.focus(); } catch (e) {} }
+    }
+    function tecla(e) {
+      if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); cerrarAnuncio(); }
+      else if (e.key === 'Tab') { e.preventDefault(); ok.focus(); }
+    }
+    ok.addEventListener('click', cerrarAnuncio);
+    fondo.addEventListener('click', function (e) { if (e.target === fondo) { cerrarAnuncio(); } });
+    document.addEventListener('keydown', tecla, true);
+    document.body.appendChild(fondo);
+    ok.focus();
+  }
+  if (!yaVisto()) { setTimeout(anunciar, 1500); }
 })();
