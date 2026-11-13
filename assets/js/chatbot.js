@@ -209,7 +209,7 @@
       '<h2 id="adcs-anuncio-t">Nuevo asistente virtual</h2>' +
       '<p id="adcs-anuncio-d">Seguimos incorporando mejoras a la web: ahora contamos con un <strong>asistente virtual</strong> que te echa una mano. ' +
       'Por ahora responde a cualquier pregunta relacionada con la información de este sitio web. ' +
-      'Puedes navegar por ella o preguntarle al asistente lo que necesites con el botón <strong>«Pregúntanos»</strong>.</p>';
+      'Puedes navegar por ella o preguntarle al asistente lo que necesites con el <strong>botón de chat 💬</strong> que verás abajo a la derecha.</p>';
     var ok = el('button', 'adcs-anuncio-ok', { type: 'button' });
     ok.textContent = 'Entendido';
     caja.appendChild(ok);
