@@ -16,6 +16,13 @@ Fuente: páginas públicas de https://adcsevilla.es. Si algo de aquí cambia en 
 ## Actividades
 Encuentros de oboe y fagot, concursos, ciclo de música de cámara «José Antonio Pérez Madrigal», masterclasses y talleres, y actividades de convivencia. Cifras de la portada: 15 años de historia, 7 encuentros, 4 concursos, 9 ediciones del ciclo de cámara.
 
+## Próximas actividades del curso 2026/27 — https://adcsevilla.es/proximas-actividades.html
+No existe un «calendario» más completo: solo hay estas actividades, y se irán añadiendo en esa página. No inventar fechas, precios ni inscripciones que no figuren aquí.
+- **Calentando la Navidad** (fecha confirmada): jueves 3 de diciembre, de 17:00 a 19:00, en el CPM «Francisco Guerrero». Actividad para tocar villancicos y temas navideños, organizada por el profesorado del CPM «Francisco Guerrero» en colaboración con la ADCS.
+- **Gran Convivencia y Concierto** (mes de abril, fecha por confirmar): ensayo con los más pequeños y concierto; el almuerzo y la merienda los ofrece la asociación. Incluye el **X Concierto del Ciclo de Música de Cámara «José Antonio Pérez Madrigal»**, con propuestas de todos los niveles y ensemble de doble caña.
+- **Cursos de reparación y mantenimiento** de oboe y de fagot (fecha por confirmar): se están organizando; un curso para cada instrumento.
+- Los socios y socias reciben la información por correo antes que nadie; después se publica en la web y en redes.
+
 ## Hazte socio/a (curso 2026/27) — https://adcsevilla.es/hazte-socio.html
 - Cuota anual: 20 € (socio/a individual) · 30 € (dos hermanos/as). Válida del 11 de septiembre de 2026 al 10 de septiembre de 2027.
 - Cómo: 1) rellenar el formulario de inscripción (solo la primera vez); 2) ingreso o transferencia; 3) recibir el email de bienvenida con el número de socio/a.
