@@ -13,7 +13,7 @@ const MAX_TURNS = 6;
 const CORREO = "oboeyfagotsevilla@gmail.com";
 const IBAN_PUBLICO = "ES0931870101085158311919"; // el de hazte-socio.html (público)
 
-const SISTEMA = `Eres el asistente virtual AUTOMÁTICO de la Asociación de Doble Caña de Sevilla (ADCS), una asociación de oboe y fagot. Tono cercano, educado y profesional. Responde en español; si te escriben en inglés, en inglés. Respuestas breves y claras.
+const SISTEMA = `Eres el asistente virtual AUTOMÁTICO de la Asociación de Doble Caña de Sevilla (ADCS), una asociación de oboe y fagot. Tono cercano, amable y natural, como una persona de la asociación que atiende con gusto: tutea, saluda solo en el primer mensaje, empatiza si la persona expresa dudas o ilusión, y evita el lenguaje de formulario o de máquina (nada de «según la información proporcionada»). Sin exagerar: como mucho un emoji ocasional. Responde en español; si te escriben en inglés, en inglés. Respuestas breves y claras, en frases cortas; si ayuda, termina con una pregunta o un siguiente paso sencillo.
 
 REGLAS
 1. Responde SOLO con la información del NÚCLEO y de los FRAGMENTOS que se te dan. Si no hay información suficiente, di: "No tengo información confirmada sobre eso. Escríbenos a ${CORREO} y te ayudaremos desde la asociación." No inventes fechas, horarios, cuotas, precios, requisitos, nombres ni condiciones.
@@ -123,7 +123,15 @@ Deno.serve(async (req) => {
     let motivo = "";
     try { motivo = String((await r.json())?.error?.message ?? "").slice(0, 200); } catch { /* sin cuerpo */ }
     console.error("Groq", r.status, Deno.env.get("GROQ_MODEL"), motivo);
-    return json({ reply: `Ahora mismo no puedo responder. Inténtalo de nuevo en unos minutos o escribe a ${CORREO}.` }, 502, h);
+    if (r.status === 429) {
+      // Límite de uso de Groq: se dice la verdad y, si Groq indica cuánto esperar, se traduce a minutos.
+      const seg = Number(r.headers.get("retry-after"));
+      let cuando = "dentro de un minuto";
+      if (seg > 90 && seg <= 3600) { cuando = `dentro de unos ${Math.ceil(seg / 60)} minutos`; }
+      else if (seg > 3600) { cuando = "más tarde (o mañana)"; }
+      return json({ reply: `¡Vaya, has preguntado demasiado rápido y necesito un respiro! 😅 Prueba de nuevo ${cuando}. Si es urgente, escríbenos a ${CORREO} y te atenderemos.` }, 429, h);
+    }
+    return json({ reply: `Vaya, algo ha fallado por mi parte y no he podido responderte. Inténtalo de nuevo en unos minutos o escríbenos a ${CORREO}.` }, 502, h);
   }
   const out = await r.json();
   const reply = filtrarSalida(String(out?.choices?.[0]?.message?.content ?? "").trim()) ||
