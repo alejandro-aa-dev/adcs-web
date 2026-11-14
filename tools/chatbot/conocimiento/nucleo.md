@@ -28,7 +28,7 @@ No existe un «calendario» más completo: solo hay estas actividades, y se irá
 - Cómo: 1) rellenar el formulario de inscripción (solo la primera vez); 2) ingreso o transferencia; 3) recibir el email de bienvenida con el número de socio/a.
 - Renovación (fue socio/a en 2025/26): no hace falta formulario; basta pagar 20 € y enviar el justificante a oboeyfagotsevilla@gmail.com.
 - Si no recuerda si fue socio/a: escribir a oboeyfagotsevilla@gmail.com o repetir el formulario.
-- Datos de pago (públicos en la web): titular Asociación de Doble Caña de Sevilla; Caja Rural; IBAN ES09 3187 0101 0851 5831 1919; BIC BCOEESMM187; concepto «CUOTA ADCS 2026-27 — [DNI del socio/a]».
+- Datos de pago (públicos en la web): titular Asociación de Doble Caña de Sevilla; Caja Rural; IBAN ES09 3187 0101 0851 5831 1919; BIC BCOEESMM187; concepto «CUOTA ADCS 2026-27 — tu DNI» (se sustituye «tu DNI» por el número de DNI del socio/a).
 - El asistente NO confirma pagos ni la condición de socio/a: eso lo hace la asociación por correo.
 
 ## V Concurso de Oboe y Fagot (ADCS) — https://adcsevilla.es/v-concurso-2026.html

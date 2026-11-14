@@ -84,6 +84,10 @@
 .bank-value{font-size:0.92rem;color:var(--texto);font-weight:600;line-height:1.4;overflow-wrap:break-word}
 .bank-value.iban{font-family:monospace;font-size:0.98rem;letter-spacing:1.5px;white-space:nowrap;overflow-wrap:normal}
 .bank-item.iban-item{grid-column:1/-1}
+.btn-copiar{margin-top:.6rem;min-height:44px;padding:.5rem 1.1rem;border:2px solid var(--texto);border-radius:10px;background:var(--naranja);color:var(--texto);font:600 .9rem 'Inter',sans-serif;cursor:pointer}
+.btn-copiar:hover{background:var(--naranja-medio)}
+.btn-copiar:focus-visible{outline:3px solid var(--texto);outline-offset:2px}
+.copiar-estado{margin-left:.7rem;font-size:.85rem;color:var(--texto);font-weight:600}
 
 /* ---- CTA FINAL ---- */
 .cta-section{background:#fafafa;text-align:center;padding:4rem 2rem 5rem;border-top:1px solid var(--borde)}
@@ -230,7 +234,7 @@
       <div class="section-tag tag-naranja">Datos bancarios</div>
       <h2 class="section-title">Información para el <span class="accent">pago</span></h2>
       <div class="bank-card">
-        <p class="bank-intro">Realiza la transferencia con el siguiente concepto: <strong>CUOTA ADCS 2026-27 — [DNI DEL SOCIO/A]</strong></p>
+        <p class="bank-intro">Realiza la transferencia con el siguiente concepto, sustituyendo «tu DNI» por tu número de DNI: <strong>CUOTA ADCS 2026-27 — tu DNI</strong></p>
         <div class="bank-grid">
           <div class="bank-item">
             <div class="bank-label">Titular</div>
@@ -242,7 +246,9 @@
           </div>
           <div class="bank-item iban-item">
             <div class="bank-label">IBAN</div>
-            <div class="bank-value iban">ES09 3187 0101 0851 5831 1919</div>
+            <div class="bank-value iban" id="iban-valor">ES09 3187 0101 0851 5831 1919</div>
+            <button type="button" class="btn-copiar" id="iban-copiar" data-copia="ES0931870101085158311919">Copiar IBAN</button>
+            <span class="copiar-estado" id="iban-estado" role="status" aria-live="polite"></span>
           </div>
           <div class="bank-item">
             <div class="bank-label">Código BIC</div>
@@ -250,7 +256,7 @@
           </div>
           <div class="bank-item">
             <div class="bank-label">Concepto</div>
-            <div class="bank-value">CUOTA ADCS 2026-27 — [DNI DEL SOCIO/A]</div>
+            <div class="bank-value">CUOTA ADCS 2026-27 — tu DNI</div>
           </div>
         </div>
       </div>
@@ -318,6 +324,26 @@
   </div>
 </footer>
 
+<script>
+(function () {
+  var b = document.getElementById('iban-copiar'), e = document.getElementById('iban-estado');
+  if (!b) { return; }
+  function avisar(t) { e.textContent = t; setTimeout(function () { e.textContent = ''; }, 3000); }
+  function respaldo(t) {
+    var a = document.createElement('textarea'); a.value = t; a.setAttribute('readonly', '');
+    a.style.cssText = 'position:fixed;top:0;left:0;opacity:0'; document.body.appendChild(a); a.select();
+    var ok = false; try { ok = document.execCommand('copy'); } catch (x) {}
+    document.body.removeChild(a); return ok;
+  }
+  b.addEventListener('click', function () {
+    var t = b.getAttribute('data-copia');
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(t).then(function () { avisar('IBAN copiado'); },
+        function () { avisar(respaldo(t) ? 'IBAN copiado' : 'No se pudo copiar: selecciónalo a mano'); });
+    } else { avisar(respaldo(t) ? 'IBAN copiado' : 'No se pudo copiar: selecciónalo a mano'); }
+  });
+})();
+</script>
 <script src="assets/js/chatbot.js" defer data-endpoint="https://ahzgxfohznqxrfptliwd.supabase.co/functions/v1/chat"></script>
 </body>
 </html>

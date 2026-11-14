@@ -97,7 +97,7 @@ El nav y el footer están duplicados en cada HTML: al cambiarlos hay que cambiar
 - **Caja:** Caja Rural
 - **IBAN:** ES09 3187 0101 0851 5831 1919
 - **BIC:** BCOEESMM187
-- **Concepto:** `CUOTA ADCS 2026-27 — [DNI DEL SOCIO/A]`
+- **Concepto:** `CUOTA ADCS 2026-27 — tu DNI`
 
 ## Cuotas 2026/27
 
