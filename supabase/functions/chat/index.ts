@@ -97,10 +97,12 @@ Deno.serve(async (req) => {
   // Límites de uso (por IP hasheada y global). No se guarda la IP.
   const ip = (req.headers.get("x-forwarded-for") ?? "desconocida").split(",")[0].trim();
   const claveIp = "ip:" + (await sha256(ip + (Deno.env.get("HASH_SALT") ?? ""))).slice(0, 24);
-  const [okIp, okGlobal] = await Promise.all([
-    sb.rpc("bump_rate", { p_clave: claveIp, p_limite: cfg.limite_ip_dia }),
-    sb.rpc("bump_rate", { p_clave: "global", p_limite: cfg.limite_global_dia }),
-  ]);
+  // Primero el límite personal; el global solo se suma si esta consulta va a atenderse
+  // (así quien insiste desde una IP ya bloqueada no gasta las consultas de los demás).
+  const okIp = await sb.rpc("bump_rate", { p_clave: claveIp, p_limite: cfg.limite_ip_dia });
+  const okGlobal = okIp.data === false
+    ? { data: true }
+    : await sb.rpc("bump_rate", { p_clave: "global", p_limite: cfg.limite_global_dia });
   if (okIp.data === false || okGlobal.data === false) {
     // El contador diario se reinicia a medianoche UTC (current_date de Postgres).
     const ahora = new Date();
