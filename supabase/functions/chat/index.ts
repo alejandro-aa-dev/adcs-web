@@ -25,6 +25,15 @@ REGLAS
 7. No hables de política ni des opiniones; si te piden algo ajeno a la ADCS, la música de doble caña o la asociación, explica amablemente que solo puedes ayudar con la ADCS.
 8. Eres un sistema de inteligencia artificial; si te lo preguntan, dilo con claridad.`;
 
+// Traduce segundos de espera a una frase natural ("en unos 15 minutos", "en una hora"...).
+function espera(seg: number) {
+  if (!(seg > 0) || seg <= 90) return "en un minuto, más o menos";
+  if (seg < 3300) return `en unos ${Math.ceil(seg / 60)} minutos`;
+  if (seg < 5400) return "en una hora";
+  return `en unas ${Math.round(seg / 3600)} horas`;
+}
+const SEGUIR = `Mientras tanto puedes navegar por la web, y si es algo urgente escríbenos a ${CORREO}.`;
+
 function cors(origin: string | null) {
   const ok = origin && ALLOWED.includes(origin);
   return {
@@ -93,7 +102,14 @@ Deno.serve(async (req) => {
     sb.rpc("bump_rate", { p_clave: "global", p_limite: cfg.limite_global_dia }),
   ]);
   if (okIp.data === false || okGlobal.data === false) {
-    return json({ reply: `Hoy hemos alcanzado el límite de consultas del asistente. Escríbenos a ${CORREO} y te atenderemos.` }, 429, h);
+    // El contador diario se reinicia a medianoche UTC (current_date de Postgres).
+    const ahora = new Date();
+    const medianoche = Date.UTC(ahora.getUTCFullYear(), ahora.getUTCMonth(), ahora.getUTCDate() + 1);
+    const cuando = espera((medianoche - ahora.getTime()) / 1000);
+    const motivo = okIp.data === false
+      ? "Hoy me has hecho ya muchas preguntas y tengo un tope por persona para poder atender a todo el mundo."
+      : "Hoy ya he atendido a muchísima gente y he llegado a mi límite diario.";
+    return json({ reply: `${motivo} Vuelvo a estar disponible ${cuando}, ¿vale? ${SEGUIR}` }, 429, h);
   }
 
   // Recuperación de fragmentos: usa la última pregunta y la anterior del usuario para no perder el contexto.
@@ -124,12 +140,9 @@ Deno.serve(async (req) => {
     try { motivo = String((await r.json())?.error?.message ?? "").slice(0, 200); } catch { /* sin cuerpo */ }
     console.error("Groq", r.status, Deno.env.get("GROQ_MODEL"), motivo);
     if (r.status === 429) {
-      // Límite de uso de Groq: se dice la verdad y, si Groq indica cuánto esperar, se traduce a minutos.
-      const seg = Number(r.headers.get("retry-after"));
-      let cuando = "dentro de un minuto";
-      if (seg > 90 && seg <= 3600) { cuando = `dentro de unos ${Math.ceil(seg / 60)} minutos`; }
-      else if (seg > 3600) { cuando = "más tarde (o mañana)"; }
-      return json({ reply: `¡Vaya, has preguntado demasiado rápido y necesito un respiro! 😅 Prueba de nuevo ${cuando}. Si es urgente, escríbenos a ${CORREO} y te atenderemos.` }, 429, h);
+      // Límite de Groq: se dice la verdad y, si Groq indica cuánto esperar, se traduce a una frase natural.
+      const cuando = espera(Number(r.headers.get("retry-after")));
+      return json({ reply: `Me tengo que tomar un respiro 😅 Voy a descansar un poco y vuelvo al trabajo ${cuando}, ¿vale? ${SEGUIR}` }, 429, h);
     }
     return json({ reply: `Vaya, algo ha fallado por mi parte y no he podido responderte. Inténtalo de nuevo en unos minutos o escríbenos a ${CORREO}.` }, 502, h);
   }
