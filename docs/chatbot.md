@@ -49,6 +49,29 @@ Web + Drive (lista blanca) → tools/chatbot (extraer → anonimizar → revisar
 9. **Activar el widget**: pon la URL `https://TU_REF.supabase.co/functions/v1/chat` en `data-endpoint` de las 15 páginas, por ejemplo: `sed -i 's|data-endpoint=""|data-endpoint="https://TU_REF.supabase.co/functions/v1/chat"|' *.html`.
 10. **Junta**: responder la sección G de `docs/cuestionario-junta.md`. **`privacidad.html` y `cookies.html` ya describen el asistente: no publiques esos textos sin activar el asistente, ni al revés.**
 
+## Actualizar «Próximas actividades» (procedimiento)
+La página oficial es `proximas-actividades.html` (una tarjeta `.act-card` por actividad). El bot la conoce por dos vías: la propia página (fragmentos) y el resumen fijo de `tools/chatbot/conocimiento/nucleo.md` (sección «Próximas actividades del curso 2026/27»). Hay que mantener las dos iguales.
+
+1. **Editar la página**: añade, cambia o quita la tarjeta en `proximas-actividades.html`. Solo datos oficiales; lo no confirmado se marca «fecha por confirmar» (no inventar fechas, precios ni inscripciones).
+2. **Editar el núcleo**: refleja el mismo cambio en la sección de actividades de `nucleo.md`.
+3. **Actualizar `lastmod`** de esa página en `sitemap.xml`.
+4. **Publicar** (desde la carpeta del repo):
+   ```bash
+   git add proximas-actividades.html sitemap.xml tools/chatbot/conocimiento/nucleo.md
+   git commit -m "Actualizar proximas actividades"
+   git push origin main
+   ```
+5. **Sincronizar el bot** (carga la página y el núcleo; se puede repetir sin problema):
+   ```bash
+   python -u tools/chatbot/sincronizar.py --corpus "C:/Users/admin/Documents/Claude/Projects/ADCS/chatbot-corpus" --web
+   ```
+   Tarda menos de 1 min. Si pasa de 2-3 min se ha quedado colgado (la conexión no tiene tiempo límite): córtalo con Ctrl+C y repítelo.
+6. **Redesplegar la función** solo si se ha tocado `supabase/functions/chat/index.ts` (el prompt); para cambios de contenido no hace falta:
+   ```powershell
+   cd "C:\Users\admin\Documents\Claude\Projects\ADCS\ADCS Web"; npx supabase functions deploy chat --no-verify-jwt --use-api
+   ```
+7. **Probar** preguntando al bot por la actividad cambiada. Si Groq responde «Ahora mismo no puedo responder», es el límite de tokens por minuto: espera un minuto y repite.
+
 ## Mantenimiento
 - Nueva actividad: publícala en la web → `sincronizar.py --web`. Si cambia algo vigente (cuota, concurso), edita también `nucleo.md`.
 - Editar una FAQ: cambia `faq.json` y sincroniza (o edita el texto del fragmento en el editor de tablas de Supabase).
